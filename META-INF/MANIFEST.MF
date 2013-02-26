@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AccTrace
+Bundle-SymbolicName: br.ufms.facom.acctrace; singleton:=true
+Bundle-Version: 1.0.0.0
+Bundle-Activator: br.ufms.facom.acctrace.Activator
+Bundle-Vendor: FACOM UFMS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.jface.text;bundle-version="3.8.1",
+ org.eclipse.ui.editors;bundle-version="3.8.0",
+ org.eclipse.ui;bundle-version="3.103.0",
+ org.apache.commons.lang;bundle-version="2.6.0",
+ org.eclipse.ui.ide;bundle-version="3.8.1",
+ org.eclipse.ui.forms;bundle-version="3.5.200",
+ org.eclipse.core.runtime;bundle-version="3.8.0",
+ org.eclipse.core.resources;bundle-version="3.8.1"
