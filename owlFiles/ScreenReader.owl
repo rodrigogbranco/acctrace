@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://www.AccessibleOntology.com/ScreenReader.owl#"
+    xmlns="http://www.AccessibleOntology.com/GenericOntology.owl#"
+  xml:base="http://www.AccessibleOntology.com/ScreenReader.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="ScreenReader">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness">
+    <Disability_has_Device>
+      <j.0:ScreenReader rdf:ID="Apple_VoiceOver">
+        <Device_belongsTo_Disability>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity">
+            <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+            <Disability_has_Device>
+              <j.0:ScreenReader rdf:ID="Fire_Vox">
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                <Device_belongsTo_Disability>
+                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness">
+                    <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+                    <Disability_has_Device rdf:resource="#Fire_Vox"/>
+                    <Disability_has_Device>
+                      <j.0:ScreenReader rdf:ID="Nuance_TALKS">
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision">
+                            <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+                            <Disability_has_Device rdf:resource="#Fire_Vox"/>
+                            <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+                            <Disability_has_Device>
+                              <j.0:ScreenReader rdf:ID="Spoken_Web">
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness"/>
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                                <Device_belongsTo_Disability>
+                                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision">
+                                    <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+                                    <Disability_has_Device rdf:resource="#Fire_Vox"/>
+                                    <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+                                    <Disability_has_Device rdf:resource="#Spoken_Web"/>
+                                    <Disability_has_Device>
+                                      <j.0:ScreenReader rdf:ID="Mobile_Speak">
+                                        <hasDescription rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Code Factory develops accessible software applications for mobile phones (e.g. screen readers), which allow&lt;/br&gt;you to use the device even if you cannot read the screen visually. Information&lt;/br&gt;displayed on the screen is rendered in synthesized speech output generated&lt;/br&gt;using text-to-speech (TTS) technology and routed through the device&amp;rsquo;s&lt;/br&gt;speaker or a headset.</hasDescription>
+                                        <Device_belongsTo_Disability>
+                                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Colour_Blindness">
+                                            <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+                                            <Disability_has_Device rdf:resource="#Fire_Vox"/>
+                                            <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+                                            <Disability_has_Device rdf:resource="#Spoken_Web"/>
+                                            <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+                                          </rdf:Description>
+                                        </Device_belongsTo_Disability>
+                                        <Device_belongsTo_Disability>
+                                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision">
+                                            <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+                                            <Disability_has_Device rdf:resource="#Fire_Vox"/>
+                                            <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+                                            <Disability_has_Device rdf:resource="#Spoken_Web"/>
+                                            <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+                                          </rdf:Description>
+                                        </Device_belongsTo_Disability>
+                                        <Device_belongsTo_Disability>
+                                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze">
+                                            <Disability_has_Device rdf:resource="#Apple_VoiceOver"/>
+                                            <Disability_has_Device rdf:resource="#Fire_Vox"/>
+                                            <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+                                            <Disability_has_Device rdf:resource="#Spoken_Web"/>
+                                            <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+                                          </rdf:Description>
+                                        </Device_belongsTo_Disability>
+                                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+                                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness"/>
+                                        <hasName rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Mobile Speak</hasName>
+                                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                                      </j.0:ScreenReader>
+                                    </Disability_has_Device>
+                                  </rdf:Description>
+                                </Device_belongsTo_Disability>
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Spoken Web</hasName>
+                                <hasSpecialCharacteristics rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >Free Web Site</hasSpecialCharacteristics>
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Colour_Blindness"/>
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+                                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                                <hasDescription rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >Spoken Web is a Web portal, managing a wide range of online data-intensive content&lt;/br&gt;like news updates, weather, travel and business articles for computer&lt;/br&gt;users who are blind or visually impaired. Namely, Spoken Web serves&lt;/br&gt;as a screen reader for the visually impaired users.</hasDescription>
+                              </j.0:ScreenReader>
+                            </Disability_has_Device>
+                            <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                        <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >3</hasId>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Colour_Blindness"/>
+                        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Nuance TALKS is a powerful screen reader for mobile applications, which converts&lt;/br&gt;the displayed text on the mobile handset into highly intelligible speech.&lt;/br&gt;With Nuance TALKS, blind and low-vision users can take advantage of&lt;/br&gt;most features, including contact directories, caller ID, text messages, help&lt;/br&gt;files, access to the Nokia web browser, and other screen content, available&lt;/br&gt;on their mobile phones.</hasDescription>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Nuance TALKS</hasName>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness"/>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                      </j.0:ScreenReader>
+                    </Disability_has_Device>
+                    <Disability_has_Device rdf:resource="#Spoken_Web"/>
+                    <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+                  </rdf:Description>
+                </Device_belongsTo_Disability>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Fire Vox</hasName>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Fire Vox is an open source, freely available talking browser extension for the Firefox&lt;/br&gt;web browser. Think of it as a screen reader that is designed especially for &lt;/br&gt;Firefox.</hasDescription>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                <hasSpecialCharacteristics rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Free and open source</hasSpecialCharacteristics>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Colour_Blindness"/>
+              </j.0:ScreenReader>
+            </Disability_has_Device>
+            <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+            <Disability_has_Device rdf:resource="#Spoken_Web"/>
+            <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+          </rdf:Description>
+        </Device_belongsTo_Disability>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Colour_Blindness"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Apple VoiceOver</hasName>
+        <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4</hasId>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness"/>
+        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >VoiceOver is a powerful screen reading technology. What makes VoiceOver on iPhone&lt;/br&gt;remarkable is that it can be controlled using simple gestures that lets&lt;/br&gt;interact with items on screen. Instead of memorizing hundreds of keyboard&lt;/br&gt;commands, or endlessly pressing tiny arrow keys to find information,&lt;/br&gt;with VoiceOver, a simply touch on the screen and a description of&lt;/br&gt;the item under the finger will be heard, then a double-tap, drag, or flick can be&lt;/br&gt;gestured to control the phone.</hasDescription>
+      </j.0:ScreenReader>
+    </Disability_has_Device>
+    <Disability_has_Device rdf:resource="#Fire_Vox"/>
+    <Disability_has_Device rdf:resource="#Nuance_TALKS"/>
+    <Disability_has_Device rdf:resource="#Spoken_Web"/>
+    <Disability_has_Device rdf:resource="#Mobile_Speak"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

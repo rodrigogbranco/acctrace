@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:j.0="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.AccessibleOntology.com/GenericOntology.owl#"
+  xml:base="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Alternative_Keyboard_Or_Switches">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <j.0:Alternative_Keyboard_Or_Switches rdf:ID="PACE_Adjustable_Keyboard">
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The PACE Adjustable Keyboard has an easily adjustable, ergonomic, user friendly&lt;/br&gt;design and can quickly be positioned by the user to suit his or her&lt;/br&gt;individual preferences. No software or drivers are required for the Pace&lt;/br&gt;Keyboard allowing for a simple and easy installation - plug it in and the&lt;/br&gt;keyboard is ready for use.</hasDescription>
+    <Device_belongsTo_Disability>
+      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability">
+        <Disability_has_Device>
+          <j.0:Alternative_Keyboard_Or_Switches rdf:ID="PerfecTouch_101_Keyboard">
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >PerfecTouch 101 Keyboard</hasName>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability"/>
+            <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >The PerfecTouch keyboard is split with a knob that allows horizontal angling and can&lt;/br&gt;also detach completely. The numeric keypad is integral with the right-hand&lt;/br&gt;keyboard segment.</hasDescription>
+            <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >5</hasId>
+            <Device_belongsTo_Disability>
+              <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders">
+                <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+                <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+                <Disability_has_Device>
+                  <j.0:Alternative_Keyboard_Or_Switches rdf:ID="Microsoft_Natural_keyboard">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Microsoft Natural Keyboard</hasName>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome">
+                        <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+                        <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+                        <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+                        <Disability_has_Device>
+                          <j.0:Alternative_Keyboard_Or_Switches rdf:ID="Kinesis_Maxim">
+                            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability"/>
+                            <Device_belongsTo_Disability>
+                              <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Autism">
+                                <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+                                <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+                                <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+                                <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+                              </rdf:Description>
+                            </Device_belongsTo_Disability>
+                            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders"/>
+                            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome"/>
+                            <Device_belongsTo_Disability>
+                              <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome">
+                                <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+                                <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+                                <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+                                <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+                              </rdf:Description>
+                            </Device_belongsTo_Disability>
+                            <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            >3</hasId>
+                            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Kinesis Maxim</hasName>
+                            <Device_belongsTo_Disability>
+                              <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder">
+                                <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+                                <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+                                <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+                                <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+                              </rdf:Description>
+                            </Device_belongsTo_Disability>
+                            <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >The award winning Kinesis Maxim adjustable ergonomic computer keyboard is the&lt;/br&gt;only ergonomic keyboard licensed to use the Microsoft &amp;quot;combo&amp;quot;&lt;/br&gt;USB/PS2 technology.</hasDescription>
+                          </j.0:Alternative_Keyboard_Or_Switches>
+                        </Disability_has_Device>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder"/>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome"/>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability"/>
+                    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >The Microsoft Natural keyboard is an ergonomic keyboard that lets you work more&lt;/br&gt;comfortably. The variety of buttons help you navigate easily and perform&lt;/br&gt;the needed tasks more efficiently.</hasDescription>
+                    <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >1</hasId>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Autism"/>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders"/>
+                  </j.0:Alternative_Keyboard_Or_Switches>
+                </Disability_has_Device>
+                <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+              </rdf:Description>
+            </Device_belongsTo_Disability>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Autism"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome"/>
+          </j.0:Alternative_Keyboard_Or_Switches>
+        </Disability_has_Device>
+        <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+        <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+        <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+      </rdf:Description>
+    </Device_belongsTo_Disability>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome"/>
+    <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</hasId>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PACE Adjustable Keyboard</hasName>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Autism"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder"/>
+  </j.0:Alternative_Keyboard_Or_Switches>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+  <j.0:Alternative_Keyboard_Or_Switches rdf:ID="Goldtouch_Adjustable_Keyboard">
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder"/>
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Goldtouch Adjustable Keyboard is a leading recommendation among Risk Managers,&lt;/br&gt;Certified Professional Ergonomists, Physical Therapists and&lt;/br&gt;Occupational Therapists. Because a Goldtouch keyboard is designed to fit&lt;/br&gt;the range of body types, not just an average, the standard Goldtouch&lt;/br&gt;Adjustable Keyboard is the only keyboard designed to properly&lt;/br&gt;straighten the wrists and arms while aligning with the shoulders to&lt;/br&gt;achieve a neutral typing posture.</hasDescription>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Goldtouch Adjustable Keyboard</hasName>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome"/>
+    <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</hasId>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Autism"/>
+  </j.0:Alternative_Keyboard_Or_Switches>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis">
+    <Disability_has_Device rdf:resource="#PerfecTouch_101_Keyboard"/>
+    <Disability_has_Device rdf:resource="#PACE_Adjustable_Keyboard"/>
+    <Disability_has_Device rdf:resource="#Microsoft_Natural_keyboard"/>
+    <Disability_has_Device rdf:resource="#Kinesis_Maxim"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

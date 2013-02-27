@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://www.AccessibleOntology.com/GenericOntology.owl#"
+    xmlns="http://www.AccessibleOntology.com/CORE.owl#"
+  xml:base="http://www.AccessibleOntology.com/CORE.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="CORE">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Application"/>
+  </owl:Class>
+  <CORE rdf:ID="Navigation">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Navigation</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Techniques for helping navigation on a page or site</j.0:hasDescription>
+  </CORE>
+  <CORE rdf:ID="Comprehension">
+    <j.0:Application_belongsTo_Approach>
+      <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A134_checkFrontLoading">
+        <j.0:Approach_has_Application rdf:resource="#Comprehension"/>
+      </rdf:Description>
+    </j.0:Application_belongsTo_Approach>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Comprehension</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >techniques for helping comprehension of a page or site</j.0:hasDescription>
+  </CORE>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A136_checkSeqElements">
+    <j.0:Approach_has_Application>
+      <CORE rdf:ID="AudioAndVideo">
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A137_checkExclElements">
+            <j.0:Approach_has_Application rdf:resource="#AudioAndVideo"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A135_checkParElements">
+            <j.0:Approach_has_Application rdf:resource="#AudioAndVideo"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A136_checkSeqElements"/>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Audio And Video</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Audio and Visual Information</j.0:hasDescription>
+      </CORE>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <CORE rdf:ID="StructureAndPresentation">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structure And Presentation</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tecniques to distinguish the structure of a document from how the content is presented</j.0:hasDescription>
+  </CORE>
+  <CORE rdf:ID="TecnologiesSupported">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accessibility Technologies</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tecnologies Supported</j.0:hasName>
+  </CORE>
+  <CORE rdf:ID="Refresh">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Refresh</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tecniques to control flickering and automatic page refresh.</j.0:hasDescription>
+  </CORE>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://www.AccessibleOntology.com/GenericOntology.owl#"
+    xmlns="http://www.AccessibleOntology.com/TextBrowsers#"
+  xml:base="http://www.AccessibleOntology.com/TextBrowsers">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Text_Browsers">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness">
+    <j.0:Disability_has_Device>
+      <Text_Browsers rdf:ID="ELinks">
+        <j.0:Device_belongsTo_Disability>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision">
+            <j.0:Disability_has_Device rdf:resource="#ELinks"/>
+            <j.0:Disability_has_Device>
+              <Text_Browsers rdf:ID="Lynx">
+                <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Lynx</j.0:hasName>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                <j.0:Device_belongsTo_Disability>
+                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze">
+                    <j.0:Disability_has_Device rdf:resource="#ELinks"/>
+                    <j.0:Disability_has_Device rdf:resource="#Lynx"/>
+                    <j.0:Disability_has_Device>
+                      <Text_Browsers rdf:ID="WebbIE">
+                        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >WebbIE is a web browser for blind and visually-impaired people, especially those&lt;/br&gt;using screen readers. Since 2001, WebbIE is used all over the world.</j.0:hasDescription>
+                        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >WebbIE</j.0:hasName>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision">
+                            <j.0:Disability_has_Device rdf:resource="#ELinks"/>
+                            <j.0:Disability_has_Device rdf:resource="#Lynx"/>
+                            <j.0:Disability_has_Device rdf:resource="#WebbIE"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision">
+                            <j.0:Disability_has_Device rdf:resource="#ELinks"/>
+                            <j.0:Disability_has_Device rdf:resource="#Lynx"/>
+                            <j.0:Disability_has_Device rdf:resource="#WebbIE"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >2</j.0:hasId>
+                        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity">
+                            <j.0:Disability_has_Device rdf:resource="#ELinks"/>
+                            <j.0:Disability_has_Device rdf:resource="#Lynx"/>
+                            <j.0:Disability_has_Device rdf:resource="#WebbIE"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                      </Text_Browsers>
+                    </j.0:Disability_has_Device>
+                  </rdf:Description>
+                </j.0:Device_belongsTo_Disability>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                <j.0:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >1</j.0:hasId>
+                <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Lynx is a text only browser which can work in Windows 95, 98, NT, 2000, XP, and&lt;/br&gt;Vista. Lynx is configurable and can be very helpful for people with visual&lt;/br&gt;impairments.</j.0:hasDescription>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+              </Text_Browsers>
+            </j.0:Disability_has_Device>
+            <j.0:Disability_has_Device rdf:resource="#WebbIE"/>
+          </rdf:Description>
+        </j.0:Device_belongsTo_Disability>
+        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+        <j.0:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</j.0:hasId>
+        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ELinks - Full-Featured Text WWW Browser</j.0:hasName>
+        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ELinks is an advanced and well-established feature-rich text mode web&lt;/br&gt;(HTTP/FTP/..) browser. ELinks is an open source project, it can render both&lt;/br&gt;frames and tables and is highly customizable.</j.0:hasDescription>
+      </Text_Browsers>
+    </j.0:Disability_has_Device>
+    <j.0:Disability_has_Device rdf:resource="#Lynx"/>
+    <j.0:Disability_has_Device rdf:resource="#WebbIE"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

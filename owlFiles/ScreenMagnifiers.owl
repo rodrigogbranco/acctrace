@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.AccessibleOntology.com/ScreenMagnifiers#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.1="http://www.AccessibleOntology.com/GenericOntology.owl#"
+  xml:base="http://www.AccessibleOntology.com/ScreenMagnifiers">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Screen_Magnifiers">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision">
+    <j.1:Disability_has_Device>
+      <j.0:Screen_Magnifiers rdf:ID="Seelt_Magnifier">
+        <j.1:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Seeit is a new magnifier for the pc and is compatible with Windows XP and Vista.&lt;/br&gt;You can magnify anything on your screen by up to 32x, whether it be the&lt;/br&gt;whole screen or just an area of your choice.</j.1:hasDescription>
+        <j.1:Device_belongsTo_Disability>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze">
+            <j.1:Disability_has_Device rdf:resource="#Seelt_Magnifier"/>
+            <j.1:Disability_has_Device>
+              <j.0:Screen_Magnifiers rdf:ID="Nuance_ZOOMS">
+                <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                <j.1:Device_belongsTo_Disability>
+                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision">
+                    <j.1:Disability_has_Device rdf:resource="#Seelt_Magnifier"/>
+                    <j.1:Disability_has_Device rdf:resource="#Nuance_ZOOMS"/>
+                    <j.1:Disability_has_Device>
+                      <j.0:Screen_Magnifiers rdf:ID="Magnifying_Glass_Pro">
+                        <j.1:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >2</j.1:hasId>
+                        <j.1:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Magnifying Glass Pro</j.1:hasName>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                        <j.1:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >The Magnifying Glass Pro utility is a virtual magnifier (virtual lens, screen-zoomer)&lt;/br&gt;that enables you to enlarge (magnify) text and graphics as they are&lt;/br&gt;displayed on your computer monitor or attached television screen, or&lt;/br&gt;projected onto a larger media during a presentation (e.g., using an application such as PowerPoint).</j.1:hasDescription>
+                      </j.0:Screen_Magnifiers>
+                    </j.1:Disability_has_Device>
+                    <j.1:Disability_has_Device>
+                      <j.0:Screen_Magnifiers rdf:ID="Mobile_Magnifier">
+                        <j.1:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Code Factory</j.1:hasName>
+                        <j.1:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >4</j.1:hasId>
+                        <j.1:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Mobile Magnifier is a full-screen magnification application for Symbian-based&lt;/br&gt;mobile phones that enlarges and improves readability of screen contents,&lt;/br&gt;detects areas of interest to make them more visible, and offers hotkeys&lt;/br&gt;to obtain a magnified view of screen icons conveying nontextual information.</j.1:hasDescription>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                      </j.0:Screen_Magnifiers>
+                    </j.1:Disability_has_Device>
+                    <j.1:Disability_has_Device>
+                      <j.0:Screen_Magnifiers rdf:ID="Big_Shot_Screen_Magnifier">
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                        <j.1:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >1</j.1:hasId>
+                        <j.1:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >BigShot is a screen magnifier designed specifically to relieve eyestrain for individuals&lt;/br&gt;with mild visual impairments. This software solution makes&lt;/br&gt;everything on the computer screen larger.</j.1:hasDescription>
+                        <j.1:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Big Shot Screen Magnifier</j.1:hasName>
+                      </j.0:Screen_Magnifiers>
+                    </j.1:Disability_has_Device>
+                    <j.1:Disability_has_Device>
+                      <j.0:Screen_Magnifiers rdf:ID="Apple_Zoom">
+                        <j.1:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Apple Zoom</j.1:hasName>
+                        <j.1:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Zoom is a screen magnifier that let you magnify the entire screen of any application&lt;/br&gt;that is being used to help to see what is on the display. Zoom can be&lt;/br&gt;enabled on iPhone 3GS using iTunes when the user is setting up the iPhone,&lt;/br&gt;or later, using the Accessibility menu in the Settings application on iPhone.</j.1:hasDescription>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                        <j.1:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >6</j.1:hasId>
+                      </j.0:Screen_Magnifiers>
+                    </j.1:Disability_has_Device>
+                  </rdf:Description>
+                </j.1:Device_belongsTo_Disability>
+                <j.1:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >5</j.1:hasId>
+                <j.1:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Nuance ZOOMS is a screen magnifier, designed especially for the needs of the low&lt;/br&gt;vision community. Nuance ZOOMS, magnifies the content of mobile&lt;/br&gt;handset displays and enables people with low vision to navigate through&lt;/br&gt;the screen and make use of all of their phone's functions.</j.1:hasDescription>
+                <j.1:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Nuance ZOOMS</j.1:hasName>
+              </j.0:Screen_Magnifiers>
+            </j.1:Disability_has_Device>
+            <j.1:Disability_has_Device rdf:resource="#Magnifying_Glass_Pro"/>
+            <j.1:Disability_has_Device rdf:resource="#Mobile_Magnifier"/>
+            <j.1:Disability_has_Device rdf:resource="#Big_Shot_Screen_Magnifier"/>
+            <j.1:Disability_has_Device rdf:resource="#Apple_Zoom"/>
+          </rdf:Description>
+        </j.1:Device_belongsTo_Disability>
+        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+        <j.1:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+        <j.1:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Seelt Magnifier</j.1:hasName>
+        <j.1:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</j.1:hasId>
+      </j.0:Screen_Magnifiers>
+    </j.1:Disability_has_Device>
+    <j.1:Disability_has_Device rdf:resource="#Nuance_ZOOMS"/>
+    <j.1:Disability_has_Device rdf:resource="#Magnifying_Glass_Pro"/>
+    <j.1:Disability_has_Device rdf:resource="#Mobile_Magnifier"/>
+    <j.1:Disability_has_Device rdf:resource="#Big_Shot_Screen_Magnifier"/>
+    <j.1:Disability_has_Device rdf:resource="#Apple_Zoom"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

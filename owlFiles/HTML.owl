@@ -1,0 +1,368 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://www.AccessibleOntology.com/GenericOntology.owl#"
+    xmlns="http://www.AccessibleOntology.com/HTML.owl#"
+  xml:base="http://www.AccessibleOntology.com/HTML.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="HTML">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Application"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A121_checkHTMLDocLangAttr">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="languageInformation">
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A036_checkFontElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Language information</j.0:hasName>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A030_checkSubElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A122_checkMETAContentLanguage">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A038_checkMarqueeElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A032_checkTTElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A041_checkTrElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A026_checkIElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Identifies changes and the primary language in a document.</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A028_checkStrikeElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A035_checkBlinkElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A029_checkSElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A044_checkCenterElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A039_checkBrElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A121_checkHTMLDocLangAttr"/>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A027_checkUElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A034_checkSpanElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A040_checkTdElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A042_checkDivElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A033_checkPreElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A043_checkPElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A031_checkSupElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A025_checkBElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A037_checkBasefontElementsLang">
+            <j.0:Approach_has_Application rdf:resource="#languageInformation"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A108_checkForListElements">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="lists">
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Lists</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This application refers to the accessibility of lists.</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A108_checkForListElements"/>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A014_checkObjectsTextEquivalent">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="appletsAndOtherProgrammaticObjects">
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A015_checkAppletsAlt">
+            <j.0:Approach_has_Application rdf:resource="#appletsAndOtherProgrammaticObjects"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A016_checkAppletsTextEquivalent">
+            <j.0:Approach_has_Application rdf:resource="#appletsAndOtherProgrammaticObjects"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A014_checkObjectsTextEquivalent"/>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Applets and other programmatic objects</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Accessible applets and objects.</j.0:hasDescription>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <HTML rdf:ID="scripts">
+    <j.0:Application_belongsTo_Approach>
+      <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A018_checkNoScripts">
+        <j.0:Approach_has_Application rdf:resource="#scripts"/>
+      </rdf:Description>
+    </j.0:Application_belongsTo_Approach>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This section discusses the accessibility of scripts included in a document via the SCRIPT element.</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Scripts</j.0:hasName>
+  </HTML>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A070_checkMenuDeprElements">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="indexOfHTMLElementsAndAttributes">
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A064_checkAppletDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A065_checkBasefontDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A071_checkSDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A070_checkMenuDeprElements"/>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A072_checkStrikeDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A068_checkFontDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A069_checkIsindexDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Index of HTML elements and attributes</j.0:hasName>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A067_checkDirDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A074_checkColorCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A066_checkCenterDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This index lists all elements and some attributes  in HTML 4.01. </j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A073_checkUDeprElements">
+            <j.0:Approach_has_Application rdf:resource="#indexOfHTMLElementsAndAttributes"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <HTML rdf:ID="audioAndVideo">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >audio and video information.</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Audio and video</j.0:hasName>
+  </HTML>
+  <HTML rdf:ID="tables">
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A054_checkThElementsAxis"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A051_checkTdElementsAxis"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A050_checkTdElementsScope"/>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An HTML web application which includes tables</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tables</j.0:hasName>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A049_checkColElements"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A006_checkTablesHeaders"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A010_checkHeaderCellsAbbr"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A052_checkThElementsScope"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A007_checkTablesSummary"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A053_checkThElementsId"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A055_checkPreElements"/>
+  </HTML>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A008_checkFramesTitle">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="frames">
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Frames</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Frames may organize a page into different zones.</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A120_checkFrameRelationships">
+            <j.0:Approach_has_Application rdf:resource="#frames"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A110_checkHyperlinksWithBlankTarget">
+            <j.0:Approach_has_Application rdf:resource="#frames"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A017_checkFramesSrc">
+            <j.0:Approach_has_Application rdf:resource="#frames"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A012_checkFramesetsAndNoFrames">
+            <j.0:Approach_has_Application rdf:resource="#frames"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A008_checkFramesTitle"/>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A118_checkHyperlinksWithClickHereInLinkText">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="links">
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Links</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This application refers to accessibility of links.</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A117_checkHyperlinksLinktextTargetTitle">
+            <j.0:Approach_has_Application rdf:resource="#links"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A118_checkHyperlinksWithClickHereInLinkText"/>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A111_checkFieldsetWithLegendElements">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="forms">
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >An HTML web application which includes forms</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A111_checkFieldsetWithLegendElements"/>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A063_checkLabelElementsForAttr">
+            <j.0:Approach_has_Application rdf:resource="#forms"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >HTML with Forms</j.0:hasName>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A123_checkAbbrTitleAttr">
+    <j.0:Approach_has_Application>
+      <HTML rdf:ID="textMarkup">
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A124_checkAcronymTitleAttr">
+            <j.0:Approach_has_Application rdf:resource="#textMarkup"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A123_checkAbbrTitleAttr"/>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A023_checkQElements">
+            <j.0:Approach_has_Application rdf:resource="#textMarkup"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ways to add structure to pieces of text.</j.0:hasDescription>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Text markup</j.0:hasName>
+      </HTML>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <HTML rdf:ID="imagesAndImageMaps">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This application refers to accessibility of images and image maps.</j.0:hasDescription>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A106_checkClientAndServerSideImageMaps"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A104_checkRedundantLinksForImageMapsInObjectElements"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A105_checkAltTextOfImagesWithIsMapAttribute"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A002_checkImagesNullAltAttribute"/>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Images and image maps</j.0:hasName>
+  </HTML>
+  <HTML rdf:ID="documentStructureAndMetadata">
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A114_checkPElements"/>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Document structure and metadata</j.0:hasName>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A115_checkMapElementsTitleAttr"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A113_checkTablesCaption"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A062_checkHrElements"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A011_checkLinksWithAlternateAttribute"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A119_checkMetaData"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A009_checkDocType"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A125_checkLinkRelAttr"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A112_checkSelectElementsIncludingOptgroupWithLabelAttr"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A107_checkRefreshMetaElements"/>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Use structural markup to promote consistency in documents</j.0:hasDescription>
+  </HTML>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

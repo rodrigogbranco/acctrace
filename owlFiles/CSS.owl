@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://www.AccessibleOntology.com/GenericOntology.owl#"
+    xmlns="http://www.AccessibleOntology.com/CSS.owl#"
+  xml:base="http://www.AccessibleOntology.com/CSS.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="CSS">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Application"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A003_checkBackgroundImageInCss">
+    <j.0:Approach_has_Application>
+      <CSS rdf:ID="generatedContent">
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >mechanisms that allow content to be generated from style sheets</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A005_checkContentInCss">
+            <j.0:Approach_has_Application rdf:resource="#generatedContent"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A004_checkListStyleInCss">
+            <j.0:Approach_has_Application rdf:resource="#generatedContent"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A003_checkBackgroundImageInCss"/>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Generated content</j.0:hasName>
+      </CSS>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <CSS rdf:ID="testStyleEffects">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Text style effects</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mechanisms that are used to style text.</j.0:hasDescription>
+  </CSS>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A077_checkFontStyleCssProperty">
+    <j.0:Approach_has_Application>
+      <CSS rdf:ID="fonts">
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A079_checkFontWeightCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A080_checkFontSizeAdjustCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A081_checkFontStretchCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A075_checkFontSizeCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A083_checkFontCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A076_checkFontFamilyCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:Application_belongsTo_Approach>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A082_checkFontVariantCssProperty">
+            <j.0:Approach_has_Application rdf:resource="#fonts"/>
+          </rdf:Description>
+        </j.0:Application_belongsTo_Approach>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Fonts</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This application refers to accessible fonts.</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A077_checkFontStyleCssProperty"/>
+      </CSS>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <CSS rdf:ID="textInsteadOfImages">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Text instead of images</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Content developers should use style sheets to style text rather than representing text in images</j.0:hasDescription>
+  </CSS>
+  <CSS rdf:ID="usingStyleSheetPositioningAndMarkupToTransformGracefully">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Using style sheet positioning and markup to transform gracefully</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Using style sheet positioning and markup to transform gracefully</j.0:hasDescription>
+  </CSS>
+  <CSS rdf:ID="textFormattingAndPosition">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mechanisms to control the formatting and position of text</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Text formatting and position</j.0:hasName>
+  </CSS>
+  <CSS rdf:ID="rulesAndBorders">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Organise documents using rules and borders.</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rules and borders.</j.0:hasName>
+  </CSS>
+  <CSS rdf:ID="mediaTypes">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Media types allow authors and users to design style sheets that will cause documents to render more appropriately on certain target devices.</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Media types</j.0:hasName>
+  </CSS>
+  <CSS rdf:ID="userOverrideOfStyles">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >User override of styles</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></j.0:hasDescription>
+  </CSS>
+  <CSS rdf:ID="unitsOfMeasure">
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A092_checkPaddingTopCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A097_checkBorderTopWidthCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A100_checkBorderRightWidthCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A089_checkMarginTopCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A090_checkMarginBottomCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A087_checkMarginLeftCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A098_checkBorderBottomWidthCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A093_checkPaddingBottomCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A099_checkBorderLeftWidthCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A095_checkPaddingRightCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A103_checkHeightCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A094_checkPaddingLeftCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A086_checkBackgroundPositionCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A096_checkPaddingCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A101_checkBorderWidthCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A102_checkWidthCssPropertyRelUnits"/>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A088_checkMarginRightCssPropertyRelUnits"/>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Use relative rather than absolute units in markup language attribute values and style sheet property values</j.0:hasDescription>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A091_checkMarginCssPropertyRelUnits"/>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Units of measure</j.0:hasName>
+    <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A085_checkFontSizeCssPropertyRelUnits"/>
+  </CSS>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/WCAG1.owl#A109_checkForListPropertiesInCss">
+    <j.0:Approach_has_Application>
+      <CSS rdf:ID="providingContextualCluesInHTMLLists">
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Providing contextual clues in HTML lists</j.0:hasDescription>
+        <j.0:Application_belongsTo_Approach rdf:resource="http://www.AccessibleOntology.com/WCAG1.owl#A109_checkForListPropertiesInCss"/>
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Providing contextual clues in HTML lists</j.0:hasName>
+      </CSS>
+    </j.0:Approach_has_Application>
+  </rdf:Description>
+  <CSS rdf:ID="creatingMovementWiithStyleSheetsAndScripts">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Creating movement with style sheets and scripts</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Movement in pages.</j.0:hasDescription>
+  </CSS>
+  <CSS rdf:ID="layoutPositioningLlayeringAndAlignment">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mechanisms to control layout and presentation.</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Layout, positioning, layering, and alignment</j.0:hasName>
+  </CSS>
+  <CSS rdf:ID="colors">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ensure that foreground and background color combinations provide sufficient contrast when viewed by someone having color deficits or when viewed on a black and white screen.</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Colors</j.0:hasName>
+  </CSS>
+  <CSS rdf:ID="auralCascadingStyleSheets">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >aural properties provide information to non-sighted users and voice-browser users much in the same way fonts provide visual information. </j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Aural Cascading Style Sheets</j.0:hasName>
+  </CSS>
+  <CSS rdf:ID="accessToAllternativeRepresentationsOfContent">
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Access to alternative representations of content</j.0:hasName>
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Provide information so that users may receive documents according to their preferences </j.0:hasDescription>
+  </CSS>
+  <CSS rdf:ID="decreaseMaintenanceAndIncreaseConsistency">
+    <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ways to Decrease maintenance and increase consistency</j.0:hasDescription>
+    <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Decrease maintenance and increase consistency</j.0:hasName>
+  </CSS>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl" uri="AlternativeKeyboardsOrSwitches.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/Braille.owl" uri="Braille.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/CORE.owl" uri="CORE.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/CSS.owl" uri="CSS.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/DescriptionLanguage" uri="DescriptionLanguage.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/GenericOntology.owl" uri="GenericOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/HTML.owl" uri="HTML.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/ListeningDevices" uri="ListeningDevices.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/MWBP.owl" uri="MWBP.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/ScanningSoftware" uri="ScanningSoftware.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/ScreenMagnifiers" uri="ScreenMagnifiers.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/ScreenReader.owl" uri="ScreenReader.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/SpeechDevices" uri="SpeechDevices.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/TextBrowsers" uri="TextBrowsers.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/WAIARIA.owl" uri="WAIARIA.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/WCAG2.owl" uri="WCAG2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1349548424486" name="http://www.AccessibleOntology.com/WebService1.owl" uri="WebService1.owl"/>
+    </group>
+</catalog>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:j.0="http://www.AccessibleOntology.com/ListeningDevices#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.AccessibleOntology.com/GenericOntology.owl#"
+  xml:base="http://www.AccessibleOntology.com/ListeningDevices">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Listening_Devices">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Mixed_Hearing_Loss">
+    <Disability_has_Device>
+      <j.0:Listening_Devices rdf:ID="Comlink_Personal_Sound_Enhancer">
+        <Device_belongsTo_Disability>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Conductive_Hearing_Loss">
+            <Disability_has_Device rdf:resource="#Comlink_Personal_Sound_Enhancer"/>
+            <Disability_has_Device>
+              <j.0:Listening_Devices rdf:ID="Direct_Ear_Personal_Infrared_Television_Listening_System">
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Direct Ear Personal Infrared Television Listening System</hasName>
+                <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >The DirectEar Set 810 infrared system is an assistive listening device for the hard of&lt;/br&gt;hearing that allows you enjoy superior, amplified sound quality from your TV,&lt;/br&gt;DVD, or stereo without effecting the volume heard by others.</hasDescription>
+                <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >3</hasId>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Conductive_Hearing_Loss"/>
+                <Device_belongsTo_Disability>
+                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Sensorineural_Hearing_Loss">
+                    <Disability_has_Device rdf:resource="#Comlink_Personal_Sound_Enhancer"/>
+                    <Disability_has_Device rdf:resource="#Direct_Ear_Personal_Infrared_Television_Listening_System"/>
+                    <Disability_has_Device>
+                      <j.0:Listening_Devices rdf:ID="Motiva_Personal_FM_System">
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Conductive_Hearing_Loss"/>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Sensorineural_Hearing_Loss"/>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Mixed_Hearing_Loss"/>
+                        <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >1</hasId>
+                        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >The Motiva Personal FM System provides hearing assistance when background noise&lt;/br&gt;or distance from the sound source makes listening difficult. Ideal for small&lt;/br&gt;groups, classrooms, employee training and consultation.</hasDescription>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Motiva Personal FM System</hasName>
+                      </j.0:Listening_Devices>
+                    </Disability_has_Device>
+                  </rdf:Description>
+                </Device_belongsTo_Disability>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Mixed_Hearing_Loss"/>
+              </j.0:Listening_Devices>
+            </Disability_has_Device>
+            <Disability_has_Device rdf:resource="#Motiva_Personal_FM_System"/>
+          </rdf:Description>
+        </Device_belongsTo_Disability>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Sensorineural_Hearing_Loss"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Mixed_Hearing_Loss"/>
+        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Introducing a miniature, cordless assistive listening device that is a personal sound&lt;/br&gt;enhancer worn on the ear, in the same style as a headset. It can be used by&lt;/br&gt;anyone looking for a boost in sound while listening to the TV, radio or&lt;/br&gt;computer, or even in everyday conversations with others. The Comlink&lt;/br&gt;Personal Sound Enhancer provides comfortable and convenient&lt;/br&gt;personal listening without disturbing others.</hasDescription>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Comlink Personal Sound Enhancer </hasName>
+        <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</hasId>
+      </j.0:Listening_Devices>
+    </Disability_has_Device>
+    <Disability_has_Device rdf:resource="#Direct_Ear_Personal_Infrared_Television_Listening_System"/>
+    <Disability_has_Device rdf:resource="#Motiva_Personal_FM_System"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

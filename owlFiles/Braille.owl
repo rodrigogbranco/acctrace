@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://www.AccessibleOntology.com/GenericOntology.owl#"
+    xmlns="http://www.AccessibleOntology.com/Braille.owl#"
+  xml:base="http://www.AccessibleOntology.com/Braille.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Braille">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness">
+    <j.0:Disability_has_Device>
+      <Braille rdf:ID="Alva_544_Satellite_Traveller">
+        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Alva 544 Satellite Traveller</j.0:hasName>
+        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This slim, lightweight Braille display fits perfectly under a laptop, making it a perfect&lt;/br&gt;companion for every day use. Thanks to the state-of-the-art features,&lt;/br&gt;enhanced navigation and highly productive operating possibilities, the&lt;/br&gt;ALVA 544 Satellite Traveller is a real plug-and-play dream.</j.0:hasDescription>
+        <j.0:Device_belongsTo_Disability>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Deaf_Blindness">
+            <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+            <j.0:Disability_has_Device>
+              <Braille rdf:ID="Alva_BC640">
+                <j.0:Device_belongsTo_Disability>
+                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision">
+                    <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+                    <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+                    <j.0:Disability_has_Device>
+                      <Braille rdf:ID="Alva_584_Satellite_Pro">
+                        <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Alva 584 Satellite Pro</j.0:hasName>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity">
+                            <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness">
+                            <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision">
+                            <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision">
+                            <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Deaf_Blindness"/>
+                        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                        <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >The ALVA 584 Satellite Pro is a Braille assistive device that combines the&lt;/br&gt;convenience of the ALVA Satellite legacy with the capabilities of an 80-character&lt;/br&gt;display into a low-profile, extended length display for the professional &lt;/br&gt;user.</j.0:hasDescription>
+                        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                        <j.0:Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze">
+                            <j.0:Disability_has_Device rdf:resource="#Alva_544_Satellite_Traveller"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+                            <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+                          </rdf:Description>
+                        </j.0:Device_belongsTo_Disability>
+                      </Braille>
+                    </j.0:Disability_has_Device>
+                  </rdf:Description>
+                </j.0:Device_belongsTo_Disability>
+                <j.0:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Alva BC640</j.0:hasName>
+                <j.0:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >The ALVA BC640 is a Braille assistive device that combines powerful features with&lt;/br&gt;a compact and lightweight design. High quality Optelec Braille cells and&lt;/br&gt;easy-to-operate keys allow for effortless reading and smart navigation. The&lt;/br&gt;optional Braille Audio Feature Pack makes the ALVA BC640 uniquely&lt;/br&gt;versatile. The ergonomically designed Braille input keys and the &lt;/br&gt;integrated high quality audio speakers makes you operate your ALVA BC640&lt;/br&gt;efficiently and comfortably. Upon request the ALVA BC640 can even be&lt;/br&gt;equipped with internal memory, allowing you to store your documents or host&lt;/br&gt;your preferred screenreader on-board.</j.0:hasDescription>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Night_Blindness"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Deaf_Blindness"/>
+                <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+              </Braille>
+            </j.0:Disability_has_Device>
+            <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+          </rdf:Description>
+        </j.0:Device_belongsTo_Disability>
+        <j.0:Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+      </Braille>
+    </j.0:Disability_has_Device>
+    <j.0:Disability_has_Device rdf:resource="#Alva_BC640"/>
+    <j.0:Disability_has_Device rdf:resource="#Alva_584_Satellite_Pro"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

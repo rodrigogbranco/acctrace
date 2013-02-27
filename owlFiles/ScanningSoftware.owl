@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:j.0="http://www.AccessibleOntology.com/ScanningSoftware#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.AccessibleOntology.com/GenericOntology.owl#"
+  xml:base="http://www.AccessibleOntology.com/ScanningSoftware">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Scanning_Software">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Traumatic_Brain_Injury">
+    <Disability_has_Device>
+      <j.0:Scanning_Software rdf:ID="Win-SCAN">
+        <Device_belongsTo_Disability>
+          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness">
+            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+            <Disability_has_Device>
+              <j.0:Scanning_Software rdf:ID="CD_Scan_and_Play">
+                <Device_belongsTo_Disability>
+                  <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity">
+                    <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                    <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                    <Disability_has_Device>
+                      <j.0:Scanning_Software rdf:ID="Multi-SCAN">
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dysarthria">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Multi-SCAN is a pre-reading/readiness activity center&lt;/br&gt;featuring built-in single-switch control and all four of the great educational activities that have&lt;/br&gt;made Dino-GAMES so popular, all in one package and on one CD-ROM for&lt;/br&gt;PCs and Macs. It allows you to select a graphic library, choose&lt;/br&gt;games, set a schedule of play, adjust the difficulty level, and change other&lt;/br&gt;settings for each game independently.</hasDescription>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Traumatic_Brain_Injury"/>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Down_Syndrome">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Autism">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Attention_Deficit_Hyperactivity_Disorder">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Academic_Skills_Disorders">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Speech_And_Language_Disorders">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >2</hasId>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dementia">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Learning_Disability">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Nonverbal_Learning_Disorder">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Multi-SCAN</hasName>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                        <Device_belongsTo_Disability>
+                          <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability">
+                            <Disability_has_Device rdf:resource="#Win-SCAN"/>
+                            <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+                            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+                          </rdf:Description>
+                        </Device_belongsTo_Disability>
+                      </j.0:Scanning_Software>
+                    </Disability_has_Device>
+                  </rdf:Description>
+                </Device_belongsTo_Disability>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Traumatic_Brain_Injury"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Academic_Skills_Disorders"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Speech_And_Language_Disorders"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dysarthria"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+                <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >CD Scan &amp; Play software for Mac and Windows is a scanning software&lt;/br&gt;that can play CDs using both a dual&lt;/br&gt;switch and a single switch. It functions much like a standard CD player with&lt;/br&gt;similar features, such as play, pause, skip forward or backward, and stop. It&lt;/br&gt;also displays the CD information and is an easy and versatile option for individuals with disabilities.</hasDescription>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Autism"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Learning_Disability"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Attention_Deficit_Hyperactivity_Disorder"/>
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >CD Scan &amp; Play</hasName>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blindness"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Nonverbal_Learning_Disorder"/>
+                <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >1</hasId>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dementia"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Down_Syndrome"/>
+                <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+              </j.0:Scanning_Software>
+            </Disability_has_Device>
+            <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+          </rdf:Description>
+        </Device_belongsTo_Disability>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Academic_Skills_Disorders"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Extreme_Light_Sensitivity"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Aspergers_Syndrome"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Generalised_Haze"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+        <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</hasId>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Expressive_Language_Disorder"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dysarthria"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Attention_Deficit_Hyperactivity_Disorder"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tic_Disorders"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Learning_Disability"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Down_Syndrome"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dementia"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Tourette_Syndrome"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Autism"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Nonverbal_Learning_Disorder"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Communication_Disability"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Speech_And_Language_Disorders"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Win-SCAN</hasName>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WinSCAN, v2.0, is an advanced, multi-function, single-switch interface for&lt;/br&gt;Windows, offering a flexible and powerful means of computer access for PC&lt;/br&gt;users WinSCAN, v2.0 is a scanning software that provides new ways to&lt;/br&gt;access and operate independently the next generation of PowerPC and&lt;/br&gt;Pentium computers, new operating systems, and high-performance software&lt;/br&gt;in the home, at school, and on-the-job.</hasDescription>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Central_Vision"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Traumatic_Brain_Injury"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Loss_Of_Peripheral_Vision"/>
+        <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Blurred_Vision"/>
+      </j.0:Scanning_Software>
+    </Disability_has_Device>
+    <Disability_has_Device rdf:resource="#CD_Scan_and_Play"/>
+    <Disability_has_Device rdf:resource="#Multi-SCAN"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

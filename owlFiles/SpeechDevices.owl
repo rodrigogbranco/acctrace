@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:j.0="http://www.AccessibleOntology.com/SpeechDevices#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.AccessibleOntology.com/GenericOntology.owl#"
+  xml:base="http://www.AccessibleOntology.com/SpeechDevices">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Speech_Devices">
+    <rdfs:subClassOf rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Device"/>
+  </owl:Class>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl#PACE_Adjustable_Keyboard">
+    <Device_belongsTo_Disability>
+      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis">
+        <Disability_has_Device>
+          <j.0:Speech_Devices rdf:ID="J-Say">
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+            <Device_belongsTo_Disability>
+              <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Attention_Deficit_Hyperactivity_Disorder">
+                <Disability_has_Device rdf:resource="#J-Say"/>
+                <Disability_has_Device>
+                  <j.0:Speech_Devices rdf:ID="IBM_Embedded_ViaVoice">
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Learning_Disability">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >4</hasId>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >IBM Embedded ViaVoice</hasName>
+                    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >The IBM Embedded ViaVoice provides fully integrated, automatic speech&lt;/br&gt;recognition and text-to-speech capabilities for small mobile devices,&lt;/br&gt;including automotive telematics systems and hands-free phones.&lt;/br&gt;Recognizes vocabulary lists exceeding 200.000 spoken words in real&lt;/br&gt;time and across a broad range of languages.</hasDescription>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Academic_Skills_Disorders">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Attention_Deficit_Hyperactivity_Disorder"/>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Traumatic_Brain_Injury">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                    <Device_belongsTo_Disability>
+                      <rdf:Description rdf:about="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy">
+                        <Disability_has_Device rdf:resource="#J-Say"/>
+                        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+                      </rdf:Description>
+                    </Device_belongsTo_Disability>
+                  </j.0:Speech_Devices>
+                </Disability_has_Device>
+              </rdf:Description>
+            </Device_belongsTo_Disability>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Learning_Disability"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Academic_Skills_Disorders"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >J-Say Voice Input/Output Technology</hasName>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Traumatic_Brain_Injury"/>
+            <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >J-Say Pro is a Speech device that brings together Dragon NaturallySpeaking professional version 10.1, from&lt;/br&gt;Nuance, and JAWS For Windows version 10.0, from Freedom Scientific.&lt;/br&gt;However although the product integrates these two&lt;/br&gt;applications, it also presents the User with an easy to understand interface&lt;/br&gt;enabling interaction with the computer using natural language and easy&lt;/br&gt;to remember and understand vocabulary.</hasDescription>
+            <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</hasId>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+            <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+          </j.0:Speech_Devices>
+        </Disability_has_Device>
+        <Disability_has_Device rdf:resource="#IBM_Embedded_ViaVoice"/>
+      </rdf:Description>
+    </Device_belongsTo_Disability>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl#Microsoft_Natural_keyboard">
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl#PerfecTouch_101_Keyboard">
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl#Goldtouch_Adjustable_Keyboard">
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.AccessibleOntology.com/AlternativeKeyboardsOrSwitches.owl#Kinesis_Maxim">
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Arthritis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Quadriplegia"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dystrophy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Parkinson_Disease"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Rett_Syndrome"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Absent_Limb_Or_Reduced_Limb_Function"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Multiple_Sclerosis"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Cerebral_Palsy"/>
+    <Device_belongsTo_Disability rdf:resource="http://www.AccessibleOntology.com/GenericOntology.owl#Dyspraxia"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

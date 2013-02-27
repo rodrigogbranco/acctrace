@@ -3,10 +3,22 @@
  */
 package br.ufms.facom.acctrace.editors;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.eclipse.core.internal.registry.osgi.Activator;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Plugin;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.swt.SWT;
@@ -25,6 +37,18 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.io.ReaderDocumentSource;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.util.OWLOntologyMerger;
+
+import uk.ac.manchester.cs.owl.owlapi.OWLOntologyManagerImpl;
 
 /**
  * @author Rodrigo Branco
@@ -51,11 +75,44 @@ public class AccTraceFormPage extends FormPage {
 	 */
 	public AccTraceFormPage(FormEditor editor, String id, String title) throws CoreException, BadLocationException, ParserConfigurationException {
 		super(editor, id, title);
+		try {
+			/*OWLDataFactory df = OWLManager.getOWLDataFactory();
+			URL owlFile = FileLocator.find(Platform.getBundle("br.ufms.facom.acctrace"), new Path("owlFiles/WCAG2.owl"), null);
+			IRI genericOWLIRI = IRI.create(owlFile.toURI());
+			OWLOntologyManager m = OWLManager.createOWLOntologyManager();
+			OWLOntology o = m.loadOntologyFromOntologyDocument(genericOWLIRI);
+			for(OWLClass owlClass : o.getClassesInSignature()) {
+				System.out.println(owlClass.getIRI().toString());
+			}
+			*/
+				OWLOntologyManager m = OWLManager.createOWLOntologyManager();
+				URL waiAriaURL = FileLocator.find(Platform.getBundle("br.ufms.facom.acctrace"), new Path("owlFiles/WAIARIA.owl"), null);
+				IRI waiAriaIRI = IRI.create(waiAriaURL.toURI());
+				URL screenReaderURL = FileLocator.find(Platform.getBundle("br.ufms.facom.acctrace"), new Path("owlFiles/screenReader.owl"), null);
+				IRI screenReaderIRI = IRI.create(screenReaderURL.toURI());				
+				OWLOntology o1 = m.loadOntology(waiAriaIRI);
+				OWLOntology o2 = m.loadOntology(screenReaderIRI);
+				// Create our ontology merger
+				OWLOntologyMerger merger = new OWLOntologyMerger(m);
+				// Merge all of the loaded ontologies, specifying an IRI for the
+				IRI mergedOntologyIRI =
+				IRI.create("http://www.semanticweb.com/mymergedont");
+				OWLOntology merged = merger.createMergedOntology(m,
+				mergedOntologyIRI);
+				for(OWLClass owlClass : merged.getClassesInSignature()) {
+					System.out.println(owlClass);
+				}
+				
+			//System.out.println(df.getOWLClass(IRI.create(genericOWLIRI + "#Checkpoint")).toString());
+
+		} catch (OWLOntologyCreationException | URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		IEditorInput input = editor.getEditorInput();
-		//input.
-		System.out.println(input.toString());
+		//System.out.println(input.toString());
 		IDocument idocument = new XMLDocumentProvider().createDocument(input);
-		System.out.println(idocument.get(0, idocument.getLength()).toString());
+		//System.out.println(idocument.get(0, idocument.getLength()).toString());
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(false);

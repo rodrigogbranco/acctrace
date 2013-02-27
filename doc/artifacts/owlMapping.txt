@@ -1,0 +1,62 @@
+Generic
+	Application
+		HTML
+		CSS
+		CORE
+	
+	Approach
+		Web Service
+		WCAG2
+		MWBP
+		Description Language X
+	
+	Capability X
+	
+	Checkpoint
+		Web Service
+		WCAG2
+		MWBP
+		Descripiton Language X
+	
+	Device
+		Scanning Software
+		Alternative Keyboard and switching
+		Braille
+		Listening Device
+		Screen Magnifiers
+		Screen Reader
+		Speech Devices
+		Textual Browsers
+	
+	Disability -
+	
+	Functional Limitation -
+	
+	Guideline
+		Web Service
+		WCAG2
+		MWBP
+		Description Language X
+	
+	Impairment -
+	
+	Output Result
+		MWBP
+	
+	Standard +
+	
+	Technique
+		Web Service
+		WCAG2
+		MWBP
+		Description Language X
+	
+	Test
+		Web Service
+		WCAG2
+		MWBP
+		Description Language X
+	
+	User X
+	
+	WAI/ARIA =

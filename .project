@@ -35,7 +35,7 @@
 		<link>
 			<name>build.properties</name>
 			<type>1</type>
-			<location>D:/gitrepo/br.ufms.facom.acctrace/build.properties</location>
+			<location>F:/gitrepo/acctrace/build.properties</location>
 		</link>
 	</linkedResources>
 </projectDescription>
