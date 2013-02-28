@@ -3,132 +3,80 @@
  */
 package br.ufms.facom.acctrace.editors;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.util.ArrayList;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.eclipse.core.internal.registry.osgi.Activator;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.events.ExpansionAdapter;
 import org.eclipse.ui.forms.events.ExpansionEvent;
 import org.eclipse.ui.forms.widgets.ColumnLayout;
+import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.model.BaseWorkbenchContentProvider;
+import org.eclipse.ui.model.WorkbenchLabelProvider;
 
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.io.ReaderDocumentSource;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.util.OWLOntologyMerger;
-
-import uk.ac.manchester.cs.owl.owlapi.OWLOntologyManagerImpl;
+import br.ufms.facom.acctrace.editors.filter.AccTraceFileFilter;
 
 /**
  * @author Rodrigo Branco
- *
+ * 
  */
 public class AccTraceFormPage extends FormPage {
 	
-	/**
-	 * @param id
-	 * @param title
-	 */
-	public AccTraceFormPage(String id, String title) {
-		super(id, title);
-		// TODO Auto-generated constructor stub
-	}
+	IResource inputFile;
 
 	/**
 	 * @param editor
 	 * @param id
 	 * @param title
-	 * @throws CoreException 
-	 * @throws BadLocationException 
-	 * @throws ParserConfigurationException 
+	 * @throws CoreException
+	 * @throws BadLocationException
+	 * @throws ParserConfigurationException
 	 */
-	public AccTraceFormPage(FormEditor editor, String id, String title) throws CoreException, BadLocationException, ParserConfigurationException {
+	public AccTraceFormPage(FormEditor editor, String id, String title)
+			throws CoreException, BadLocationException,
+			ParserConfigurationException {
 		super(editor, id, title);
-		try {
-			/*OWLDataFactory df = OWLManager.getOWLDataFactory();
-			URL owlFile = FileLocator.find(Platform.getBundle("br.ufms.facom.acctrace"), new Path("owlFiles/WCAG2.owl"), null);
-			IRI genericOWLIRI = IRI.create(owlFile.toURI());
-			OWLOntologyManager m = OWLManager.createOWLOntologyManager();
-			OWLOntology o = m.loadOntologyFromOntologyDocument(genericOWLIRI);
-			for(OWLClass owlClass : o.getClassesInSignature()) {
-				System.out.println(owlClass.getIRI().toString());
-			}
-			*/
-				OWLOntologyManager m = OWLManager.createOWLOntologyManager();
-				URL waiAriaURL = FileLocator.find(Platform.getBundle("br.ufms.facom.acctrace"), new Path("owlFiles/WAIARIA.owl"), null);
-				IRI waiAriaIRI = IRI.create(waiAriaURL.toURI());
-				URL screenReaderURL = FileLocator.find(Platform.getBundle("br.ufms.facom.acctrace"), new Path("owlFiles/screenReader.owl"), null);
-				IRI screenReaderIRI = IRI.create(screenReaderURL.toURI());				
-				OWLOntology o1 = m.loadOntology(waiAriaIRI);
-				OWLOntology o2 = m.loadOntology(screenReaderIRI);
-				// Create our ontology merger
-				OWLOntologyMerger merger = new OWLOntologyMerger(m);
-				// Merge all of the loaded ontologies, specifying an IRI for the
-				IRI mergedOntologyIRI =
-				IRI.create("http://www.semanticweb.com/mymergedont");
-				OWLOntology merged = merger.createMergedOntology(m,
-				mergedOntologyIRI);
-				for(OWLClass owlClass : merged.getClassesInSignature()) {
-					System.out.println(owlClass);
-				}
-				
-			//System.out.println(df.getOWLClass(IRI.create(genericOWLIRI + "#Checkpoint")).toString());
-
-		} catch (OWLOntologyCreationException | URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		IEditorInput input = editor.getEditorInput();
-		//System.out.println(input.toString());
-		IDocument idocument = new XMLDocumentProvider().createDocument(input);
-		//System.out.println(idocument.get(0, idocument.getLength()).toString());
-		
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		dbf.setNamespaceAware(false);
-		dbf.newDocumentBuilder();
-		
+		inputFile = ((IFileEditorInput)editor.getEditorInput()).getFile();
 	}
 
 	/**
-	* Create contents of the form.
-	*
-	* @param managedForm
-	*/
+	 * Create contents of the form.
+	 * 
+	 * @param managedForm
+	 */
 	@Override
 	protected void createFormContent(IManagedForm managedForm) {
 		ScrolledForm form = managedForm.getForm();
-		//FormToolkit toolkit = managedForm.getToolkit();
+		// FormToolkit toolkit = managedForm.getToolkit();
 		form.setText("Form with wrapped controls");
 		ColumnLayout layout = new ColumnLayout();
 		layout.topMargin = 0;
@@ -140,9 +88,11 @@ public class AccTraceFormPage extends FormPage {
 		layout.maxNumColumns = 4;
 		layout.minNumColumns = 1;
 		form.getBody().setLayout(layout);
-		form.getBody().setBackground(
-				form.getBody().getDisplay().getSystemColor(SWT.COLOR_GREEN));
-		createSectionWithLinks(managedForm, "Link Section",
+		//form.getBody().setBackground(
+		//		form.getBody().getDisplay().getSystemColor(SWT.COLOR_GREEN));
+		createSectionOfRequirementFilesAssociated(managedForm, "Requirement Files Association",
+				"List of all requirements files associateds in project.");
+		/*createSectionWithLinks(managedForm, "Link Section",
 				"An example of a section with links", 2);
 		createSectionWithLinks(managedForm, "Link Section",
 				"An example of a section with links", 2);
@@ -171,15 +121,68 @@ public class AccTraceFormPage extends FormPage {
 		createSectionWithLinks(managedForm, "Sample Section",
 				"An example of a section with links", 2);
 		createSectionWithControls(managedForm, "Control Section",
-				"An example of a section with form controls");
+				"An example of a section with form controls");*/
 	}
-	private void createSectionWithLinks(IManagedForm mform, String title,
+	
+	private void createSectionOfRequirementFilesAssociated(IManagedForm mform, String title,
+			String desc) {
+		Composite client = createSection(mform, title, desc, 1);
+		FormToolkit toolkit = mform.getToolkit();
+		
+		//TODO Get Referenced Requirements File
+		
+		//for (int i = 1; i <= nlinks; i++)
+			//toolkit.createHyperlink(client, "Hyperlink text " + 1, SWT.WRAP);
+		//Text text = toolkit.createText(client, "XXXX", SWT.BORDER)
+		//text.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+		/*Combo combo = new Combo(client, SWT.BORDER);
+		ComboViewer viewer = new ComboViewer(combo);
+		viewer.setContentProvider(new ArrayContentProvider());
+		ArrayList<String> ar = new ArrayList<String>();
+		ar.add("Text1");
+		ar.add("Text          2");
+		viewer.setInput(ar);
+		
+		toolkit.adapt(combo);*/
+		List list = new List(client, SWT.MULTI);
+		ListViewer l = new ListViewer(list);
+		list.add("Text1");
+		list.add("Text2");
+		
+		Button button = new Button(client, SWT.PUSH);
+		button.setText("Browse...");
+		button.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				handleBrowse();
+			}
+		});		
+	}	
+	
+	private void handleBrowse() {		
+		
+		
+		ElementTreeSelectionDialog dialog = new ElementTreeSelectionDialog(
+				getSite().getShell(),
+				new WorkbenchLabelProvider(),
+			    new BaseWorkbenchContentProvider());
+		dialog.setInput(inputFile.getProject());
+		dialog.addFilter(new AccTraceFileFilter());
+		if (dialog.open() == ContainerSelectionDialog.OK) {
+			Object[] result = dialog.getResult();
+			if (result.length == 1) {
+				//containerText.setText(((Path) result[0]).toString());
+			}
+		}
+	}	
+
+	/*private void createSectionWithLinks(IManagedForm mform, String title,
 			String desc, int nlinks) {
 		Composite client = createSection(mform, title, desc, 1);
 		FormToolkit toolkit = mform.getToolkit();
 		for (int i = 1; i <= nlinks; i++)
 			toolkit.createHyperlink(client, "Hyperlink text " + i, SWT.WRAP);
 	}
+
 	private void createSectionWithControls(IManagedForm mform, String title,
 			String desc) {
 		Composite client = createSection(mform, title, desc, 1);
@@ -190,7 +193,9 @@ public class AccTraceFormPage extends FormPage {
 				SWT.RADIO);
 		toolkit.createButton(client, "A checkbox button", SWT.CHECK);
 	}
-	private void createMixedSection(IManagedForm mform, String title, String desc) {
+
+	private void createMixedSection(IManagedForm mform, String title,
+			String desc) {
 		Composite client = createSection(mform, title, desc, 2);
 		FormToolkit toolkit = mform.getToolkit();
 		Hyperlink link = toolkit.createHyperlink(client,
@@ -211,13 +216,15 @@ public class AccTraceFormPage extends FormPage {
 		gd.widthHint = 150;
 		text.setLayoutData(gd);
 		toolkit.paintBordersFor(client);
-	}
+	}*/
+
 	private Composite createSection(IManagedForm mform, String title,
 			String desc, int numColumns) {
 		final ScrolledForm form = mform.getForm();
 		FormToolkit toolkit = mform.getToolkit();
 		Section section = toolkit.createSection(form.getBody(), Section.TWISTIE
-				| Section.SHORT_TITLE_BAR | Section.DESCRIPTION | Section.EXPANDED);
+				| Section.SHORT_TITLE_BAR | Section.DESCRIPTION
+				| Section.EXPANDED);
 		section.setText(title);
 		section.setDescription(desc);
 		Composite client = toolkit.createComposite(section);
