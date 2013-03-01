@@ -1,11 +1,10 @@
 package br.ufms.facom.acctrace.wizards;
 
-import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -29,15 +28,15 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 
+import br.ufms.facom.acctrace.model.ModelLoader;
+
 /**
- * This is a sample new wizard. Its role is to create a new file 
- * resource in the provided container. If the container resource
- * (a folder or a project) is selected in the workspace 
- * when the wizard is opened, it will accept it as the target
- * container. The wizard creates one file with the extension
- * "acctrace". If a sample multi-page editor (also available
- * as a template) is registered for the same extension, it will
- * be able to open it.
+ * This is a sample new wizard. Its role is to create a new file resource in the
+ * provided container. If the container resource (a folder or a project) is
+ * selected in the workspace when the wizard is opened, it will accept it as the
+ * target container. The wizard creates one file with the extension "acctrace".
+ * If a sample multi-page editor (also available as a template) is registered
+ * for the same extension, it will be able to open it.
  */
 
 public class AccTraceFileWizard extends Wizard implements INewWizard {
@@ -51,7 +50,7 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 		super();
 		setNeedsProgressMonitor(true);
 	}
-	
+
 	/**
 	 * Adding the page to the wizard.
 	 */
@@ -62,18 +61,18 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * This method is called when 'Finish' button is pressed in
-	 * the wizard. We will create an operation and run it
-	 * using wizard as execution context.
+	 * This method is called when 'Finish' button is pressed in the wizard. We
+	 * will create an operation and run it using wizard as execution context.
 	 */
 	public boolean performFinish() {
 		final String containerName = page.getContainerName();
 		final String fileName = page.getFileName();
 		IRunnableWithProgress op = new IRunnableWithProgress() {
-			public void run(IProgressMonitor monitor) throws InvocationTargetException {
+			public void run(IProgressMonitor monitor)
+					throws InvocationTargetException {
 				try {
 					doFinish(containerName, fileName, monitor);
-				} catch (CoreException e) {
+				} catch (CoreException | IOException e) {
 					throw new InvocationTargetException(e);
 				} finally {
 					monitor.done();
@@ -86,48 +85,47 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 			return false;
 		} catch (InvocationTargetException e) {
 			Throwable realException = e.getTargetException();
-			MessageDialog.openError(getShell(), "Error", realException.getMessage());
+			MessageDialog.openError(getShell(), "Error",
+					realException.getMessage());
 			return false;
 		}
 		return true;
 	}
-	
+
 	/**
-	 * The worker method. It will find the container, create the
-	 * file if missing or just replace its contents, and open
-	 * the editor on the newly created file.
+	 * The worker method. It will find the container, create the file if missing
+	 * or just replace its contents, and open the editor on the newly created
+	 * file.
+	 * 
+	 * @throws IOException
 	 */
 
-	private void doFinish(
-		String containerName,
-		String fileName,
-		IProgressMonitor monitor)
-		throws CoreException {
+	private void doFinish(String containerName, String fileName,
+			IProgressMonitor monitor) throws CoreException, IOException {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName));
 		if (!resource.exists() || !(resource instanceof IContainer)) {
-			throwCoreException("Container \"" + containerName + "\" does not exist.");
+			throwCoreException("Container \"" + containerName
+					+ "\" does not exist.");
 		}
 		IContainer container = (IContainer) resource;
 		final IFile file = container.getFile(new Path(fileName));
-		try {
-			InputStream stream = openContentStream(fileName);
-			if (file.exists()) {
-				file.setContents(stream, true, true, monitor);
-			} else {
-				file.create(stream, true, monitor);
-			}
-			stream.close();
-		} catch (IOException e) {
+		ModelLoader.getInstance().initializeAccTraceModel(fileName);
+		InputStream stream = new FileInputStream(fileName);
+		if (file.exists()) {
+			file.setContents(stream, true, true, monitor);
+		} else {
+			file.create(stream, true, monitor);
 		}
+		stream.close();
 		monitor.worked(1);
 		monitor.setTaskName("Opening file for editing...");
 		getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
-				IWorkbenchPage page =
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				IWorkbenchPage page = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage();
 				try {
 					IDE.openEditor(page, file, true);
 				} catch (PartInitException e) {
@@ -136,39 +134,17 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 		});
 		monitor.worked(1);
 	}
-	
-	/**
-	 * We will initialize file contents with a sample text.
-	 */
-
-	private InputStream openContentStream(String nameFile) {
-		String nameTag = nameFile.substring(0,nameFile.lastIndexOf("."));
-		String contents = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-		"<acctrace:Repository xmi:version=\"2.0\" " +
-		"xmlns:xmi=\"http://www.omg.org/XMI\" " +
-		"xmlns:requirement=\"http://facom.ufms.br/acctrace/1.0\" " +
-		"xmi:id=\"_"+ 
-		RandomStringUtils
-		.random(25,"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXWYZ") +
-		"\" " +
-		"name=\""+ nameTag +"\">\n" +
-		"\t<acctrace:Resources>\n" +
-		"\t</acctrace:Resources>\n\n" +
-		"\t<acctrace:Associations>\n" +
-		"\t</acctrace:Associations>\n" +
-		"</acctrace:Repository>";
-		return new ByteArrayInputStream(contents.getBytes());
-	}
 
 	private void throwCoreException(String message) throws CoreException {
-		IStatus status =
-			new Status(IStatus.ERROR, "br.ufms.facom.acctrace", IStatus.OK, message, null);
+		IStatus status = new Status(IStatus.ERROR, "br.ufms.facom.acctrace",
+				IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 
 	/**
-	 * We will accept the selection in the workbench to see if
-	 * we can initialize from it.
+	 * We will accept the selection in the workbench to see if we can initialize
+	 * from it.
+	 * 
 	 * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
 	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {

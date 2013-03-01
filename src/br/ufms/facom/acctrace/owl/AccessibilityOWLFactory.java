@@ -47,8 +47,8 @@ public final class AccessibilityOWLFactory {
 	private static HashMap<String, String> owlHash = new HashMap<String, String>();
 
 	/**
-	 * Instantiates a new accessibility owl factory. The constructor also
-	 * set up the owl Map (mapping general classes to specific ones) and owl Hash table
+	 * Instantiates a new accessibility owl factory. The constructor also set up
+	 * the owl Map (mapping general classes to specific ones) and owl Hash table
 	 * (mapping a class to a OWL file).
 	 */
 	private AccessibilityOWLFactory() {
@@ -144,7 +144,7 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the single instance of AccessibilityOWLFactory.
-	 *
+	 * 
 	 * @return single instance of AccessibilityOWLFactory
 	 */
 	public static synchronized AccessibilityOWLFactory getInstance() {
@@ -153,10 +153,12 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the oWL ontology.
-	 *
+	 * 
 	 * @return the oWL built ontology
-	 * @throws URISyntaxException the uRI syntax exception
-	 * @throws OWLOntologyCreationException the oWL ontology creation exception
+	 * @throws URISyntaxException
+	 *             the uRI syntax exception
+	 * @throws OWLOntologyCreationException
+	 *             the oWL ontology creation exception
 	 */
 	public static OWLOntology getOWLOntologyManager()
 			throws URISyntaxException, OWLOntologyCreationException {
@@ -167,13 +169,16 @@ public final class AccessibilityOWLFactory {
 	}
 
 	/**
-	 * This method clear the factory, set-up the new hash table key and calls 
+	 * This method clear the factory, set-up the new hash table key and calls
 	 * getOWLOntologyManager()
-	 *
-	 * @param key the hash table key
+	 * 
+	 * @param key
+	 *            the hash table key
 	 * @return the oWL ontology manager
-	 * @throws OWLOntologyCreationException the oWL ontology creation exception
-	 * @throws URISyntaxException the uRI syntax exception
+	 * @throws OWLOntologyCreationException
+	 *             the oWL ontology creation exception
+	 * @throws URISyntaxException
+	 *             the uRI syntax exception
 	 */
 	public static OWLOntology getOWLOntologyManager(String key)
 			throws OWLOntologyCreationException, URISyntaxException {

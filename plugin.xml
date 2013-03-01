@@ -4,7 +4,7 @@
 
    <extension
          id="sampleBuilder"
-         name="Sample Project Builder"
+         name="%extension.name"
          point="org.eclipse.core.resources.builders">
       <builder
             hasNature="true">
@@ -15,7 +15,7 @@
    </extension>
    <extension
          id="sampleNature"
-         name="Sample Project Nature"
+         name="%extension.name.0"
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
@@ -28,7 +28,7 @@
    </extension>
    <extension
          id="xmlProblem"
-         name="XML Problem"
+         name="%extension.name.1"
          point="org.eclipse.core.resources.markers">
       <super
             type="org.eclipse.core.resources.problemmarker">
@@ -38,81 +38,12 @@
       </persistent>
    </extension>
    <extension
-         point="org.eclipse.ui.views">
-      <view
-            name="My Common Navigator"
-            icon="icons/sample.gif"
-            class="org.eclipse.ui.navigator.CommonNavigator"
-            id="com.example.test">
-      </view>
-      <category
-            name="Sample Category"
-            id="br.ufms.facom.acctrace">
-      </category>
-      <view
-            name="Sample View"
-            icon="icons/sample.gif"
-            category="br.ufms.facom.acctrace"
-            class="br.ufms.facom.acctrace.views.SampleView"
-            id="br.ufms.facom.acctrace.views.SampleView">
-      </view>
-   </extension>
-   <extension
-         point="org.eclipse.ui.navigator.viewer">
-      <viewerActionBinding
-            viewerId="com.example.test">
-         <includes>
-            <actionExtension
-                  pattern="org.eclipse.ui.navigator.resources.*">
-            </actionExtension>
-         </includes>
-      </viewerActionBinding>
-      <viewerContentBinding
-            viewerId="com.example.test">
-         <includes>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resourceContent">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.filters.*">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.linkHelper">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.workingSets">
-            </contentExtension>
-         </includes>
-      </viewerContentBinding>
-   </extension>
-   <extension
-         point="org.eclipse.ui.perspectiveExtensions">
-      <perspectiveExtension
-            targetID="org.eclipse.ui.resourcePerspective">
-         <view
-               ratio="0.5"
-               relative="org.eclipse.ui.navigator.ProjectExplorer"
-               relationship="stack"
-               id="com.example.test">
-         </view>
-      </perspectiveExtension>
-      <perspectiveExtension
-            targetID="org.eclipse.jdt.ui.JavaPerspective">
-         <view
-               ratio="0.5"
-               relative="org.eclipse.ui.views.ProblemView"
-               relationship="right"
-               id="br.ufms.facom.acctrace.views.SampleView">
-         </view>
-      </perspectiveExtension>
-   </extension>
-   <extension
          point="org.eclipse.ui.decorators">
       <decorator
             lightweight="true"
             location="BOTTOM_RIGHT"
             adaptable="true"
-            label="Resource Decorator"
+            label="%decorator.label"
             icon="icons/sample_decorator.gif"
             state="true"
             id="br.ufms.facom.acctrace.decorator">
@@ -136,11 +67,11 @@
    <extension
          point="org.eclipse.ui.commands">
       <category
-            name="Sample Category"
+            name="%category.name.0"
             id="br.ufms.facom.acctrace.commands.category">
       </category>
       <command
-            name="Sample Command"
+            name="%command.name"
             categoryId="br.ufms.facom.acctrace.commands.category"
             id="br.ufms.facom.acctrace.commands.sampleCommand">
       </command>
@@ -166,12 +97,12 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="Sample Menu"
-               mnemonic="M"
+               label="%menu.label"
+               mnemonic="%menu.mnemonic"
                id="br.ufms.facom.acctrace.menus.sampleMenu">
             <command
                   commandId="br.ufms.facom.acctrace.commands.sampleCommand"
-                  mnemonic="S"
+                  mnemonic="%command.mnemonic"
                   id="br.ufms.facom.acctrace.menus.sampleCommand">
             </command>
          </menu>
@@ -183,7 +114,7 @@
             <command
                   commandId="br.ufms.facom.acctrace.commands.sampleCommand"
                   icon="icons/sample.gif"
-                  tooltip="Say hello world"
+                  tooltip="%command.tooltip"
                   id="br.ufms.facom.acctrace.toolbars.sampleCommand">
             </command>
          </toolbar>
@@ -214,24 +145,24 @@
    <extension
          point="org.eclipse.ui.importWizards">
       <category
-            name="Sample File Import"
+            name="%category.name.1"
             id="br.ufms.facom.acctrace.importWizards.sampleCategory">
       </category>
       <wizard
-            name="Import File"
+            name="%wizard.name"
             icon="icons/sample.gif"
             category="br.ufms.facom.acctrace.importWizards.sampleCategory"
             class="br.ufms.facom.acctrace.importWizards.ImportWizard"
             id="br.ufms.facom.acctrace.importWizards.ImportWizard">
          <description>
-            Import a file from the local file system into the workspace.
+            %wizard.description
          </description>
       </wizard>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            name="Sample Preferences"
+            name="%page.name"
             class="br.ufms.facom.acctrace.preferences.SamplePreferencePage"
             id="br.ufms.facom.acctrace.preferences.SamplePreferencePage">
       </page>
@@ -245,7 +176,7 @@
    <extension
          point="org.eclipse.ui.propertyPages">
       <page
-            name="Sample Page"
+            name="%page.name.0"
             nameFilter="*.*"
             class="br.ufms.facom.acctrace.properties.SamplePropertyPage"
             id="br.ufms.facom.acctrace.properties.samplePropertyPage">
@@ -277,21 +208,21 @@
             extensions="acctrace"
             icon="icons/sample.gif"
             id="br.ufms.facom.acctrace.editors.AccTraceEditor"
-            name="AccTrace Editor">
+            name="%editor.name">
       </editor>
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">
       <category
             id="br.ufms.facom.acctrace"
-            name="AccTrace">
+            name="%category.name.2">
       </category>
       <wizard
             category="br.ufms.facom.acctrace"
             class="br.ufms.facom.acctrace.wizards.AccTraceFileWizard"
             icon="icons/sample.gif"
             id="br.ufms.facom.acctrace.wizards.AccTraceFileWizard"
-            name="AccTrace File Wizard">
+            name="%wizard.name.0">
       </wizard>
    </extension>
 

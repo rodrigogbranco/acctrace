@@ -10,7 +10,7 @@ import org.eclipse.ui.forms.editor.FormEditor;
 
 /**
  * @author Rodrigo Branco
- *
+ * 
  */
 public class AccTraceEditor extends FormEditor {
 	/**
@@ -19,11 +19,11 @@ public class AccTraceEditor extends FormEditor {
 	public AccTraceEditor() {
 		super();
 	}
-	
+
 	@Override
 	protected void addPages() {
 		try {
-			addPage(new AccTraceFormPage(this,"AccTraceFormPage","AccTrace"));
+			addPage(new AccTraceFormPage(this, "AccTraceFormPage", "AccTrace"));
 		} catch (PartInitException e) {
 			e.printStackTrace();
 		} catch (CoreException e) {
@@ -37,16 +37,19 @@ public class AccTraceEditor extends FormEditor {
 			e.printStackTrace();
 		}
 	}
+
 	@Override
 	public void doSave(IProgressMonitor monitor) {
-		getActiveEditor().doSave(monitor);		
+		getActiveEditor().doSave(monitor);
 	}
+
 	@Override
 	public void doSaveAs() {
-		
+
 	}
+
 	@Override
 	public boolean isSaveAsAllowed() {
 		return false;
-	}	
+	}
 }

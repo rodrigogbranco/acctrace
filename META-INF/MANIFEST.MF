@@ -1,19 +1,36 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: AccTrace
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: br.ufms.facom.acctrace; singleton:=true
 Bundle-Version: 1.0.0.0
 Bundle-Activator: br.ufms.facom.acctrace.Activator
-Bundle-Vendor: FACOM UFMS
+Bundle-Vendor: %Bundle-Vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.jface.text;bundle-version="3.8.1",
  org.eclipse.ui.editors;bundle-version="3.8.0",
  org.eclipse.ui;bundle-version="3.103.0",
- org.apache.commons.lang;bundle-version="2.6.0",
  org.eclipse.ui.ide;bundle-version="3.8.1",
  org.eclipse.ui.forms;bundle-version="3.5.200",
  org.eclipse.core.runtime;bundle-version="3.8.0",
- org.eclipse.core.resources;bundle-version="3.8.1"
-Bundle-ClassPath: library/owlapi-distribution-3.4.3-bin.jar,
- .
+ org.eclipse.core.resources;bundle-version="3.8.1",
+ org.obeonetwork.dsl.requirement;bundle-version="1.1.0",
+ org.apache.log4j;bundle-version="1.2.15"
+Export-Package: br.ufms.facom.acctrace,
+ br.ufms.facom.acctrace.actions,
+ br.ufms.facom.acctrace.builder,
+ br.ufms.facom.acctrace.editors,
+ br.ufms.facom.acctrace.editors.filter,
+ br.ufms.facom.acctrace.handlers,
+ br.ufms.facom.acctrace.importWizards,
+ br.ufms.facom.acctrace.model,
+ br.ufms.facom.acctrace.model.impl,
+ br.ufms.facom.acctrace.model.util,
+ br.ufms.facom.acctrace.model.validation,
+ br.ufms.facom.acctrace.owl,
+ br.ufms.facom.acctrace.popup.actions,
+ br.ufms.facom.acctrace.preferences,
+ br.ufms.facom.acctrace.properties,
+ br.ufms.facom.acctrace.splashHandlers,
+ br.ufms.facom.acctrace.wizards
+

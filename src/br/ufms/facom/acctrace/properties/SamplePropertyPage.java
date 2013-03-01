@@ -3,6 +3,7 @@ package br.ufms.facom.acctrace.properties;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -12,15 +13,28 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.PropertyPage;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SamplePropertyPage.
+ */
 public class SamplePropertyPage extends PropertyPage {
 
+	/** The Constant PATH_TITLE. */
 	private static final String PATH_TITLE = "Path:";
+
+	/** The Constant OWNER_TITLE. */
 	private static final String OWNER_TITLE = "&Owner:";
+
+	/** The Constant OWNER_PROPERTY. */
 	private static final String OWNER_PROPERTY = "OWNER";
+
+	/** The Constant DEFAULT_OWNER. */
 	private static final String DEFAULT_OWNER = "John Doe";
 
+	/** The Constant TEXT_FIELD_WIDTH. */
 	private static final int TEXT_FIELD_WIDTH = 50;
 
+	/** The owner text. */
 	private Text ownerText;
 
 	/**
@@ -30,18 +44,31 @@ public class SamplePropertyPage extends PropertyPage {
 		super();
 	}
 
+	/**
+	 * Adds the first section.
+	 * 
+	 * @param parent
+	 *            the parent
+	 */
 	private void addFirstSection(Composite parent) {
 		Composite composite = createDefaultComposite(parent);
 
-		//Label for path field
+		// Label for path field
 		Label pathLabel = new Label(composite, SWT.NONE);
 		pathLabel.setText(PATH_TITLE);
 
 		// Path text field
 		Text pathValueText = new Text(composite, SWT.WRAP | SWT.READ_ONLY);
-		pathValueText.setText(((IResource) getElement()).getFullPath().toString());
+		pathValueText.setText(((IResource) getElement()).getFullPath()
+				.toString());
 	}
 
+	/**
+	 * Adds the separator.
+	 * 
+	 * @param parent
+	 *            the parent
+	 */
 	private void addSeparator(Composite parent) {
 		Label separator = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
 		GridData gridData = new GridData();
@@ -50,6 +77,12 @@ public class SamplePropertyPage extends PropertyPage {
 		separator.setLayoutData(gridData);
 	}
 
+	/**
+	 * Adds the second section.
+	 * 
+	 * @param parent
+	 *            the parent
+	 */
 	private void addSecondSection(Composite parent) {
 		Composite composite = createDefaultComposite(parent);
 
@@ -65,9 +98,8 @@ public class SamplePropertyPage extends PropertyPage {
 
 		// Populate owner text field
 		try {
-			String owner =
-				((IResource) getElement()).getPersistentProperty(
-					new QualifiedName("", OWNER_PROPERTY));
+			String owner = ((IResource) getElement())
+					.getPersistentProperty(new QualifiedName("", OWNER_PROPERTY));
 			ownerText.setText((owner != null) ? owner : DEFAULT_OWNER);
 		} catch (CoreException e) {
 			ownerText.setText(DEFAULT_OWNER);
@@ -75,6 +107,11 @@ public class SamplePropertyPage extends PropertyPage {
 	}
 
 	/**
+	 * Creates the contents.
+	 * 
+	 * @param parent
+	 *            the parent
+	 * @return the control
 	 * @see PreferencePage#createContents(Composite)
 	 */
 	protected Control createContents(Composite parent) {
@@ -91,6 +128,13 @@ public class SamplePropertyPage extends PropertyPage {
 		return composite;
 	}
 
+	/**
+	 * Creates the default composite.
+	 * 
+	 * @param parent
+	 *            the parent
+	 * @return the composite
+	 */
 	private Composite createDefaultComposite(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
@@ -105,18 +149,27 @@ public class SamplePropertyPage extends PropertyPage {
 		return composite;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.preference.PreferencePage#performDefaults()
+	 */
 	protected void performDefaults() {
 		super.performDefaults();
 		// Populate the owner text field with the default value
 		ownerText.setText(DEFAULT_OWNER);
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.preference.PreferencePage#performOk()
+	 */
 	public boolean performOk() {
 		// store the value in the owner text field
 		try {
-			((IResource) getElement()).setPersistentProperty(
-				new QualifiedName("", OWNER_PROPERTY),
-				ownerText.getText());
+			((IResource) getElement()).setPersistentProperty(new QualifiedName(
+					"", OWNER_PROPERTY), ownerText.getText());
 		} catch (CoreException e) {
 			return false;
 		}

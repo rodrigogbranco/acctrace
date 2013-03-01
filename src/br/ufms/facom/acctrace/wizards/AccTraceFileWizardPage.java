@@ -4,6 +4,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -20,6 +21,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
+// TODO: Auto-generated Javadoc
 /**
  * The "New" wizard page allows setting the container for the new file as well
  * as the file name. The page will only accept file name without the extension
@@ -27,16 +29,21 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
  */
 
 public class AccTraceFileWizardPage extends WizardPage {
+
+	/** The container text. */
 	private Text containerText;
 
+	/** The file text. */
 	private Text fileText;
 
+	/** The selection. */
 	private ISelection selection;
 
 	/**
 	 * Constructor for SampleNewWizardPage.
 	 * 
-	 * @param pageName
+	 * @param selection
+	 *            the selection
 	 */
 	public AccTraceFileWizardPage(ISelection selection) {
 		super("wizardPage");
@@ -46,6 +53,10 @@ public class AccTraceFileWizardPage extends WizardPage {
 	}
 
 	/**
+	 * Creates the control.
+	 * 
+	 * @param parent
+	 *            the parent
 	 * @see IDialogPage#createControl(Composite)
 	 */
 	public void createControl(Composite parent) {
@@ -170,15 +181,31 @@ public class AccTraceFileWizardPage extends WizardPage {
 		updateStatus(null);
 	}
 
+	/**
+	 * Update status.
+	 * 
+	 * @param message
+	 *            the message
+	 */
 	private void updateStatus(String message) {
 		setErrorMessage(message);
 		setPageComplete(message == null);
 	}
 
+	/**
+	 * Gets the container name.
+	 * 
+	 * @return the container name
+	 */
 	public String getContainerName() {
 		return containerText.getText();
 	}
 
+	/**
+	 * Gets the file name.
+	 * 
+	 * @return the file name
+	 */
 	public String getFileName() {
 		return fileText.getText();
 	}

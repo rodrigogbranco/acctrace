@@ -6,13 +6,16 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SampleNature.
+ */
 public class SampleNature implements IProjectNature {
 
-	/**
-	 * ID of this project nature
-	 */
+	/** ID of this project nature. */
 	public static final String NATURE_ID = "br.ufms.facom.acctrace.sampleNature";
 
+	/** The project. */
 	private IProject project;
 
 	/*
@@ -54,7 +57,7 @@ public class SampleNature implements IProjectNature {
 				System.arraycopy(commands, i + 1, newCommands, i,
 						commands.length - i - 1);
 				description.setBuildSpec(newCommands);
-				project.setDescription(description, null);			
+				project.setDescription(description, null);
 				return;
 			}
 		}
@@ -72,7 +75,9 @@ public class SampleNature implements IProjectNature {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.core.resources.IProjectNature#setProject(org.eclipse.core.resources.IProject)
+	 * @see
+	 * org.eclipse.core.resources.IProjectNature#setProject(org.eclipse.core
+	 * .resources.IProject)
 	 */
 	public void setProject(IProject project) {
 		this.project = project;

@@ -1,10 +1,26 @@
 package br.ufms.facom.acctrace.editors;
 
-import org.eclipse.jface.text.*;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.ITextDoubleClickStrategy;
+import org.eclipse.jface.text.ITextViewer;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class XMLDoubleClickStrategy.
+ */
 public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
+
+	/** The text. */
 	protected ITextViewer fText;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.jface.text.ITextDoubleClickStrategy#doubleClicked(org.eclipse
+	 * .jface.text.ITextViewer)
+	 */
 	public void doubleClicked(ITextViewer part) {
 		int pos = part.getSelectedRange().x;
 
@@ -17,6 +33,14 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 			selectWord(pos);
 		}
 	}
+
+	/**
+	 * Select comment.
+	 * 
+	 * @param caretPos
+	 *            the caret pos
+	 * @return true, if successful
+	 */
 	protected boolean selectComment(int caretPos) {
 		IDocument doc = fText.getDocument();
 		int startPos, endPos;
@@ -65,6 +89,14 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 
 		return false;
 	}
+
+	/**
+	 * Select word.
+	 * 
+	 * @param caretPos
+	 *            the caret pos
+	 * @return true, if successful
+	 */
 	protected boolean selectWord(int caretPos) {
 
 		IDocument doc = fText.getDocument();
@@ -104,6 +136,14 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 		return false;
 	}
 
+	/**
+	 * Select range.
+	 * 
+	 * @param startPos
+	 *            the start pos
+	 * @param stopPos
+	 *            the stop pos
+	 */
 	private void selectRange(int startPos, int stopPos) {
 		int offset = startPos + 1;
 		int length = stopPos - offset;

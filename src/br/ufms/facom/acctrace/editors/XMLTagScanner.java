@@ -1,14 +1,28 @@
 package br.ufms.facom.acctrace.editors;
 
-import org.eclipse.jface.text.*;
-import org.eclipse.jface.text.rules.*;
+import org.eclipse.jface.text.TextAttribute;
+import org.eclipse.jface.text.rules.IRule;
+import org.eclipse.jface.text.rules.IToken;
+import org.eclipse.jface.text.rules.RuleBasedScanner;
+import org.eclipse.jface.text.rules.SingleLineRule;
+import org.eclipse.jface.text.rules.Token;
+import org.eclipse.jface.text.rules.WhitespaceRule;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class XMLTagScanner.
+ */
 public class XMLTagScanner extends RuleBasedScanner {
 
+	/**
+	 * Instantiates a new xML tag scanner.
+	 * 
+	 * @param manager
+	 *            the manager
+	 */
 	public XMLTagScanner(ColorManager manager) {
-		IToken string =
-			new Token(
-				new TextAttribute(manager.getColor(IXMLColorConstants.STRING)));
+		IToken string = new Token(new TextAttribute(
+				manager.getColor(IXMLColorConstants.STRING)));
 
 		IRule[] rules = new IRule[3];
 
