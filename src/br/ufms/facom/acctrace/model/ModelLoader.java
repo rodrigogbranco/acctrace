@@ -7,12 +7,18 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.ui.IEditorInput;
+import org.obeonetwork.dsl.requirement.Repository;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -29,7 +35,10 @@ public final class ModelLoader {
 	 * Instantiates a new model loader.
 	 */
 	private ModelLoader() {
-		// TODO Auto-generated constructor stub
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				ModelPackage.eNS_URI, ModelPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI,
+				ModelPackage.eINSTANCE);
 	}
 
 	/**
@@ -46,21 +55,22 @@ public final class ModelLoader {
 	 * 
 	 * @param nameFile
 	 *            the name file
+	 * @param container
+	 *            the container
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
+	 * @throws CoreException
+	 *             the core exception
 	 */
-	public void initializeAccTraceModel(String nameFile) throws IOException {
-		ModelPackage.eINSTANCE.eClass();
-
-		ModelFactory factory = ModelFactory.eINSTANCE;
-		AccTraceModel model = factory.createAccTraceModel();
-
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("acctrace", new XMIResourceFactoryImpl());
+	public void initializeAccTraceModel(String nameFile, IContainer container)
+			throws IOException, CoreException {
+		AccTraceModel model = ModelFactory.eINSTANCE.createAccTraceModel();
 
 		ResourceSet resSet = new ResourceSetImpl();
 		Resource resource = resSet.createResource(URI.createURI(nameFile));
+
+		if (container != null)
+			loadRequirementFiles(model, container);
 
 		resource.getContents().add(model);
 
@@ -69,4 +79,76 @@ public final class ModelLoader {
 		resource.save(options);
 	}
 
+	/**
+	 * Gets the acc trace model.
+	 * 
+	 * @param file
+	 *            the file
+	 * @return the acc trace model
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	public AccTraceModel getAccTraceModel(IEditorInput file) throws IOException {
+		ResourceSet resSet = new ResourceSetImpl();
+		Resource resource = resSet.getResource(URI.createURI(file.getName()),
+				true);
+
+		return (AccTraceModel) resource.getContents().get(0);
+	}
+
+	/**
+	 * Load requirement files.
+	 * 
+	 * @param model
+	 *            the model
+	 * @param container
+	 *            the container
+	 * @throws CoreException
+	 *             the core exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	private void loadRequirementFiles(AccTraceModel model, IContainer container)
+			throws CoreException, IOException {
+		for (IResource member : container.members()) {
+			if (member.getType() == IResource.FILE
+					&& ((IFile) member).getFileExtension()
+							.equals("requirement"))
+				model.getRequirementRepositories().add(
+						getRequirementRepository((IFile) member));
+		}
+	}
+
+	/**
+	 * Gets the requirement repository.
+	 * 
+	 * @param file
+	 *            the file
+	 * @return the requirement repository
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	public Repository getRequirementRepository(IFile file) throws IOException {
+		ResourceSet resSet = new ResourceSetImpl();
+		Resource resource = resSet.getResource(URI.createPlatformResourceURI(
+				file.getFullPath().toString(), true), true);
+		return (Repository) resource.getContents().get(0);
+	}
+
+	/**
+	 * Gets the requirement repository.
+	 * 
+	 * @param filePath
+	 *            the file path
+	 * @return the requirement repository
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	public Repository getRequirementRepository(String filePath)
+			throws IOException {
+		ResourceSet resSet = new ResourceSetImpl();
+		Resource resource = resSet.getResource(
+				URI.createPlatformResourceURI(filePath, true), true);
+		return (Repository) resource.getContents().get(0);
+	}
 }

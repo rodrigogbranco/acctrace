@@ -15,7 +15,6 @@ import br.ufms.facom.acctrace.model.OWLOntology;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementContainer;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.RequirementRepository;
 import br.ufms.facom.acctrace.model.UMLModel;
 
 // TODO: Auto-generated Javadoc
@@ -78,8 +77,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return createUMLModel();
 		case ModelPackage.REQUIREMENT_CONTAINER:
 			return createRequirementContainer();
-		case ModelPackage.REQUIREMENT_REPOSITORY:
-			return createRequirementRepository();
 		case ModelPackage.REQUIREMENT_FILTER:
 			return createRequirementFilter();
 		default:
@@ -141,17 +138,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public RequirementContainer createRequirementContainer() {
 		RequirementContainerImpl requirementContainer = new RequirementContainerImpl();
 		return requirementContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
-	 * 
-	 * @return the requirement repository
-	 * @generated
-	 */
-	public RequirementRepository createRequirementRepository() {
-		RequirementRepositoryImpl requirementRepository = new RequirementRepositoryImpl();
-		return requirementRepository;
 	}
 
 	/**

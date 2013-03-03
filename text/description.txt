@@ -15,8 +15,8 @@ Package model <http://facom.ufms.br/acctrace>
 
   Class AccTraceModel
     Reference references : Reference<<0..*>>
-    Reference requirementRepositories : RequirementRepository<<0..*>>
     Reference filterType : RequirementFilter<<0..*>>
+    Reference requirementRepositories : Repository<<0..*>>
 
   Class OWLOntology
     Attribute path : EString
@@ -28,9 +28,6 @@ Package model <http://facom.ufms.br/acctrace>
     Attribute path : EString
 
   Class RequirementContainer -> NamedElement
-    Attribute id : EString
-
-  Class RequirementRepository -> Repository
     Attribute id : EString
 
   Class RequirementFilter

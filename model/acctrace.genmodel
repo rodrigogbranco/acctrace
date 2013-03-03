@@ -14,8 +14,8 @@
     </genClasses>
     <genClasses provider="None" ecoreClass="acctrace.ecore#//AccTraceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/references"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/requirementRepositories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/filterType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/requirementRepositories"/>
     </genClasses>
     <genClasses provider="None" ecoreClass="acctrace.ecore#//OWLOntology">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//OWLOntology/path"/>
@@ -28,9 +28,6 @@
     </genClasses>
     <genClasses ecoreClass="acctrace.ecore#//RequirementContainer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//RequirementContainer/id"/>
-    </genClasses>
-    <genClasses provider="None" ecoreClass="acctrace.ecore#//RequirementRepository">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//RequirementRepository/id"/>
     </genClasses>
     <genClasses ecoreClass="acctrace.ecore#//RequirementFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//RequirementFilter/requirementType"/>

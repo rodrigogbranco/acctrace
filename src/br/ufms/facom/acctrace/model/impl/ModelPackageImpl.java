@@ -16,7 +16,6 @@ import br.ufms.facom.acctrace.model.OWLOntology;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementContainer;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.RequirementRepository;
 import br.ufms.facom.acctrace.model.UMLModel;
 
 // TODO: Auto-generated Javadoc
@@ -42,9 +41,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private EClass requirementContainerEClass = null;
-
-	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
-	private EClass requirementRepositoryEClass = null;
 
 	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private EClass requirementFilterEClass = null;
@@ -190,20 +186,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
 	 * 
-	 * @return the acc trace model_ requirement repositories
+	 * @return the acc trace model_ filter type
 	 * @generated
 	 */
-	public EReference getAccTraceModel_RequirementRepositories() {
+	public EReference getAccTraceModel_FilterType() {
 		return (EReference) accTraceModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
 	 * 
-	 * @return the acc trace model_ filter type
+	 * @return the acc trace model_ requirement repositories
 	 * @generated
 	 */
-	public EReference getAccTraceModel_FilterType() {
+	public EReference getAccTraceModel_RequirementRepositories() {
 		return (EReference) accTraceModelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -301,27 +297,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
 	 * 
-	 * @return the requirement repository
-	 * @generated
-	 */
-	public EClass getRequirementRepository() {
-		return requirementRepositoryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
-	 * 
-	 * @return the requirement repository_ id
-	 * @generated
-	 */
-	public EAttribute getRequirementRepository_Id() {
-		return (EAttribute) requirementRepositoryEClass
-				.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
-	 * 
 	 * @return the requirement filter
 	 * @generated
 	 */
@@ -396,9 +371,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		accTraceModelEClass = createEClass(ACC_TRACE_MODEL);
 		createEReference(accTraceModelEClass, ACC_TRACE_MODEL__REFERENCES);
+		createEReference(accTraceModelEClass, ACC_TRACE_MODEL__FILTER_TYPE);
 		createEReference(accTraceModelEClass,
 				ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES);
-		createEReference(accTraceModelEClass, ACC_TRACE_MODEL__FILTER_TYPE);
 
 		owlOntologyEClass = createEClass(OWL_ONTOLOGY);
 		createEAttribute(owlOntologyEClass, OWL_ONTOLOGY__PATH);
@@ -411,10 +386,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		requirementContainerEClass = createEClass(REQUIREMENT_CONTAINER);
 		createEAttribute(requirementContainerEClass, REQUIREMENT_CONTAINER__ID);
-
-		requirementRepositoryEClass = createEClass(REQUIREMENT_REPOSITORY);
-		createEAttribute(requirementRepositoryEClass,
-				REQUIREMENT_REPOSITORY__ID);
 
 		requirementFilterEClass = createEClass(REQUIREMENT_FILTER);
 		createEAttribute(requirementFilterEClass,
@@ -455,8 +426,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		umlModelEClass.getESuperTypes().add(ecorePackage.getEObject());
 		requirementContainerEClass.getESuperTypes().add(
 				theRequirementPackage.getNamedElement());
-		requirementRepositoryEClass.getESuperTypes().add(
-				theRequirementPackage.getRepository());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT,
@@ -487,17 +456,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getAccTraceModel_RequirementRepositories(),
-				this.getRequirementRepository(), null,
-				"requirementRepositories", null, 0, -1, AccTraceModel.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEReference(getAccTraceModel_FilterType(),
 				this.getRequirementFilter(), null, "filterType", null, 0, -1,
 				AccTraceModel.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAccTraceModel_RequirementRepositories(),
+				theRequirementPackage.getRepository(), null,
+				"requirementRepositories", null, 0, -1, AccTraceModel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(owlOntologyEClass, OWLOntology.class, "OWLOntology",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -533,15 +502,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 				"id", null, 0, 1, RequirementContainer.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-
-		initEClass(requirementRepositoryEClass, RequirementRepository.class,
-				"RequirementRepository", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRequirementRepository_Id(),
-				ecorePackage.getEString(), "id", null, 0, 1,
-				RequirementRepository.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(requirementFilterEClass, RequirementFilter.class,
 				"RequirementFilter", !IS_ABSTRACT, !IS_INTERFACE,

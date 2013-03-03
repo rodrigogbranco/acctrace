@@ -13,10 +13,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="AccTraceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//Reference" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementRepositories"
-        upperBound="-1" eType="#//RequirementRepository" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="filterType" upperBound="-1"
         eType="#//RequirementFilter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementRepositories"
+        upperBound="-1" eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Repository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OWLOntology">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -29,9 +29,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementContainer" eSuperTypes="platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RequirementRepository" eSuperTypes="platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Repository">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementFilter">

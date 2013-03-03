@@ -67,11 +67,13 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	public boolean performFinish() {
 		final String containerName = page.getContainerName();
 		final String fileName = page.getFileName();
+		final boolean isToAddRequirementFile = page.isToAddRequirementFiles();
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException {
 				try {
-					doFinish(containerName, fileName, monitor);
+					doFinish(containerName, fileName, monitor,
+							isToAddRequirementFile);
 				} catch (CoreException | IOException e) {
 					throw new InvocationTargetException(e);
 				} finally {
@@ -101,7 +103,8 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	 */
 
 	private void doFinish(String containerName, String fileName,
-			IProgressMonitor monitor) throws CoreException, IOException {
+			IProgressMonitor monitor, boolean addReqFile) throws CoreException,
+			IOException {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -112,7 +115,11 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 		}
 		IContainer container = (IContainer) resource;
 		final IFile file = container.getFile(new Path(fileName));
-		ModelLoader.getInstance().initializeAccTraceModel(fileName);
+		if (addReqFile)
+			ModelLoader.getInstance().initializeAccTraceModel(fileName,
+					container);
+		else
+			ModelLoader.getInstance().initializeAccTraceModel(fileName, null);
 		InputStream stream = new FileInputStream(fileName);
 		if (file.exists()) {
 			file.setContents(stream, true, true, monitor);

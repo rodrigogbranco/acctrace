@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.obeonetwork.dsl.requirement.NamedElement;
-import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.model.AccTraceModel;
 import br.ufms.facom.acctrace.model.ModelPackage;
@@ -14,7 +13,6 @@ import br.ufms.facom.acctrace.model.OWLOntology;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementContainer;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.RequirementRepository;
 import br.ufms.facom.acctrace.model.UMLModel;
 
 // TODO: Auto-generated Javadoc
@@ -112,17 +110,6 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseRequirementContainer(requirementContainer);
 			if (result == null)
 				result = caseNamedElement(requirementContainer);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ModelPackage.REQUIREMENT_REPOSITORY: {
-			RequirementRepository requirementRepository = (RequirementRepository) theEObject;
-			T result = caseRequirementRepository(requirementRepository);
-			if (result == null)
-				result = caseRepository(requirementRepository);
-			if (result == null)
-				result = caseNamedElement(requirementRepository);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -226,23 +213,6 @@ public class ModelSwitch<T> extends Switch<T> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Requirement Repository</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Requirement Repository</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequirementRepository(RequirementRepository object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '
 	 * <em>Requirement Filter</em>'. <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
@@ -272,23 +242,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Repository</em>'. <!-- begin-user-doc --> This implementation returns
-	 * null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Repository</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRepository(Repository object) {
 		return null;
 	}
 

@@ -1,5 +1,7 @@
 package br.ufms.facom.acctrace.editors;
 
+import java.io.IOException;
+
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.runtime.CoreException;
@@ -33,6 +35,9 @@ public class AccTraceEditor extends FormEditor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

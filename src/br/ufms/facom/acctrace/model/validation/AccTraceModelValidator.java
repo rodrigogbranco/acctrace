@@ -5,10 +5,10 @@
 package br.ufms.facom.acctrace.model.validation;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.RequirementRepository;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -38,15 +38,6 @@ public interface AccTraceModelValidator {
 	boolean validateReferences(EList<Reference> value);
 
 	/**
-	 * Validate requirement repositories.
-	 * 
-	 * @param value
-	 *            the value
-	 * @return true, if successful
-	 */
-	boolean validateRequirementRepositories(EList<RequirementRepository> value);
-
-	/**
 	 * Validate filter type.
 	 * 
 	 * @param value
@@ -54,4 +45,13 @@ public interface AccTraceModelValidator {
 	 * @return true, if successful
 	 */
 	boolean validateFilterType(EList<RequirementFilter> value);
+
+	/**
+	 * Validate requirement repositories.
+	 * 
+	 * @param value
+	 *            the value
+	 * @return true, if successful
+	 */
+	boolean validateRequirementRepositories(EList<Repository> value);
 }

@@ -3,10 +3,20 @@
  */
 package br.ufms.facom.acctrace.editors;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -31,38 +41,75 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.model.BaseWorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
+import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.editors.filter.AccTraceFileFilter;
+import br.ufms.facom.acctrace.model.AccTraceModel;
+import br.ufms.facom.acctrace.model.ModelLoader;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rodrigo Branco
+ * The Class AccTraceFormPage.
  * 
+ * @author Rodrigo Branco
  */
 public class AccTraceFormPage extends FormPage {
 
+	/** The input file. */
 	private IEditorInput inputFile;
 
+	/** The requirement files list. */
 	private List requirementFilesList;
 
+	/** The model. */
+	private AccTraceModel model;
+
+	/** The options. */
+	private Map<String, Object> options = new HashMap<String, Object>();
+
 	/**
+	 * Instantiates a new acc trace form page.
+	 * 
 	 * @param editor
+	 *            the editor
 	 * @param id
+	 *            the id
 	 * @param title
+	 *            the title
 	 * @throws CoreException
+	 *             the core exception
 	 * @throws BadLocationException
+	 *             the bad location exception
 	 * @throws ParserConfigurationException
+	 *             the parser configuration exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public AccTraceFormPage(FormEditor editor, String id, String title)
 			throws CoreException, BadLocationException,
-			ParserConfigurationException {
+			ParserConfigurationException, IOException {
 		super(editor, id, title);
+
 		inputFile = editor.getEditorInput();
+
+		ResourceSet resSet = new ResourceSetImpl();
+
+		options.put(XMIResource.OPTION_ENCODING, "UTF-8");
+
+		ModelLoader.getInstance();
+
+		Resource resource = resSet.getResource(
+				URI.createURI(((IFileEditorInput) inputFile).getFile()
+						.getFullPath().toString()), true);
+
+		model = (AccTraceModel) resource.getContents().get(0);
 	}
 
 	/**
 	 * Create contents of the form.
 	 * 
 	 * @param managedForm
+	 *            the managed form
 	 */
 	@Override
 	protected void createFormContent(IManagedForm managedForm) {
@@ -121,30 +168,65 @@ public class AccTraceFormPage extends FormPage {
 		 */
 	}
 
+	/**
+	 * Creates the section of requirement files associated.
+	 * 
+	 * @param mform
+	 *            the mform
+	 * @param title
+	 *            the title
+	 * @param desc
+	 *            the desc
+	 */
 	private void createSectionOfRequirementFilesAssociated(IManagedForm mform,
 			String title, String desc) {
 		Composite client = createSection(mform, title, desc, 1);
 
 		requirementFilesList = new List(client, SWT.MULTI);
 
-		// TODO load requirement List with model data
+		// Loading requirement List with model data
+		for (EObject object : model.getRequirementRepositories()) {
+			Repository repository = (Repository) object;
+			requirementFilesList
+					.add(repository.eResource().getURI().toString());
+		}
 
 		Button buttonAdd = new Button(client, SWT.PUSH);
 		buttonAdd.setText("Add...");
 		buttonAdd.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				handleAdd();
+				try {
+					handleAdd();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		Button buttonRemove = new Button(client, SWT.PUSH);
 		buttonRemove.setText("Remove");
 		buttonRemove.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				handleRemove();
+				try {
+					handleRemove();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
 
+	/**
+	 * Creates the section of model to technique mapping.
+	 * 
+	 * @param mform
+	 *            the mform
+	 * @param title
+	 *            the title
+	 * @param desc
+	 *            the desc
+	 */
 	private void createSectionOfModelToTechniqueMapping(IManagedForm mform,
 			String title, String desc) {
 		Composite client = createSection(mform, title, desc, 1);
@@ -152,7 +234,13 @@ public class AccTraceFormPage extends FormPage {
 		// TODO load Model
 	}
 
-	private void handleRemove() {
+	/**
+	 * Handle remove.
+	 * 
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	private void handleRemove() throws IOException {
 		if (requirementFilesList.getSelectionIndex() == -1) {
 			// No requirement file selected
 			MessageBox dialog = new MessageBox(getSite().getShell(),
@@ -161,15 +249,31 @@ public class AccTraceFormPage extends FormPage {
 			dialog.setMessage("You must choose which requirement file you want to remove.");
 			dialog.open();
 		} else {
-			// TODO unbind from model
-
-			// Remove from List
-			requirementFilesList.remove(requirementFilesList
+			// unbinding from model
+			String filePath = requirementFilesList.getItem(requirementFilesList
 					.getSelectionIndex());
+			Repository repository = ModelLoader.getInstance()
+					.getRequirementRepository(filePath.substring(18));
+			for (Repository rep : model.getRequirementRepositories()) {
+				if (rep.eResource().getURI()
+						.equals(repository.eResource().getURI())) {
+					model.getRequirementRepositories().remove(rep);
+					model.eResource().save(options);
+					requirementFilesList.remove(requirementFilesList
+							.getSelectionIndex());
+					break;
+				}
+			}
 		}
 	}
 
-	private void handleAdd() {
+	/**
+	 * Handle add.
+	 * 
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	private void handleAdd() throws IOException {
 
 		ElementTreeSelectionDialog dialog = new ElementTreeSelectionDialog(
 				getSite().getShell(), new WorkbenchLabelProvider(),
@@ -179,7 +283,21 @@ public class AccTraceFormPage extends FormPage {
 		if (dialog.open() == ContainerSelectionDialog.OK) {
 			Object[] result = dialog.getResult();
 			if (result.length == 1) {
-				requirementFilesList.add(((IFile) result[0]).getName());
+				Repository repository = ModelLoader.getInstance()
+						.getRequirementRepository((IFile) result[0]);
+				if (requirementFilesList.indexOf(repository.eResource()
+						.getURI().toString()) == -1) {
+					model.getRequirementRepositories().add(repository);
+					model.eResource().save(options);
+					requirementFilesList.add(repository.eResource().getURI()
+							.toString());
+				} else {
+					MessageBox mBox = new MessageBox(getSite().getShell(),
+							SWT.ICON_ERROR | SWT.OK);
+					mBox.setText("Inclusion Error");
+					mBox.setMessage("This resource is already added to list.");
+					mBox.open();
+				}
 			}
 		}
 	}
@@ -213,6 +331,19 @@ public class AccTraceFormPage extends FormPage {
 	 * text.setLayoutData(gd); toolkit.paintBordersFor(client); }
 	 */
 
+	/**
+	 * Creates the section.
+	 * 
+	 * @param mform
+	 *            the mform
+	 * @param title
+	 *            the title
+	 * @param desc
+	 *            the desc
+	 * @param numColumns
+	 *            the num columns
+	 * @return the composite
+	 */
 	private Composite createSection(IManagedForm mform, String title,
 			String desc, int numColumns) {
 		final ScrolledForm form = mform.getForm();

@@ -67,15 +67,6 @@ public interface ModelFactory extends EFactory {
 	RequirementContainer createRequirementContainer();
 
 	/**
-	 * Returns a new object of class '<em>Requirement Repository</em>'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Requirement Repository</em>'.
-	 * @generated
-	 */
-	RequirementRepository createRequirementRepository();
-
-	/**
 	 * Returns a new object of class '<em>Requirement Filter</em>'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 

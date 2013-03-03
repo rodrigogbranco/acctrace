@@ -7,7 +7,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.requirement.NamedElement;
-import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.model.AccTraceModel;
 import br.ufms.facom.acctrace.model.ModelPackage;
@@ -15,7 +14,6 @@ import br.ufms.facom.acctrace.model.OWLOntology;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementContainer;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.RequirementRepository;
 import br.ufms.facom.acctrace.model.UMLModel;
 
 /**
@@ -99,11 +97,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseRequirementRepository(RequirementRepository object) {
-			return createRequirementRepositoryAdapter();
-		}
-
-		@Override
 		public Adapter caseRequirementFilter(RequirementFilter object) {
 			return createRequirementFilterAdapter();
 		}
@@ -111,11 +104,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseRepository(Repository object) {
-			return createRepositoryAdapter();
 		}
 
 		@Override
@@ -217,22 +205,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '
-	 * {@link br.ufms.facom.acctrace.model.RequirementRepository
-	 * <em>Requirement Repository</em>}'. <!-- begin-user-doc --> This default
-	 * implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see br.ufms.facom.acctrace.model.RequirementRepository
-	 * @generated
-	 */
-	public Adapter createRequirementRepositoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '
 	 * {@link br.ufms.facom.acctrace.model.RequirementFilter
 	 * <em>Requirement Filter</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
@@ -260,21 +232,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.obeonetwork.dsl.requirement.Repository <em>Repository</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.requirement.Repository
-	 * @generated
-	 */
-	public Adapter createRepositoryAdapter() {
 		return null;
 	}
 

@@ -39,6 +39,9 @@ public class AccTraceFileWizardPage extends WizardPage {
 	/** The selection. */
 	private ISelection selection;
 
+	/** The add requirement resources. */
+	private Button addRequirementResources;
+
 	/**
 	 * Constructor for SampleNewWizardPage.
 	 * 
@@ -88,6 +91,11 @@ public class AccTraceFileWizardPage extends WizardPage {
 		label.setText("&File name:");
 
 		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
+
+		addRequirementResources = new Button(container, SWT.CHECK);
+		addRequirementResources.setText("Add all Requirement Files Resources");
+		addRequirementResources.setSelection(true);
+
 		gd = new GridData(GridData.FILL_HORIZONTAL);
 		fileText.setLayoutData(gd);
 		fileText.addModifyListener(new ModifyListener() {
@@ -208,5 +216,14 @@ public class AccTraceFileWizardPage extends WizardPage {
 	 */
 	public String getFileName() {
 		return fileText.getText();
+	}
+
+	/**
+	 * Checks if is to add requirement files.
+	 * 
+	 * @return true, if is to add requirement files
+	 */
+	public boolean isToAddRequirementFiles() {
+		return addRequirementResources.getSelection();
 	}
 }
