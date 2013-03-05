@@ -199,6 +199,9 @@
       <contexts
             file="contexts.xml">
       </contexts>
+      <contexts
+            file="contexts.xml">
+      </contexts>
    </extension>
    <extension
          point="org.eclipse.ui.editors">
@@ -225,5 +228,4 @@
             name="%wizard.name.0">
       </wizard>
    </extension>
-
 </plugin>

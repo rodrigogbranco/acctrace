@@ -9,15 +9,21 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.UMLPackage;
 import org.obeonetwork.dsl.requirement.Repository;
 
 // TODO: Auto-generated Javadoc
@@ -31,14 +37,26 @@ public final class ModelLoader {
 	/** The Constant instance. */
 	private static final ModelLoader instance = new ModelLoader();
 
+	/** The options. */
+	private static Map<String, Object> options;
+
 	/**
 	 * Instantiates a new model loader.
 	 */
 	private ModelLoader() {
+		options = new HashMap<String, Object>();
+
+		options.put(XMIResource.OPTION_ENCODING, "UTF-8");
+
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				ModelPackage.eNS_URI, ModelPackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI,
 				ModelPackage.eINSTANCE);
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE
+				.put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
+
 	}
 
 	/**
@@ -74,8 +92,6 @@ public final class ModelLoader {
 
 		resource.getContents().add(model);
 
-		Map<String, Object> options = new HashMap<String, Object>();
-		options.put(XMIResource.OPTION_ENCODING, "UTF-8");
 		resource.save(options);
 	}
 
@@ -116,6 +132,8 @@ public final class ModelLoader {
 							.equals("requirement"))
 				model.getRequirementRepositories().add(
 						getRequirementRepository((IFile) member));
+			else if (member.getType() == IResource.FOLDER)
+				loadRequirementFiles(model, (IFolder) member);
 		}
 	}
 
@@ -150,5 +168,34 @@ public final class ModelLoader {
 		Resource resource = resSet.getResource(
 				URI.createPlatformResourceURI(filePath, true), true);
 		return (Repository) resource.getContents().get(0);
+	}
+
+	/**
+	 * Load.
+	 * 
+	 * @param inputFile
+	 *            the input file
+	 * @return the acc trace model
+	 */
+	public AccTraceModel load(IEditorInput inputFile) {
+		ResourceSet resSet = new ResourceSetImpl();
+
+		Resource resource = resSet.getResource(
+				URI.createURI(((IFileEditorInput) inputFile).getFile()
+						.getFullPath().toString()), true);
+
+		return (AccTraceModel) resource.getContents().get(0);
+	}
+
+	/**
+	 * Load uml model.
+	 *
+	 * @param eObj the e obj
+	 * @return the model
+	 */
+	public Model loadUMLModel(EObject eObj) {
+		ResourceSet resSet = new ResourceSetImpl();
+		Resource resource = resSet.getResource(EcoreUtil.getURI(eObj), true);
+		return (Model) resource.getContents().get(0);
 	}
 }
