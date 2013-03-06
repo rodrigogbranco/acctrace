@@ -202,6 +202,12 @@
       <contexts
             file="contexts.xml">
       </contexts>
+      <contexts
+            file="contexts.xml">
+      </contexts>
+      <contexts
+            file="contexts.xml">
+      </contexts>
    </extension>
    <extension
          point="org.eclipse.ui.editors">
@@ -227,5 +233,47 @@
             id="br.ufms.facom.acctrace.wizards.AccTraceFileWizard"
             name="%wizard.name.0">
       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="br.ufms.facom.acctrace"
+            name="AccTrace">
+      </category>
+      <view
+            category="br.ufms.facom.acctrace"
+            class="br.ufms.facom.acctrace.views.RequirementView"
+            icon="icons/sample.gif"
+            id="br.ufms.facom.acctrace.views.RequirementView"
+            name="Requirement  Associations">
+      </view>
+      <view
+            category="br.ufms.facom.acctrace"
+            class="br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"
+            icon="icons/sample.gif"
+            id="br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"
+            name="Acessibility Specifications View">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="br.ufms.facom.acctrace.views.RequirementView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.ProblemView">
+         </view>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.ProblemView">
+         </view>
+      </perspectiveExtension>
    </extension>
 </plugin>

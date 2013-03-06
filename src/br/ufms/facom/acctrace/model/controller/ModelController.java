@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.NamedElement;
 import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.model.AccTraceModel;
@@ -137,11 +138,29 @@ public final class ModelController {
 
 	/**
 	 * Load uml model.
-	 *
-	 * @param eObj the e obj
+	 * 
+	 * @param eObj
+	 *            the e obj
 	 * @return the model
 	 */
 	public Model loadUMLModel(EObject eObj) {
 		return loader.loadUMLModel(eObj);
+	}
+
+	/**
+	 * Gets the label.
+	 * 
+	 * @param pElement
+	 *            the element
+	 * @return the label
+	 */
+	public String getLabel(NamedElement pElement) {
+		int lastIndexofPeriod = pElement.getClass().toString().lastIndexOf(".");
+		int indexOfImpl = pElement.getClass().toString().indexOf("Impl");
+		String umlClass = pElement.getClass().toString()
+				.substring(lastIndexofPeriod + 1, indexOfImpl);
+		umlClass += pElement.getQualifiedName() != null ? pElement
+				.getQualifiedName() : "";
+		return umlClass;
 	}
 }

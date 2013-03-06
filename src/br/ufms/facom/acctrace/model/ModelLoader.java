@@ -189,8 +189,9 @@ public final class ModelLoader {
 
 	/**
 	 * Load uml model.
-	 *
-	 * @param eObj the e obj
+	 * 
+	 * @param eObj
+	 *            the e obj
 	 * @return the model
 	 */
 	public Model loadUMLModel(EObject eObj) {
