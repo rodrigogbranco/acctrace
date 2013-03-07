@@ -87,18 +87,18 @@ public class RequirementView extends ViewPart implements
 			return "Name: " + req.getName() + " ID: " + req.getId();
 		}
 
+		@SuppressWarnings("deprecation")
 		public Image getColumnImage(Object obj, int index) {
 			Requirement req = (Requirement) obj;
-			System.out.println(req.getType());
 			if (req.getType() == RequirementType.TECHNICAL)
 				return PlatformUI.getWorkbench().getSharedImages()
 						.getImage(ISharedImages.IMG_OBJS_INFO_TSK);
-			else if (req.getType() == RequirementType.FUNCTIONAL)
+			if (req.getType() == RequirementType.FUNCTIONAL)
 				return PlatformUI.getWorkbench().getSharedImages()
-						.getImage(ISharedImages.IMG_OBJS_BKMRK_TSK);
-			else
-				return PlatformUI.getWorkbench().getSharedImages()
-						.getImage(ISharedImages.IMG_OBJS_WARN_TSK);
+						.getImage(ISharedImages.IMG_OBJS_TASK_TSK);
+
+			return PlatformUI.getWorkbench().getSharedImages()
+					.getImage(ISharedImages.IMG_OBJS_WARN_TSK);
 		}
 	}
 
@@ -121,7 +121,6 @@ public class RequirementView extends ViewPart implements
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setSorter(new NameSorter());
-		// viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem()

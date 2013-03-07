@@ -38,6 +38,7 @@ import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.editors.filter.AccTraceFileFilter;
 import br.ufms.facom.acctrace.model.controller.ModelController;
+import br.ufms.facom.acctrace.views.AccessibilitySpecificationsView;
 import br.ufms.facom.acctrace.views.RequirementView;
 
 // TODO: Auto-generated Javadoc
@@ -234,6 +235,13 @@ public class AccTraceFormPage extends FormPage {
 		refView.addPropertyChangeListener((RequirementView) PlatformUI
 				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
 				.findView("br.ufms.facom.acctrace.views.RequirementView"));
+
+		refView.addPropertyChangeListener((AccessibilitySpecificationsView) PlatformUI
+				.getWorkbench()
+				.getActiveWorkbenchWindow()
+				.getActivePage()
+				.findView(
+						"br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"));
 	}
 
 	/**

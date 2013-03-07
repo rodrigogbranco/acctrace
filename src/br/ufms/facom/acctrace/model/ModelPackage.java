@@ -67,13 +67,13 @@ public interface ModelPackage extends EPackage {
 	int REFERENCE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Uml Models</b></em>' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Uml Model</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__UML_MODELS = 0;
+	int REFERENCE__UML_MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Requirement Container</b></em>'
@@ -344,17 +344,17 @@ public interface ModelPackage extends EPackage {
 	EClass getReference();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link br.ufms.facom.acctrace.model.Reference#getUmlModels
-	 * <em>Uml Models</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the containment reference '
+	 * {@link br.ufms.facom.acctrace.model.Reference#getUmlModel
+	 * <em>Uml Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '
-	 *         <em>Uml Models</em>'.
-	 * @see br.ufms.facom.acctrace.model.Reference#getUmlModels()
+	 * @return the meta object for the containment reference '<em>Uml Model</em>
+	 *         '.
+	 * @see br.ufms.facom.acctrace.model.Reference#getUmlModel()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_UmlModels();
+	EReference getReference_UmlModel();
 
 	/**
 	 * Returns the meta object for the containment reference '
@@ -371,11 +371,11 @@ public interface ModelPackage extends EPackage {
 	EReference getReference_RequirementContainer();
 
 	/**
-	 * Returns the meta object for the reference '
+	 * Returns the meta object for the reference list '
 	 * {@link br.ufms.facom.acctrace.model.Reference#getOntologies
 	 * <em>Ontologies</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference '<em>Ontologies</em>'.
+	 * @return the meta object for the reference list '<em>Ontologies</em>'.
 	 * @see br.ufms.facom.acctrace.model.Reference#getOntologies()
 	 * @see #getReference()
 	 * @generated
@@ -636,13 +636,13 @@ public interface ModelPackage extends EPackage {
 		EClass REFERENCE = eINSTANCE.getReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Uml Models</b></em>'
-		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Uml Model</b></em>'
+		 * containment reference feature. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference REFERENCE__UML_MODELS = eINSTANCE.getReference_UmlModels();
+		EReference REFERENCE__UML_MODEL = eINSTANCE.getReference_UmlModel();
 
 		/**
 		 * The meta object literal for the '
@@ -656,7 +656,7 @@ public interface ModelPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Ontologies</b></em>'
-		 * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */

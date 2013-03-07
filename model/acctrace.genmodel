@@ -7,7 +7,7 @@
   <genPackages prefix="Model" basePackage="br.ufms.facom.acctrace" disposableProviderFactory="true"
       ecorePackage="acctrace.ecore#/">
     <genClasses provider="None" ecoreClass="acctrace.ecore#//Reference">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/umlModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/umlModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/requirementContainer"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/ontologies"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//Reference/id"/>

@@ -124,12 +124,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the reference_ uml models
 	 * @generated
 	 */
-	public EReference getReference_UmlModels() {
+	public EReference getReference_UmlModel() {
 		return (EReference) referenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -364,7 +363,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create classes and their features
 		referenceEClass = createEClass(REFERENCE);
-		createEReference(referenceEClass, REFERENCE__UML_MODELS);
+		createEReference(referenceEClass, REFERENCE__UML_MODEL);
 		createEReference(referenceEClass, REFERENCE__REQUIREMENT_CONTAINER);
 		createEReference(referenceEClass, REFERENCE__ONTOLOGIES);
 		createEAttribute(referenceEClass, REFERENCE__ID);
@@ -430,8 +429,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReference_UmlModels(), this.getUMLModel(), null,
-				"umlModels", null, 0, -1, Reference.class, !IS_TRANSIENT,
+		initEReference(getReference_UmlModel(), this.getUMLModel(), null,
+				"umlModel", null, 0, 1, Reference.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_RequirementContainer(),
@@ -440,7 +439,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_Ontologies(), this.getOWLOntology(),
-				this.getOWLOntology_Reference(), "ontologies", null, 0, 1,
+				this.getOWLOntology_Reference(), "ontologies", null, 0, -1,
 				Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);

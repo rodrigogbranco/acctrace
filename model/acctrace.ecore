@@ -2,12 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://facom.ufms.br/acctrace" nsPrefix="model">
   <eClassifiers xsi:type="ecore:EClass" name="Reference">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="umlModels" upperBound="-1"
-        eType="#//UMLModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlModel" eType="#//UMLModel"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirementContainer" eType="#//RequirementContainer"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ontologies" eType="#//OWLOntology"
-        eOpposite="#//OWLOntology/reference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ontologies" upperBound="-1"
+        eType="#//OWLOntology" eOpposite="#//OWLOntology/reference"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AccTraceModel">

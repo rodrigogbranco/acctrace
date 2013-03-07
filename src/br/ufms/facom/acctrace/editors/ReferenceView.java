@@ -28,6 +28,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
@@ -43,6 +44,7 @@ import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.model.controller.ModelController;
+import br.ufms.facom.acctrace.views.AddOWLDialog;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -316,8 +318,6 @@ public class ReferenceView {
 			parentMap.put(obj, current);
 
 			return ModelController.getInstance().getLabel((NamedElement) obj);
-
-			// return "Error in generating Label for element "+obj.toString();
 		}
 
 		/*
@@ -419,11 +419,15 @@ public class ReferenceView {
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
-				showMessage("Action 1 executed");
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
 			}
 		};
-		action1.setText("Action 1");
-		action1.setToolTipText("Action 1 tooltip");
+		action1.setText("Add Accessibility Specification");
+		action1.setToolTipText("Add Accessibility Specification tooltip");
 		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
 				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
 

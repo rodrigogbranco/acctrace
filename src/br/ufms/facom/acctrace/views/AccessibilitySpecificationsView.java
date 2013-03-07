@@ -1,8 +1,5 @@
 package br.ufms.facom.acctrace.views;
 
-import java.util.ArrayList;
-
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -10,14 +7,16 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
@@ -28,8 +27,11 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.uml2.uml.PackageableElement;
+
+import br.ufms.facom.acctrace.model.Reference;
+import br.ufms.facom.acctrace.model.controller.ModelController;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -46,15 +48,15 @@ import org.eclipse.ui.part.ViewPart;
  * <p>
  */
 
-public class AccessibilitySpecificationsView extends ViewPart {
+public class AccessibilitySpecificationsView extends ViewPart implements
+		IPropertyChangeListener {
 
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
 	public static final String ID = "br.ufms.facom.acctrace.views.AccessibilitySpecificationsView";
 
-	private TreeViewer viewer;
-	private DrillDownAdapter drillDownAdapter;
+	private TableViewer viewer;
 	private Action action1;
 	private Action action2;
 	private Action doubleClickAction;
@@ -67,67 +69,7 @@ public class AccessibilitySpecificationsView extends ViewPart {
 	 * example).
 	 */
 
-	class TreeObject implements IAdaptable {
-		private String name;
-		private TreeParent parent;
-
-		public TreeObject(String name) {
-			this.name = name;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setParent(TreeParent parent) {
-			this.parent = parent;
-		}
-
-		public TreeParent getParent() {
-			return parent;
-		}
-
-		public String toString() {
-			return getName();
-		}
-
-		public Object getAdapter(Class key) {
-			return null;
-		}
-	}
-
-	class TreeParent extends TreeObject {
-		private ArrayList children;
-
-		public TreeParent(String name) {
-			super(name);
-			children = new ArrayList();
-		}
-
-		public void addChild(TreeObject child) {
-			children.add(child);
-			child.setParent(this);
-		}
-
-		public void removeChild(TreeObject child) {
-			children.remove(child);
-			child.setParent(null);
-		}
-
-		public TreeObject[] getChildren() {
-			return (TreeObject[]) children.toArray(new TreeObject[children
-					.size()]);
-		}
-
-		public boolean hasChildren() {
-			return children.size() > 0;
-		}
-	}
-
-	class ViewContentProvider implements IStructuredContentProvider,
-			ITreeContentProvider {
-		private TreeParent invisibleRoot;
-
+	class ViewContentProvider implements IStructuredContentProvider {
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		}
 
@@ -135,72 +77,29 @@ public class AccessibilitySpecificationsView extends ViewPart {
 		}
 
 		public Object[] getElements(Object parent) {
-			if (parent.equals(getViewSite())) {
-				if (invisibleRoot == null)
-					initialize();
-				return getChildren(invisibleRoot);
+			for (Reference ref : ModelController.getInstance().getModel()
+					.getReferences()) {
+				if (ref.getUmlModel().equals(parent))
+					return ref.getOntologies().toArray();
 			}
-			return getChildren(parent);
-		}
 
-		public Object getParent(Object child) {
-			if (child instanceof TreeObject) {
-				return ((TreeObject) child).getParent();
-			}
-			return null;
-		}
-
-		public Object[] getChildren(Object parent) {
-			if (parent instanceof TreeParent) {
-				return ((TreeParent) parent).getChildren();
-			}
 			return new Object[0];
-		}
-
-		public boolean hasChildren(Object parent) {
-			if (parent instanceof TreeParent)
-				return ((TreeParent) parent).hasChildren();
-			return false;
-		}
-
-		/*
-		 * We will set up a dummy model to initialize tree heararchy. In a real
-		 * code, you will connect to a real model and expose its hierarchy.
-		 */
-		private void initialize() {
-			TreeObject to1 = new TreeObject("Leaf 1");
-			TreeObject to2 = new TreeObject("Leaf 2");
-			TreeObject to3 = new TreeObject("Leaf 3");
-			TreeParent p1 = new TreeParent("Parent 1");
-			p1.addChild(to1);
-			p1.addChild(to2);
-			p1.addChild(to3);
-
-			TreeObject to4 = new TreeObject("Leaf 4");
-			TreeParent p2 = new TreeParent("Parent 2");
-			p2.addChild(to4);
-
-			TreeParent root = new TreeParent("Root");
-			root.addChild(p1);
-			root.addChild(p2);
-
-			invisibleRoot = new TreeParent("");
-			invisibleRoot.addChild(root);
 		}
 	}
 
-	class ViewLabelProvider extends LabelProvider {
+	class ViewLabelProvider extends LabelProvider implements
+			ITableLabelProvider {
+		public String getColumnText(Object obj, int index) {
+			return getText(obj);
+		}
 
-		public String getText(Object obj) {
-			return obj.toString();
+		public Image getColumnImage(Object obj, int index) {
+			return getImage(obj);
 		}
 
 		public Image getImage(Object obj) {
-			String imageKey = ISharedImages.IMG_OBJ_ELEMENT;
-			if (obj instanceof TreeParent)
-				imageKey = ISharedImages.IMG_OBJ_FOLDER;
 			return PlatformUI.getWorkbench().getSharedImages()
-					.getImage(imageKey);
+					.getImage(ISharedImages.IMG_OBJ_ELEMENT);
 		}
 	}
 
@@ -218,12 +117,11 @@ public class AccessibilitySpecificationsView extends ViewPart {
 	 * it.
 	 */
 	public void createPartControl(Composite parent) {
-		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		drillDownAdapter = new DrillDownAdapter(viewer);
+		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
+				| SWT.V_SCROLL);
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setSorter(new NameSorter());
-		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem()
@@ -262,8 +160,6 @@ public class AccessibilitySpecificationsView extends ViewPart {
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
 		manager.add(action2);
-		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
@@ -271,8 +167,6 @@ public class AccessibilitySpecificationsView extends ViewPart {
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
 		manager.add(action2);
-		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
 	}
 
 	private void makeActions() {
@@ -315,7 +209,7 @@ public class AccessibilitySpecificationsView extends ViewPart {
 
 	private void showMessage(String message) {
 		MessageDialog.openInformation(viewer.getControl().getShell(),
-				"Acessibility Specifications View", message);
+				"Accessibility Specifications View", message);
 	}
 
 	/**
@@ -323,5 +217,14 @@ public class AccessibilitySpecificationsView extends ViewPart {
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent event) {
+		if (event.getNewValue() instanceof PackageableElement)
+			viewer.setInput(event.getNewValue());
+		else
+			viewer.setInput(null);
+		viewer.refresh();
 	}
 }
