@@ -241,21 +241,21 @@
          point="org.eclipse.ui.views">
       <category
             id="br.ufms.facom.acctrace"
-            name="AccTrace">
+            name="%category.name.3">
       </category>
       <view
             category="br.ufms.facom.acctrace"
             class="br.ufms.facom.acctrace.views.RequirementView"
             icon="icons/sample.gif"
             id="br.ufms.facom.acctrace.views.RequirementView"
-            name="Requirement  Associations">
+            name="%view.name.1">
       </view>
       <view
             category="br.ufms.facom.acctrace"
             class="br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"
             icon="icons/sample.gif"
             id="br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"
-            name="Accessibility Specifications View">
+            name="%view.name.2">
       </view>
    </extension>
    <extension

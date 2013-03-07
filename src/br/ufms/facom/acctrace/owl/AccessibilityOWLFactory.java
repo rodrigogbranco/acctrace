@@ -25,26 +25,26 @@ public final class AccessibilityOWLFactory {
 	private static final AccessibilityOWLFactory instance = new AccessibilityOWLFactory();
 
 	/** The bundle. */
-	private static Bundle bundle = Platform.getBundle("br.ufms.facom.acctrace");
+	private Bundle bundle = Platform.getBundle("br.ufms.facom.acctrace");
 
 	/** The owl path. */
-	private static String owlPath = "owlFiles/";
+	private String owlPath = "owlFiles/";
 
 	/** The owl extension. */
-	private static String owlExtension = ".owl";
+	private String owlExtension = ".owl";
 
 	/** The key string. */
-	private static String keyString = "Generic";
+	private String keyString = "Generic";
 
 	/** The manager. */
-	private static OWLOntologyManager manager = OWLManager
+	private OWLOntologyManager manager = OWLManager
 			.createOWLOntologyManager();
 
 	/** The owl map. */
-	private static TreeMap<String, TreeSet<String>> owlMap = new TreeMap<String, TreeSet<String>>();
+	private TreeMap<String, TreeSet<String>> owlMap = new TreeMap<String, TreeSet<String>>();
 
 	/** The owl hash. */
-	private static HashMap<String, String> owlHash = new HashMap<String, String>();
+	private HashMap<String, String> owlHash = new HashMap<String, String>();
 
 	/**
 	 * Instantiates a new accessibility owl factory. The constructor also set up
@@ -160,10 +160,12 @@ public final class AccessibilityOWLFactory {
 	 * @throws OWLOntologyCreationException
 	 *             the oWL ontology creation exception
 	 */
-	public static OWLOntology getOWLOntologyManager()
+	public OWLOntology getOWLOntologyManager()
 			throws URISyntaxException, OWLOntologyCreationException {
-		URL url = FileLocator.find(bundle, new Path(owlPath + keyString
+		URL url = FileLocator.find(bundle, new Path(owlPath + owlHash.get(keyString)
 				+ owlExtension), null);
+		System.out.println(bundle+" "+new Path(owlPath + owlHash.get(keyString)
+				+ owlExtension));
 		IRI iri = IRI.create(url.toURI());
 		return manager.loadOntology(iri);
 	}
@@ -180,10 +182,18 @@ public final class AccessibilityOWLFactory {
 	 * @throws URISyntaxException
 	 *             the uRI syntax exception
 	 */
-	public static OWLOntology getOWLOntologyManager(String key)
+	public OWLOntology getOWLOntologyManager(String key)
 			throws OWLOntologyCreationException, URISyntaxException {
 		manager.clearIRIMappers();
 		keyString = key;
 		return getOWLOntologyManager();
+	}
+	
+	public TreeSet<String> getKeys(String key) {
+		return owlMap.get(key);
+	}
+	
+	public TreeSet<String> getKeys() {
+		return getKeys(keyString);
 	}
 }

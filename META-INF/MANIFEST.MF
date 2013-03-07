@@ -32,5 +32,8 @@ Export-Package: br.ufms.facom.acctrace,
  br.ufms.facom.acctrace.preferences,
  br.ufms.facom.acctrace.properties,
  br.ufms.facom.acctrace.splashHandlers,
+ br.ufms.facom.acctrace.views,
  br.ufms.facom.acctrace.wizards
+Bundle-ClassPath: library/owlapi-distribution-3.4.3-bin.jar,
+ .
 

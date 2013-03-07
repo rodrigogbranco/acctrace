@@ -1,6 +1,8 @@
 package br.ufms.facom.acctrace;
 
 //import org.apache.log4j.BasicConfigurator;
+import java.net.URISyntaxException;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -21,6 +23,9 @@ public class Activator extends AbstractUIPlugin {
 
 	/**
 	 * The constructor.
+	 * 
+	 * @throws URISyntaxException
+	 * @throws OWLOntologyCreationException
 	 */
 	public Activator() {
 		// BasicConfigurator.configure();
