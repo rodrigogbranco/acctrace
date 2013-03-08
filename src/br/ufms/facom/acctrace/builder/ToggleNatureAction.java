@@ -1,7 +1,5 @@
 package br.ufms.facom.acctrace.builder;
 
-import java.util.Iterator;
-
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.runtime.CoreException;
@@ -12,7 +10,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ToggleNatureAction.
  */
@@ -28,9 +25,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	 */
 	public void run(IAction action) {
 		if (selection instanceof IStructuredSelection) {
-			for (Iterator it = ((IStructuredSelection) selection).iterator(); it
-					.hasNext();) {
-				Object element = it.next();
+			for (Object element : ((IStructuredSelection) selection).toArray()) {
 				IProject project = null;
 				if (element instanceof IProject) {
 					project = (IProject) element;

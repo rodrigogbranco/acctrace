@@ -37,8 +37,7 @@ public final class AccessibilityOWLFactory {
 	private String keyString = "Generic";
 
 	/** The manager. */
-	private OWLOntologyManager manager = OWLManager
-			.createOWLOntologyManager();
+	private OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
 	/** The owl map. */
 	private TreeMap<String, TreeSet<String>> owlMap = new TreeMap<String, TreeSet<String>>();
@@ -160,19 +159,20 @@ public final class AccessibilityOWLFactory {
 	 * @throws OWLOntologyCreationException
 	 *             the oWL ontology creation exception
 	 */
-	public OWLOntology getOWLOntologyManager()
-			throws URISyntaxException, OWLOntologyCreationException {
-		URL url = FileLocator.find(bundle, new Path(owlPath + owlHash.get(keyString)
-				+ owlExtension), null);
-		System.out.println(bundle+" "+new Path(owlPath + owlHash.get(keyString)
-				+ owlExtension));
+	public OWLOntology getOWLOntologyManager() throws URISyntaxException,
+			OWLOntologyCreationException {
+		URL url = FileLocator
+				.find(bundle, new Path(owlPath + owlHash.get(keyString)
+						+ owlExtension), null);
+		System.out.println(bundle + " "
+				+ new Path(owlPath + owlHash.get(keyString) + owlExtension));
 		IRI iri = IRI.create(url.toURI());
 		return manager.loadOntology(iri);
 	}
 
 	/**
 	 * This method clear the factory, set-up the new hash table key and calls
-	 * getOWLOntologyManager()
+	 * getOWLOntologyManager().
 	 * 
 	 * @param key
 	 *            the hash table key
@@ -188,11 +188,23 @@ public final class AccessibilityOWLFactory {
 		keyString = key;
 		return getOWLOntologyManager();
 	}
-	
+
+	/**
+	 * Gets the keys.
+	 * 
+	 * @param key
+	 *            the key
+	 * @return the keys
+	 */
 	public TreeSet<String> getKeys(String key) {
 		return owlMap.get(key);
 	}
-	
+
+	/**
+	 * Gets the keys.
+	 * 
+	 * @return the keys
+	 */
 	public TreeSet<String> getKeys() {
 		return getKeys(keyString);
 	}

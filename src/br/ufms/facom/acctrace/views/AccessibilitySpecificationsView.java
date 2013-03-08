@@ -30,6 +30,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.uml2.uml.PackageableElement;
 
+import br.ufms.facom.acctrace.editors.ReferenceView;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.controller.ModelController;
 
@@ -110,6 +111,7 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	 * The constructor.
 	 */
 	public AccessibilitySpecificationsView() {
+		ReferenceView.addPropertyChangeListener(this);
 	}
 
 	/**

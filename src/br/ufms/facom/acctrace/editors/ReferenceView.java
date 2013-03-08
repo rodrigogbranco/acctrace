@@ -5,12 +5,10 @@ package br.ufms.facom.acctrace.editors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -85,7 +83,7 @@ public class ReferenceView {
 	private NameSorter nameSorter = new NameSorter();
 
 	/** The listeners. */
-	private ArrayList<IPropertyChangeListener> listeners = null;
+	private static ArrayList<IPropertyChangeListener> listeners = null;
 
 	/**
 	 * Instantiates a new reference view.
@@ -111,7 +109,8 @@ public class ReferenceView {
 	 * @param listener
 	 *            the listener
 	 */
-	public void addPropertyChangeListener(IPropertyChangeListener listener) {
+	public static void addPropertyChangeListener(
+			IPropertyChangeListener listener) {
 		if (!listeners.contains(listener))
 			listeners.add(listener);
 	}
@@ -122,7 +121,8 @@ public class ReferenceView {
 	 * @param listener
 	 *            the listener
 	 */
-	public void removePropertyChangeListener(IPropertyChangeListener listener) {
+	public static void removePropertyChangeListener(
+			IPropertyChangeListener listener) {
 		listeners.remove(listener);
 	}
 
@@ -379,11 +379,11 @@ public class ReferenceView {
 	 * @param manager
 	 *            the manager
 	 */
-	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(new Separator());
-		manager.add(action2);
-	}
+	/*
+	 * private void fillLocalPullDown(IMenuManager manager) {
+	 * manager.add(action1); manager.add(new Separator()); manager.add(action2);
+	 * }
+	 */
 
 	/**
 	 * Fill context menu.
@@ -406,12 +406,11 @@ public class ReferenceView {
 	 * @param manager
 	 *            the manager
 	 */
-	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(action1);
-		manager.add(action2);
-		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
-	}
+	/*
+	 * private void fillLocalToolBar(IToolBarManager manager) {
+	 * manager.add(action1); manager.add(action2); manager.add(new Separator());
+	 * drillDownAdapter.addNavigationActions(manager); }
+	 */
 
 	/**
 	 * Make actions.
@@ -459,11 +458,15 @@ public class ReferenceView {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
-				for (Iterator<IPropertyChangeListener> iter = listeners
-						.iterator(); iter.hasNext();) {
-					IPropertyChangeListener element = iter.next();
-					element.propertyChange(new PropertyChangeEvent(this,
-							"elementSelected", parentMap.get(obj), obj));
+				for (IPropertyChangeListener element : listeners
+						.toArray(new IPropertyChangeListener[0])) {
+					if (element != null) {
+						PropertyChangeEvent pChange = new PropertyChangeEvent(
+								this, "elementSelected", parentMap.get(obj),
+								obj);
+						element.propertyChange(pChange);
+					} else
+						removePropertyChangeListener(element);
 				}
 			}
 		});

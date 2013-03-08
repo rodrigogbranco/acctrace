@@ -32,6 +32,8 @@ import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementType;
 
+import br.ufms.facom.acctrace.editors.ReferenceView;
+
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
  * shows data obtained from the model. The sample creates a dummy model on the
@@ -109,6 +111,7 @@ public class RequirementView extends ViewPart implements
 	 * The constructor.
 	 */
 	public RequirementView() {
+		ReferenceView.addPropertyChangeListener(this);
 	}
 
 	/**
