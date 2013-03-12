@@ -3,6 +3,9 @@
  */
 package br.ufms.facom.acctrace.views;
 
+import java.net.URISyntaxException;
+
+import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.window.IShellProvider;
 import org.eclipse.swt.SWT;
@@ -19,6 +22,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
@@ -35,6 +41,8 @@ public class AddOWLDialog extends Dialog {
 
 	private Label secondLevelLabel;
 	private Combo secondLevelCombo;
+	
+	private Logger logger = Logger.getLogger(this.getClass());
 
 	/**
 	 * @param parentShell
@@ -47,15 +55,23 @@ public class AddOWLDialog extends Dialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 
-		/*
-		 * OWLOntology ontology;
-		 * 
-		 * try { ontology = owlFactory.getOWLOntologyManager();
-		 * System.out.println(ontology); } catch (OWLOntologyCreationException
-		 * e1) { // TODO Auto-generated catch block e1.printStackTrace(); }
-		 * catch (URISyntaxException e1) { // TODO Auto-generated catch block
-		 * e1.printStackTrace(); }
-		 */
+		
+		OWLOntology ontology;
+		
+		try {
+			ontology = owlFactory.getOWLOntology();
+			
+			for (OWLClass cls : ontology.getClassesInSignature())
+				System.out.println(cls.getAnnotationAssertionAxioms(ontology).size());
+			
+		} catch (OWLOntologyCreationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 
 
 		GridLayout layout = new GridLayout();
 		parent.setLayout(layout);

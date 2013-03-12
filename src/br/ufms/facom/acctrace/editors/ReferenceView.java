@@ -111,6 +111,9 @@ public class ReferenceView {
 	 */
 	public static void addPropertyChangeListener(
 			IPropertyChangeListener listener) {
+		if(listeners == null)
+			listeners = new ArrayList<IPropertyChangeListener>();
+		
 		if (!listeners.contains(listener))
 			listeners.add(listener);
 	}

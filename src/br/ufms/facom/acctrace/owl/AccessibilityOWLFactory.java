@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -159,13 +160,11 @@ public final class AccessibilityOWLFactory {
 	 * @throws OWLOntologyCreationException
 	 *             the oWL ontology creation exception
 	 */
-	public OWLOntology getOWLOntologyManager() throws URISyntaxException,
+	public OWLOntology getOWLOntology() throws URISyntaxException,
 			OWLOntologyCreationException {
 		URL url = FileLocator
 				.find(bundle, new Path(owlPath + owlHash.get(keyString)
 						+ owlExtension), null);
-		System.out.println(bundle + " "
-				+ new Path(owlPath + owlHash.get(keyString) + owlExtension));
 		IRI iri = IRI.create(url.toURI());
 		return manager.loadOntology(iri);
 	}
@@ -182,11 +181,15 @@ public final class AccessibilityOWLFactory {
 	 * @throws URISyntaxException
 	 *             the uRI syntax exception
 	 */
-	public OWLOntology getOWLOntologyManager(String key)
+	public OWLOntology getOWLOntology(String key)
 			throws OWLOntologyCreationException, URISyntaxException {
 		manager.clearIRIMappers();
 		keyString = key;
-		return getOWLOntologyManager();
+		return getOWLOntology();
+	}
+	
+	public OWLDataFactory getDataFactory() {
+		return manager.getOWLDataFactory();
 	}
 
 	/**
