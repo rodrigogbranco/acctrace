@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.ufms.facom.acctrace.editors;
+package br.ufms.facom.acctrace.views;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,8 +41,9 @@ import org.eclipse.uml2.uml.PackageableElement;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 
+import br.ufms.facom.acctrace.dialog.ApplicationAndDeviceDialog;
+import br.ufms.facom.acctrace.editors.AccTraceFormPage;
 import br.ufms.facom.acctrace.model.controller.ModelController;
-import br.ufms.facom.acctrace.views.AddOWLDialog;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -63,6 +64,24 @@ public class ReferenceView {
 
 	/** The action2. */
 	private Action action2;
+	
+	private Action applicationAction;
+	
+	private Action deviceAction;
+	
+	private Action impairmentAction;
+	
+	private Action disabilityAction;
+	
+	private Action functionalLimitationAction;
+	
+	private Action waiAriaAction;
+	
+	private Action wcag2Action;
+	
+	private Action webServiceAction;
+	
+	private Action mwbpAction;
 
 	/** The double click action. */
 	private Action doubleClickAction;
@@ -395,9 +414,25 @@ public class ReferenceView {
 	 *            the manager
 	 */
 	private void fillContextMenu(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(action2);
-		manager.add(new Separator());
+		MenuManager subMenu = new MenuManager("Add Accessibility Specification");
+		manager.add(subMenu);
+		subMenu.add(applicationAction);
+		subMenu.add(new Separator());
+		subMenu.add(deviceAction);
+		subMenu.add(new Separator());
+		subMenu.add(impairmentAction);
+		subMenu.add(disabilityAction);
+		subMenu.add(functionalLimitationAction);
+		subMenu.add(new Separator());
+		subMenu.add(waiAriaAction);
+		subMenu.add(new Separator());
+		subMenu.add(wcag2Action);
+		subMenu.add(webServiceAction);
+		subMenu.add(mwbpAction);
+		
+		
+		//subMenu.add(action2);
+		//manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
@@ -418,7 +453,109 @@ public class ReferenceView {
 	/**
 	 * Make actions.
 	 */
-	private void makeActions() {
+	private void makeActions() {		
+		applicationAction = new Action() {
+			public void run() {
+				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(form.getSite()
+						.getShell(), "Application");
+				if (dialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		applicationAction.setText("Application");
+		
+		deviceAction = new Action() {
+			public void run() {
+				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(form.getSite()
+						.getShell(), "Device");
+				if (dialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		deviceAction.setText("Device");
+		
+		impairmentAction = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		impairmentAction.setText("Impairment");
+		
+		disabilityAction = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		disabilityAction.setText("Disability");
+		
+		functionalLimitationAction = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		functionalLimitationAction.setText("Functional Limitation");
+		
+		waiAriaAction = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		waiAriaAction.setText("WAI ARIA");
+		
+		wcag2Action = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		wcag2Action.setText("WCAG 2.0");
+		
+		webServiceAction = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		webServiceAction.setText("Web Service");
+		
+		mwbpAction = new Action() {
+			public void run() {
+				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
+						.getShell());
+				if (addDialog.open() == Window.OK) {
+					// Save Model
+				}
+			}
+		};		
+		mwbpAction.setText("Mobile Web Best Practices");
+		
+		
+		
+		
 		action1 = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()

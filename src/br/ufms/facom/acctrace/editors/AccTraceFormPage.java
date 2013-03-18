@@ -38,6 +38,7 @@ import org.obeonetwork.dsl.requirement.Repository;
 
 import br.ufms.facom.acctrace.editors.filter.AccTraceFileFilter;
 import br.ufms.facom.acctrace.model.controller.ModelController;
+import br.ufms.facom.acctrace.views.ReferenceView;
 
 /**
  * The Class AccTraceFormPage.

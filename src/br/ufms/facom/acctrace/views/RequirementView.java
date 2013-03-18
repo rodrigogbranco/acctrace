@@ -32,7 +32,6 @@ import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementType;
 
-import br.ufms.facom.acctrace.editors.ReferenceView;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view

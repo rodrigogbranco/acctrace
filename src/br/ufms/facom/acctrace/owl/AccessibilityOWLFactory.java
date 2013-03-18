@@ -3,6 +3,7 @@ package br.ufms.facom.acctrace.owl;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -160,32 +161,16 @@ public final class AccessibilityOWLFactory {
 	 * @throws OWLOntologyCreationException
 	 *             the oWL ontology creation exception
 	 */
-	public OWLOntology getOWLOntology() throws URISyntaxException,
+	public Set<OWLOntology> getOWLOntology() throws URISyntaxException,
 			OWLOntologyCreationException {
-		URL url = FileLocator
-				.find(bundle, new Path(owlPath + owlHash.get(keyString)
-						+ owlExtension), null);
-		IRI iri = IRI.create(url.toURI());
-		return manager.loadOntology(iri);
-	}
-
-	/**
-	 * This method clear the factory, set-up the new hash table key and calls
-	 * getOWLOntologyManager().
-	 * 
-	 * @param key
-	 *            the hash table key
-	 * @return the oWL ontology manager
-	 * @throws OWLOntologyCreationException
-	 *             the oWL ontology creation exception
-	 * @throws URISyntaxException
-	 *             the uRI syntax exception
-	 */
-	public OWLOntology getOWLOntology(String key)
-			throws OWLOntologyCreationException, URISyntaxException {
-		manager.clearIRIMappers();
-		keyString = key;
-		return getOWLOntology();
+		for(String key : owlHash.keySet()) {
+			URL url = FileLocator
+					.find(bundle, new Path(owlPath + owlHash.get(key)
+							+ owlExtension), null);
+			IRI iri = IRI.create(url.toURI());
+			manager.loadOntology(iri);			
+		}
+		return manager.getOntologies();
 	}
 	
 	public OWLDataFactory getDataFactory() {

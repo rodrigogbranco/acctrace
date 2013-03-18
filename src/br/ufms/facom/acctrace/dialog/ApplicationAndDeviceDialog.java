@@ -1,4 +1,7 @@
-package br.ufms.facom.acctrace.views;
+package br.ufms.facom.acctrace.dialog;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -12,14 +15,38 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 
-public class AddOWLDialog extends Dialog {
+public class ApplicationAndDeviceDialog extends Dialog {
 
+	private String keyChoice;
+	
+	private HashMap<String, ArrayList<String>> map = new HashMap<>();
 	/**
 	 * Create the dialog.
 	 * @param parentShell
 	 */
-	public AddOWLDialog(Shell parentShell) {
+	public ApplicationAndDeviceDialog(Shell parentShell, String key) {
 		super(parentShell);
+		keyChoice = key;
+		
+		ArrayList<String> array = new ArrayList<>();
+		array.add("CORE");
+		array.add("HTML");
+		array.add("CSS");
+		
+		map.put("Application", array);
+		
+		array.clear();
+		
+		array.add("Scanning Software");
+		array.add("Alternative Keyboards or Switches");
+		array.add("Braille");
+		array.add("Listening Device");
+		array.add("Screen Magnifiers");
+		array.add("Screen Reader");
+		array.add("Speech Devices");
+		array.add("Text Browsers");			
+		
+		map.put("Device", array);		
 	}
 
 	/**
@@ -32,9 +59,9 @@ public class AddOWLDialog extends Dialog {
 		GridLayout gridLayout = (GridLayout) container.getLayout();
 		gridLayout.numColumns = 2;
 		
-		Label lblSelectTheAccessibility = new Label(container, SWT.NONE);
-		lblSelectTheAccessibility.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblSelectTheAccessibility.setText("Select the Accessibility Specification");
+		Label lblSelect = new Label(container, SWT.NONE);
+		lblSelect.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblSelect.setText("Select:");
 		
 		Combo combo = new Combo(container, SWT.NONE);
 		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -59,7 +86,7 @@ public class AddOWLDialog extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(579, 300);
+		return new Point(450, 183);
 	}
 
 }

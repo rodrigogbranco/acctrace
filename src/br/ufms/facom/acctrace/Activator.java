@@ -54,35 +54,35 @@ public class Activator extends AbstractUIPlugin {
 	public Activator() throws IOException {
 		 URL confURL = getBundle().getEntry("log4j.properties");
 	     PropertyConfigurator.configure( FileLocator.toFileURL(confURL).getFile());	
-	     
-			OWLOntology ontology;
 			
 			AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
 			
 			try {
-				ontology = owlFactory.getOWLOntology();
+				Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
+				int i = 0;
 				
-
-				for (OWLClass cls : ontology.getClassesInSignature()) {
-					
-					if(cls.getIndividuals(ontology).size() > 0) {
-						logger.info("Class with friends: "+cls);
-						for(OWLIndividual owlIn : cls.getIndividuals(ontology)) {
-							Map<OWLDataPropertyExpression, Set<OWLLiteral>> map = owlIn.getDataPropertyValues(ontology);
-							for(OWLDataPropertyExpression exp : map.keySet()) {
-								for(OWLLiteral lit : map.get(exp)) {
-									logger.info("IRI "+owlIn.toStringID()+" Literal "+exp+" "+lit.getLiteral());									
+				for(OWLOntology ontology : ontologies.toArray(new OWLOntology[0])) {
+					for (OWLClass cls : ontology.getClassesInSignature()) {
+						if(cls.getIndividuals(ontology).size() > 0) {
+							logger.info("Class with friends: "+cls);
+							for(OWLIndividual owlIn : cls.getIndividuals(ontology)) {
+								Map<OWLDataPropertyExpression, Set<OWLLiteral>> map = owlIn.getDataPropertyValues(ontology);
+								for(OWLDataPropertyExpression exp : map.keySet()) {
+									for(OWLLiteral lit : map.get(exp)) {
+										logger.info("IRI "+owlIn.toStringID()+" Literal "+exp+" "+lit.getLiteral());									
+									}
+									logger.info("");
 								}
 								logger.info("");
 							}
-							logger.info("");
-						}						
+							
+						}
+						else
+							logger.info("Class: "+cls);
 					}
-					else
-						logger.info("Class: "+cls);
+					logger.info("classersssss :"+i++);
 				}
-				
-				
+							
 			} catch (OWLOntologyCreationException e) {
 				logger.error("Erro na criacao", e);
 			} catch (URISyntaxException e) {
