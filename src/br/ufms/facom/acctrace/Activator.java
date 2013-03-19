@@ -51,13 +51,15 @@ public class Activator extends AbstractUIPlugin {
 	 * @throws URISyntaxException
 	 * @throws OWLOntologyCreationException
 	 */
-	public Activator() throws IOException {
+	public Activator() throws IOException, OWLOntologyCreationException, URISyntaxException {
 		 URL confURL = getBundle().getEntry("log4j.properties");
 	     PropertyConfigurator.configure( FileLocator.toFileURL(confURL).getFile());	
 			
 			AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
 			
-			try {
+			Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
+			
+			/*try {
 				Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
 				int i = 0;
 				
@@ -87,7 +89,7 @@ public class Activator extends AbstractUIPlugin {
 				logger.error("Erro na criacao", e);
 			} catch (URISyntaxException e) {
 				logger.error("Erro na URI", e);
-			}
+			}*/
 	}
 
 	/*
