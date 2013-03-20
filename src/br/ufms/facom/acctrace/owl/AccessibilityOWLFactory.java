@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -18,6 +19,7 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -59,11 +61,11 @@ public final class AccessibilityOWLFactory {
 	
 	private Logger log = Logger.getLogger(this.getClass());
 	
-	private static String nsBase = "http://www.AccessibleOntology.com/";
+	private static final String nsBase = "http://www.AccessibleOntology.com/";
 	
-	public static String hasName = "<" + nsBase + "GenericOntology.owl#hasName" + ">";
+	public static final String hasName = "<" + nsBase + "GenericOntology.owl#hasName" + ">";
 	
-	public static String hasDescription = "<"+ nsBase + "GenericOntology.owl#hasDescription" + ">";
+	public static final String hasDescription = "<"+ nsBase + "GenericOntology.owl#hasDescription" + ">";
 	
 
 	/**
@@ -223,7 +225,11 @@ public final class AccessibilityOWLFactory {
 	public OWLOntology getOWLOntology(String iri) {
 		log.debug(iri);
 		log.debug(iriMap.get(iri));
-		return manager.getOntology(iriMap.get(iri));		
+		log.debug(rdfID.get(iri));
+		if(iriMap.get(iri) != null)
+			return manager.getOntology(iriMap.get(iri));
+		else
+			return manager.getOntology(iriMap.get("Generic"));
 	}
 	
 	public String getIRIofClass(String clazz) {
@@ -254,10 +260,9 @@ public final class AccessibilityOWLFactory {
 		return getKeys(keyString);
 	}
 	
-	public List<String> getNames(String choice) {
-		ArrayList<String> array = new ArrayList<>();
+	public Map<String, OWLNamedIndividual> getNames(String choice, OWLOntology ontology) {
+		HashMap<String, OWLNamedIndividual> map = new HashMap<>();
 		
-		OWLOntology ontology = getOWLOntology(choice);
 		log.debug(ontology);
 		
 		for(OWLNamedIndividual n : ontology.getIndividualsInSignature()) {
@@ -267,11 +272,24 @@ public final class AccessibilityOWLFactory {
 					OWLLiteral lit = ((OWLLiteral)ann.getValue());
 					log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasName);
 					log.debug(lit);
-					array.add(lit.getLiteral());
+					map.put(lit.getLiteral(), n);
 				}
 			}
 		}
 		
-		return array;
+		return map;
+	}
+	
+	public String getDescription(OWLNamedIndividual individual, OWLOntology ontology) {
+		for(OWLAnnotation ann : individual.getAnnotations(ontology)) {
+			if(ann.getValue() instanceof OWLLiteral
+					&& ann.getProperty().toString().equals(hasDescription)) {
+				OWLLiteral lit = ((OWLLiteral)ann.getValue());
+				log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasDescription);
+				log.debug(lit);
+				return lit.getLiteral();
+			}
+		}
+		return "";
 	}
 }

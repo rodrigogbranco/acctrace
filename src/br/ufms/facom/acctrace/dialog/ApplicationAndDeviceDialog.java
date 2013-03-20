@@ -3,6 +3,7 @@ package br.ufms.facom.acctrace.dialog;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.Dialog;
@@ -18,6 +19,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLAnnotation;
+import org.semanticweb.owlapi.model.OWLLiteral;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLOntology;
 
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
@@ -29,8 +35,6 @@ public class ApplicationAndDeviceDialog extends Dialog {
 	
 	private HashMap<String, ArrayList<String>> map = new HashMap<>();
 	
-	private Label lblChoice_1;
-	
 	private Label lblDescription_1;
 	
 	private Combo combo;
@@ -38,6 +42,12 @@ public class ApplicationAndDeviceDialog extends Dialog {
 	private Combo combo_1;
 	
 	private AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
+	
+	private Map<String, OWLNamedIndividual> individuals = null;
+	
+	private OWLOntology ontology;
+	
+	private IRI selectedIri;
 	/**
 	 * Create the dialog.
 	 * @param parentShell
@@ -81,7 +91,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 		gridLayout.numColumns = 2;
 		
 		Label lblSelect = new Label(container, SWT.NONE);
-		lblSelect.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblSelect.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		lblSelect.setText("Select:");
 		
 		combo = new Combo(container, SWT.NONE);
@@ -91,11 +101,19 @@ public class ApplicationAndDeviceDialog extends Dialog {
 			
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Combo combo = ((Combo)e.getSource());
+				String selected = ((Combo)e.getSource()).getText();
 				
-				List<String> names = AccessibilityOWLFactory.getInstance().getNames(combo.getText());
+				ontology = owlFactory.getOWLOntology(selected);
 				
-				combo_1.setItems(names.toArray(new String[0]));
+				selectedIri = ontology.getOntologyID().getOntologyIRI();
+				
+				logger.debug(selectedIri);
+	
+				individuals = owlFactory.getNames(selected, ontology);
+				
+				combo_1.setItems(individuals.keySet().toArray(new String[0]));
+				
+				lblDescription_1.setText("Nothing selected");
 			}
 			
 			@Override
@@ -104,29 +122,50 @@ public class ApplicationAndDeviceDialog extends Dialog {
 			}
 		});
 		
+		selectedIri = IRI.create(owlFactory.getIRIofClass(keyChoice));
+		logger.debug(selectedIri);
+		
 		combo.setItems(map.get(keyChoice).toArray(new String[0]));
 		
 		Label lblSpecifyAnElement = new Label(container, SWT.NONE);
-		lblSpecifyAnElement.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblSpecifyAnElement.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		lblSpecifyAnElement.setText("Specify an Element:");
 		
 		combo_1 = new Combo(container, SWT.NONE);
 		combo_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		Label lblChoice = new Label(container, SWT.NONE);
-		lblChoice.setText("Choice:");
-		
-		lblChoice_1 = new Label(container, SWT.NONE);
-		lblChoice_1.setText("Choice");
+		combo_1.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String selected = ((Combo)e.getSource()).getText();
+				
+				OWLNamedIndividual ann = individuals.get(selected);
+				
+				selectedIri = ann.getIRI();
+				
+				logger.debug(selectedIri);
+				
+				lblDescription_1.setText(owlFactory.getDescription(ann, ontology));			
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				//DO NOTHING
+				
+			}
+		});
 		
 		Label lblDescription = new Label(container, SWT.NONE);
+		lblDescription.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		lblDescription.setText("Description:");
 		
-		lblDescription_1 = new Label(container, SWT.NONE);
+		lblDescription_1 = new Label(container, SWT.WRAP);
 		GridData gd_lblDescription_1 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblDescription_1.heightHint = 88;
+		gd_lblDescription_1.widthHint = 314;
+		gd_lblDescription_1.heightHint = 62;
 		lblDescription_1.setLayoutData(gd_lblDescription_1);
-		lblDescription_1.setText("Description of element");
+		lblDescription_1.setText("Nothing selected.");
 
 		return container;
 	}
@@ -148,7 +187,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(450, 280);
+		return new Point(450, 220);
 	}
 
 }
