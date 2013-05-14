@@ -57,9 +57,9 @@ public class Activator extends AbstractUIPlugin {
 			
 			AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
 			
-			Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
+			//Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
 			
-			/*try {
+			try {
 				Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
 				int i = 0;
 				
@@ -89,7 +89,7 @@ public class Activator extends AbstractUIPlugin {
 				logger.error("Erro na criacao", e);
 			} catch (URISyntaxException e) {
 				logger.error("Erro na URI", e);
-			}*/
+			}
 	}
 
 	/*
