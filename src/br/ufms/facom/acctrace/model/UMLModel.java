@@ -7,15 +7,15 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>UML Model</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link br.ufms.facom.acctrace.model.UMLModel#getId <em>Id</em>}</li>
- * <li>{@link br.ufms.facom.acctrace.model.UMLModel#getPath <em>Path</em>}</li>
+ *   <li>{@link br.ufms.facom.acctrace.model.UMLModel#getId <em>Id</em>}</li>
+ *   <li>{@link br.ufms.facom.acctrace.model.UMLModel#getPath <em>Path</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see br.ufms.facom.acctrace.model.ModelPackage#getUMLModel()
  * @model
  * @generated
@@ -39,12 +39,9 @@ public interface UMLModel extends EObject {
 	String getId();
 
 	/**
-	 * Sets the value of the '
-	 * {@link br.ufms.facom.acctrace.model.UMLModel#getId <em>Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Id</em>' attribute.
+	 * Sets the value of the '{@link br.ufms.facom.acctrace.model.UMLModel#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
 	 */
@@ -68,12 +65,9 @@ public interface UMLModel extends EObject {
 	String getPath();
 
 	/**
-	 * Sets the value of the '
-	 * {@link br.ufms.facom.acctrace.model.UMLModel#getPath <em>Path</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Path</em>' attribute.
+	 * Sets the value of the '{@link br.ufms.facom.acctrace.model.UMLModel#getPath <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' attribute.
 	 * @see #getPath()
 	 * @generated
 	 */

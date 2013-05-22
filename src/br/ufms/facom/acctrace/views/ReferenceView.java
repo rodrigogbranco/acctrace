@@ -103,6 +103,8 @@ public class ReferenceView {
 
 	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
+	
+	private PackageableElement selectedElement = null;
 
 	/**
 	 * Instantiates a new reference view.
@@ -598,6 +600,12 @@ public class ReferenceView {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
+				if(obj instanceof PackageableElement && (obj instanceof Classifier))
+					selectedElement = (PackageableElement)obj;
+				else
+					selectedElement = null;
+				
+				showMessage("Click detected on " + selectedElement);
 				for (IPropertyChangeListener element : listeners
 						.toArray(new IPropertyChangeListener[0])) {
 					if (element != null) {
@@ -650,5 +658,9 @@ public class ReferenceView {
 		hookDoubleClickAction();
 		contributeToActionBars();
 		hookSingleClickAction();
+	}
+	
+	public PackageableElement getSelectedElement() {
+		return selectedElement;
 	}
 }

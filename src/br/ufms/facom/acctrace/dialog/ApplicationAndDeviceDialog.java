@@ -26,6 +26,8 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
 
 public class ApplicationAndDeviceDialog extends Dialog {
 
@@ -176,8 +178,13 @@ public class ApplicationAndDeviceDialog extends Dialog {
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
+		Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
 				true);
+		button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
 		createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
 	}

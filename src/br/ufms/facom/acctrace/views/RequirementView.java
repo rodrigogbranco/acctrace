@@ -12,10 +12,12 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
@@ -60,6 +62,7 @@ public class RequirementView extends ViewPart implements
 	private Action action1;
 	private Action action2;
 	private Action doubleClickAction;
+	private Requirement selectedRequirement = null;
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -129,6 +132,7 @@ public class RequirementView extends ViewPart implements
 				.setHelp(viewer.getControl(), "br.ufms.facom.acctrace.viewer");
 		makeActions();
 		hookContextMenu();
+		hookSingleClickAction();
 		hookDoubleClickAction();
 		contributeToActionBars();
 	}
@@ -195,9 +199,23 @@ public class RequirementView extends ViewPart implements
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
-				showMessage("Double-click detected on " + obj.toString());
+				showMessage("Double-click detected on " + obj.getClass());
 			}
 		};
+	}
+	
+	private void hookSingleClickAction() {
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				ISelection selection = viewer.getSelection();
+				Object obj = ((IStructuredSelection) selection)
+						.getFirstElement();
+				selectedRequirement = (Requirement)obj;
+				//showMessage("Click detected on " + selectedRequirement.toString());
+			}
+		});
 	}
 
 	private void hookDoubleClickAction() {
@@ -227,5 +245,9 @@ public class RequirementView extends ViewPart implements
 		else
 			viewer.setInput(event.getOldValue());
 		viewer.refresh();
+	}
+	
+	public Requirement getSelectedRequirement() {
+		return selectedRequirement;
 	}
 }

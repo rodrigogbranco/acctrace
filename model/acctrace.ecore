@@ -4,11 +4,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Reference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="umlModel" eType="#//UMLModel"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementContainer" eType="#//RequirementContainer"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologies" upperBound="-1"
         eType="#//OWLOntology" eOpposite="#//OWLOntology/reference"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Requirement"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AccTraceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
@@ -27,9 +27,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="UMLModel" eSuperTypes="http://www.eclipse.org/emf/2002/Ecore#//EObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RequirementContainer" eSuperTypes="platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementType" eType="ecore:EEnum platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//RequirementType"/>

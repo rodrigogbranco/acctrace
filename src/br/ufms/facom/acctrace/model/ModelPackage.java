@@ -19,47 +19,43 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see br.ufms.facom.acctrace.model.ModelFactory
  * @model kind="package"
  * @generated
  */
 public interface ModelPackage extends EPackage {
 	/**
-	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package name.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNAME = "model";
 
 	/**
-	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package namespace URI.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_URI = "http://facom.ufms.br/acctrace";
 
 	/**
-	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package namespace name.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_PREFIX = "model";
 
 	/**
-	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	ModelPackage eINSTANCE = br.ufms.facom.acctrace.model.impl.ModelPackageImpl
-			.init();
+	ModelPackage eINSTANCE = br.ufms.facom.acctrace.model.impl.ModelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '
-	 * {@link br.ufms.facom.acctrace.model.impl.ReferenceImpl
-	 * <em>Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl <em>Reference</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see br.ufms.facom.acctrace.model.impl.ReferenceImpl
 	 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getReference()
 	 * @generated
@@ -69,20 +65,10 @@ public interface ModelPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Uml Model</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int REFERENCE__UML_MODEL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Requirement Container</b></em>'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__REQUIREMENT_CONTAINER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Ontologies</b></em>' reference. <!--
@@ -91,7 +77,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__ONTOLOGIES = 2;
+	int REFERENCE__ONTOLOGIES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!--
@@ -100,7 +86,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__ID = 3;
+	int REFERENCE__ID = 2;
+
+	/**
+	 * The feature id for the '<em><b>Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__REQUIREMENT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Reference</em>' class. <!--
@@ -112,11 +107,9 @@ public interface ModelPackage extends EPackage {
 	int REFERENCE_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '
-	 * {@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl
-	 * <em>Acc Trace Model</em>}' class. <!-- begin-user-doc --> <!--
+	 * The meta object id for the '{@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl <em>Acc Trace Model</em>}' class.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see br.ufms.facom.acctrace.model.impl.AccTraceModelImpl
 	 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getAccTraceModel()
 	 * @generated
@@ -124,36 +117,32 @@ public interface ModelPackage extends EPackage {
 	int ACC_TRACE_MODEL = 1;
 
 	/**
-	 * The feature id for the '<em><b>References</b></em>' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ACC_TRACE_MODEL__REFERENCES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Filter Type</b></em>' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Filter Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ACC_TRACE_MODEL__FILTER_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Requirement Repositories</b></em>'
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Requirement Repositories</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES = 2;
 
 	/**
-	 * The number of structural features of the '<em>Acc Trace Model</em>'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of structural features of the '<em>Acc Trace Model</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -201,17 +190,14 @@ public interface ModelPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>OWL Ontology</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int OWL_ONTOLOGY_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '
-	 * {@link br.ufms.facom.acctrace.model.impl.UMLModelImpl <em>UML Model</em>}
-	 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link br.ufms.facom.acctrace.model.impl.UMLModelImpl <em>UML Model</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see br.ufms.facom.acctrace.model.impl.UMLModelImpl
 	 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getUMLModel()
 	 * @generated
@@ -246,55 +232,14 @@ public interface ModelPackage extends EPackage {
 	int UML_MODEL_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '
-	 * {@link br.ufms.facom.acctrace.model.impl.RequirementContainerImpl
-	 * <em>Requirement Container</em>}' class. <!-- begin-user-doc --> <!--
+	 * The meta object id for the '{@link br.ufms.facom.acctrace.model.impl.RequirementFilterImpl <em>Requirement Filter</em>}' class.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @see br.ufms.facom.acctrace.model.impl.RequirementContainerImpl
-	 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getRequirementContainer()
-	 * @generated
-	 */
-	int REQUIREMENT_CONTAINER = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT_CONTAINER__NAME = RequirementPackage.NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT_CONTAINER__ID = RequirementPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Requirement Container</em>'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT_CONTAINER_FEATURE_COUNT = RequirementPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '
-	 * {@link br.ufms.facom.acctrace.model.impl.RequirementFilterImpl
-	 * <em>Requirement Filter</em>}' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
 	 * @see br.ufms.facom.acctrace.model.impl.RequirementFilterImpl
 	 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getRequirementFilter()
 	 * @generated
 	 */
-	int REQUIREMENT_FILTER = 5;
+	int REQUIREMENT_FILTER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Requirement Type</b></em>' attribute. <!--
@@ -324,9 +269,8 @@ public interface ModelPackage extends EPackage {
 	int REQUIREMENT_FILTER__ID = 2;
 
 	/**
-	 * The number of structural features of the '<em>Requirement Filter</em>'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of structural features of the '<em>Requirement Filter</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -344,12 +288,9 @@ public interface ModelPackage extends EPackage {
 	EClass getReference();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link br.ufms.facom.acctrace.model.Reference#getUmlModel
-	 * <em>Uml Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Uml Model</em>
-	 *         '.
+	 * Returns the meta object for the containment reference '{@link br.ufms.facom.acctrace.model.Reference#getUmlModel <em>Uml Model</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Uml Model</em>'.
 	 * @see br.ufms.facom.acctrace.model.Reference#getUmlModel()
 	 * @see #getReference()
 	 * @generated
@@ -357,24 +298,8 @@ public interface ModelPackage extends EPackage {
 	EReference getReference_UmlModel();
 
 	/**
-	 * Returns the meta object for the containment reference '
-	 * {@link br.ufms.facom.acctrace.model.Reference#getRequirementContainer
-	 * <em>Requirement Container</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '
-	 *         <em>Requirement Container</em>'.
-	 * @see br.ufms.facom.acctrace.model.Reference#getRequirementContainer()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_RequirementContainer();
-
-	/**
-	 * Returns the meta object for the reference list '
-	 * {@link br.ufms.facom.acctrace.model.Reference#getOntologies
-	 * <em>Ontologies</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the reference list '{@link br.ufms.facom.acctrace.model.Reference#getOntologies <em>Ontologies</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Ontologies</em>'.
 	 * @see br.ufms.facom.acctrace.model.Reference#getOntologies()
 	 * @see #getReference()
@@ -395,10 +320,19 @@ public interface ModelPackage extends EPackage {
 	EAttribute getReference_Id();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link br.ufms.facom.acctrace.model.AccTraceModel
-	 * <em>Acc Trace Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the containment reference '{@link br.ufms.facom.acctrace.model.Reference#getRequirement <em>Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Requirement</em>'.
+	 * @see br.ufms.facom.acctrace.model.Reference#getRequirement()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EReference getReference_Requirement();
+
+	/**
+	 * Returns the meta object for class '{@link br.ufms.facom.acctrace.model.AccTraceModel <em>Acc Trace Model</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Acc Trace Model</em>'.
 	 * @see br.ufms.facom.acctrace.model.AccTraceModel
 	 * @generated
@@ -406,12 +340,9 @@ public interface ModelPackage extends EPackage {
 	EClass getAccTraceModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link br.ufms.facom.acctrace.model.AccTraceModel#getReferences
-	 * <em>References</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '
-	 *         <em>References</em>'.
+	 * Returns the meta object for the containment reference list '{@link br.ufms.facom.acctrace.model.AccTraceModel#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>References</em>'.
 	 * @see br.ufms.facom.acctrace.model.AccTraceModel#getReferences()
 	 * @see #getAccTraceModel()
 	 * @generated
@@ -419,12 +350,9 @@ public interface ModelPackage extends EPackage {
 	EReference getAccTraceModel_References();
 
 	/**
-	 * Returns the meta object for the containment reference list '
-	 * {@link br.ufms.facom.acctrace.model.AccTraceModel#getFilterType
-	 * <em>Filter Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '
-	 *         <em>Filter Type</em>'.
+	 * Returns the meta object for the containment reference list '{@link br.ufms.facom.acctrace.model.AccTraceModel#getFilterType <em>Filter Type</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Filter Type</em>'.
 	 * @see br.ufms.facom.acctrace.model.AccTraceModel#getFilterType()
 	 * @see #getAccTraceModel()
 	 * @generated
@@ -432,13 +360,10 @@ public interface ModelPackage extends EPackage {
 	EReference getAccTraceModel_FilterType();
 
 	/**
-	 * Returns the meta object for the reference list '
-	 * {@link br.ufms.facom.acctrace.model.AccTraceModel#getRequirementRepositories
-	 * <em>Requirement Repositories</em>}'. <!-- begin-user-doc --> <!--
+	 * Returns the meta object for the reference list '{@link br.ufms.facom.acctrace.model.AccTraceModel#getRequirementRepositories <em>Requirement Repositories</em>}'.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the reference list '
-	 *         <em>Requirement Repositories</em>'.
+	 * @return the meta object for the reference list '<em>Requirement Repositories</em>'.
 	 * @see br.ufms.facom.acctrace.model.AccTraceModel#getRequirementRepositories()
 	 * @see #getAccTraceModel()
 	 * @generated
@@ -446,10 +371,8 @@ public interface ModelPackage extends EPackage {
 	EReference getAccTraceModel_RequirementRepositories();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link br.ufms.facom.acctrace.model.OWLOntology <em>OWL Ontology</em>}'.
+	 * Returns the meta object for class '{@link br.ufms.facom.acctrace.model.OWLOntology <em>OWL Ontology</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @return the meta object for class '<em>OWL Ontology</em>'.
 	 * @see br.ufms.facom.acctrace.model.OWLOntology
 	 * @generated
@@ -457,10 +380,8 @@ public interface ModelPackage extends EPackage {
 	EClass getOWLOntology();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link br.ufms.facom.acctrace.model.OWLOntology#getPath <em>Path</em>}'.
+	 * Returns the meta object for the attribute '{@link br.ufms.facom.acctrace.model.OWLOntology#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @return the meta object for the attribute '<em>Path</em>'.
 	 * @see br.ufms.facom.acctrace.model.OWLOntology#getPath()
 	 * @see #getOWLOntology()
@@ -469,10 +390,8 @@ public interface ModelPackage extends EPackage {
 	EAttribute getOWLOntology_Path();
 
 	/**
-	 * Returns the meta object for the reference '
-	 * {@link br.ufms.facom.acctrace.model.OWLOntology#getReference
-	 * <em>Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the reference '{@link br.ufms.facom.acctrace.model.OWLOntology#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Reference</em>'.
 	 * @see br.ufms.facom.acctrace.model.OWLOntology#getReference()
 	 * @see #getOWLOntology()
@@ -516,40 +435,14 @@ public interface ModelPackage extends EPackage {
 	EAttribute getUMLModel_Id();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link br.ufms.facom.acctrace.model.UMLModel#getPath <em>Path</em>}'.
+	 * Returns the meta object for the attribute '{@link br.ufms.facom.acctrace.model.UMLModel#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @return the meta object for the attribute '<em>Path</em>'.
 	 * @see br.ufms.facom.acctrace.model.UMLModel#getPath()
 	 * @see #getUMLModel()
 	 * @generated
 	 */
 	EAttribute getUMLModel_Path();
-
-	/**
-	 * Returns the meta object for class '
-	 * {@link br.ufms.facom.acctrace.model.RequirementContainer
-	 * <em>Requirement Container</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Requirement Container</em>'.
-	 * @see br.ufms.facom.acctrace.model.RequirementContainer
-	 * @generated
-	 */
-	EClass getRequirementContainer();
-
-	/**
-	 * Returns the meta object for the attribute '
-	 * {@link br.ufms.facom.acctrace.model.RequirementContainer#getId
-	 * <em>Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see br.ufms.facom.acctrace.model.RequirementContainer#getId()
-	 * @see #getRequirementContainer()
-	 * @generated
-	 */
-	EAttribute getRequirementContainer_Id();
 
 	/**
 	 * Returns the meta object for class '
@@ -577,10 +470,8 @@ public interface ModelPackage extends EPackage {
 	EAttribute getRequirementFilter_RequirementType();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link br.ufms.facom.acctrace.model.RequirementFilter#getSubType
-	 * <em>Sub Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link br.ufms.facom.acctrace.model.RequirementFilter#getSubType <em>Sub Type</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Sub Type</em>'.
 	 * @see br.ufms.facom.acctrace.model.RequirementFilter#getSubType()
 	 * @see #getRequirementFilter()
@@ -589,10 +480,8 @@ public interface ModelPackage extends EPackage {
 	EAttribute getRequirementFilter_SubType();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link br.ufms.facom.acctrace.model.RequirementFilter#getId <em>Id</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the meta object for the attribute '{@link br.ufms.facom.acctrace.model.RequirementFilter#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
 	 * @see br.ufms.facom.acctrace.model.RequirementFilter#getId()
 	 * @see #getRequirementFilter()
@@ -619,7 +508,6 @@ public interface ModelPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	interface Literals {
@@ -636,46 +524,39 @@ public interface ModelPackage extends EPackage {
 		EClass REFERENCE = eINSTANCE.getReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Uml Model</b></em>'
-		 * containment reference feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Uml Model</b></em>' containment reference feature.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @generated
 		 */
 		EReference REFERENCE__UML_MODEL = eINSTANCE.getReference_UmlModel();
 
 		/**
-		 * The meta object literal for the '
-		 * <em><b>Requirement Container</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Ontologies</b></em>' reference list feature.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference REFERENCE__REQUIREMENT_CONTAINER = eINSTANCE
-				.getReference_RequirementContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Ontologies</b></em>'
-		 * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
 		 * @generated
 		 */
 		EReference REFERENCE__ONTOLOGIES = eINSTANCE.getReference_Ontologies();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute REFERENCE__ID = eINSTANCE.getReference_Id();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl
-		 * <em>Acc Trace Model</em>}' class. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Requirement</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE__REQUIREMENT = eINSTANCE.getReference_Requirement();
+
+		/**
+		 * The meta object literal for the '{@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl <em>Acc Trace Model</em>}' class.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @see br.ufms.facom.acctrace.model.impl.AccTraceModelImpl
 		 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getAccTraceModel()
 		 * @generated
@@ -683,41 +564,32 @@ public interface ModelPackage extends EPackage {
 		EClass ACC_TRACE_MODEL = eINSTANCE.getAccTraceModel();
 
 		/**
-		 * The meta object literal for the '<em><b>References</b></em>'
-		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @generated
 		 */
-		EReference ACC_TRACE_MODEL__REFERENCES = eINSTANCE
-				.getAccTraceModel_References();
+		EReference ACC_TRACE_MODEL__REFERENCES = eINSTANCE.getAccTraceModel_References();
 
 		/**
-		 * The meta object literal for the '<em><b>Filter Type</b></em>'
-		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Filter Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @generated
 		 */
-		EReference ACC_TRACE_MODEL__FILTER_TYPE = eINSTANCE
-				.getAccTraceModel_FilterType();
+		EReference ACC_TRACE_MODEL__FILTER_TYPE = eINSTANCE.getAccTraceModel_FilterType();
 
 		/**
-		 * The meta object literal for the '
-		 * <em><b>Requirement Repositories</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Requirement Repositories</b></em>' reference list feature.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
 		 * @generated
 		 */
-		EReference ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES = eINSTANCE
-				.getAccTraceModel_RequirementRepositories();
+		EReference ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES = eINSTANCE.getAccTraceModel_RequirementRepositories();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link br.ufms.facom.acctrace.model.impl.OWLOntologyImpl
-		 * <em>OWL Ontology</em>}' class. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '{@link br.ufms.facom.acctrace.model.impl.OWLOntologyImpl <em>OWL Ontology</em>}' class.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
 		 * @see br.ufms.facom.acctrace.model.impl.OWLOntologyImpl
 		 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getOWLOntology()
 		 * @generated
@@ -725,26 +597,22 @@ public interface ModelPackage extends EPackage {
 		EClass OWL_ONTOLOGY = eINSTANCE.getOWLOntology();
 
 		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute OWL_ONTOLOGY__PATH = eINSTANCE.getOWLOntology_Path();
 
 		/**
-		 * The meta object literal for the '<em><b>Reference</b></em>' reference
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OWL_ONTOLOGY__REFERENCE = eINSTANCE
-				.getOWLOntology_Reference();
+		EReference OWL_ONTOLOGY__REFERENCE = eINSTANCE.getOWLOntology_Reference();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute OWL_ONTOLOGY__ID = eINSTANCE.getOWLOntology_Id();
@@ -762,48 +630,23 @@ public interface ModelPackage extends EPackage {
 		EClass UML_MODEL = eINSTANCE.getUMLModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute UML_MODEL__ID = eINSTANCE.getUMLModel_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute UML_MODEL__PATH = eINSTANCE.getUMLModel_Path();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link br.ufms.facom.acctrace.model.impl.RequirementContainerImpl
-		 * <em>Requirement Container</em>}' class. <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '{@link br.ufms.facom.acctrace.model.impl.RequirementFilterImpl <em>Requirement Filter</em>}' class.
+		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
-		 * @see br.ufms.facom.acctrace.model.impl.RequirementContainerImpl
-		 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getRequirementContainer()
-		 * @generated
-		 */
-		EClass REQUIREMENT_CONTAINER = eINSTANCE.getRequirementContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute REQUIREMENT_CONTAINER__ID = eINSTANCE
-				.getRequirementContainer_Id();
-
-		/**
-		 * The meta object literal for the '
-		 * {@link br.ufms.facom.acctrace.model.impl.RequirementFilterImpl
-		 * <em>Requirement Filter</em>}' class. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
 		 * @see br.ufms.facom.acctrace.model.impl.RequirementFilterImpl
 		 * @see br.ufms.facom.acctrace.model.impl.ModelPackageImpl#getRequirementFilter()
 		 * @generated
@@ -811,27 +654,22 @@ public interface ModelPackage extends EPackage {
 		EClass REQUIREMENT_FILTER = eINSTANCE.getRequirementFilter();
 
 		/**
-		 * The meta object literal for the '<em><b>Requirement Type</b></em>'
-		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Requirement Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REQUIREMENT_FILTER__REQUIREMENT_TYPE = eINSTANCE
-				.getRequirementFilter_RequirementType();
+		EAttribute REQUIREMENT_FILTER__REQUIREMENT_TYPE = eINSTANCE.getRequirementFilter_RequirementType();
 
 		/**
-		 * The meta object literal for the '<em><b>Sub Type</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Sub Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REQUIREMENT_FILTER__SUB_TYPE = eINSTANCE
-				.getRequirementFilter_SubType();
+		EAttribute REQUIREMENT_FILTER__SUB_TYPE = eINSTANCE.getRequirementFilter_SubType();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute REQUIREMENT_FILTER__ID = eINSTANCE.getRequirementFilter_Id();
