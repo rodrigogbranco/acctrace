@@ -1,5 +1,8 @@
 package br.ufms.facom.acctrace.views;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -29,9 +32,12 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.uml2.uml.PackageableElement;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLOntology;
 
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.controller.ModelController;
+import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -76,12 +82,10 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		public void dispose() {
 		}
 
+		@SuppressWarnings("unchecked")
 		public Object[] getElements(Object parent) {
-			for (Reference ref : ModelController.getInstance().getModel()
-					.getReferences()) {
-				if (ref.getUmlModel().equals(parent))
-					return ref.getOntologies().toArray();
-			}
+			if (parent != null && parent instanceof Reference)
+				return ((Reference)parent).getOntologies().toArray();
 
 			return new Object[0];
 		}
@@ -90,7 +94,16 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	class ViewLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
 		public String getColumnText(Object obj, int index) {
-			return getText(obj);
+			
+			if(obj != null) {
+				OWLOntology ontology = AccessibilityOWLFactory.getInstance().
+						getOWLOntologyByIRI(obj.toString());
+				OWLNamedIndividual individual = AccessibilityOWLFactory.
+						getInstance().getNamedIndividual(obj.toString(), ontology);
+				return AccessibilityOWLFactory.getInstance().getDescription(individual, ontology);
+			}
+			else
+				return getText(obj);
 		}
 
 		public Image getColumnImage(Object obj, int index) {
@@ -111,6 +124,7 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	 */
 	public AccessibilitySpecificationsView() {
 		ReferenceView.addPropertyChangeListener(this);
+		RequirementView.addPropertyChangeListener(this);
 	}
 
 	/**
@@ -221,9 +235,17 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	}
 
 	@Override
-	public void propertyChange(PropertyChangeEvent event) {
-		if (event.getNewValue() instanceof PackageableElement)
-			viewer.setInput(event.getNewValue());
+	public void propertyChange(PropertyChangeEvent event) {	
+		if (event.getNewValue() != null) {
+			if(ReferenceView.getSelectedElement() != null && RequirementView.getSelectedRequirement()
+					!= null) {
+				viewer.setInput(ModelController.getInstance().
+						getReference(RequirementView.getSelectedRequirement(), 
+								ReferenceView.getSelectedElement()));
+			}
+			else
+				viewer.setInput(null);				
+		}
 		else
 			viewer.setInput(null);
 		viewer.refresh();

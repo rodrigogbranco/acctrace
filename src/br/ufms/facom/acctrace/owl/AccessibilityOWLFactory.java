@@ -232,6 +232,13 @@ public final class AccessibilityOWLFactory {
 			return manager.getOntology(iriMap.get("Generic"));
 	}
 	
+	public OWLOntology getOWLOntologyByIRI(String iri) {
+		if(iri != null)
+			return manager.getOntology(IRI.create(iri.substring(0, iri.indexOf('#'))));
+		else
+			return manager.getOntology(iriMap.get("Generic"));
+	}
+	
 	public String getIRIofClass(String clazz) {
 		return rdfID.get(clazz);
 	}
@@ -279,6 +286,16 @@ public final class AccessibilityOWLFactory {
 		
 		return map;
 	}
+	
+	public OWLNamedIndividual getNamedIndividual(String choice, OWLOntology ontology) {		
+		for(OWLNamedIndividual n : ontology.getIndividualsInSignature()) {
+			if(n.getIRI().equals(IRI.create(choice)))
+				return n;
+		}
+		
+		return null;
+	}	
+	
 	
 	public String getDescription(OWLNamedIndividual individual, OWLOntology ontology) {
 		for(OWLAnnotation ann : individual.getAnnotations(ontology)) {

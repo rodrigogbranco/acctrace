@@ -167,7 +167,16 @@ public final class ModelController {
 			reference.getOntologies().add(iri.toString());
 		
 		model.eResource().save(options);	
-	}	
+	}
+	
+	public Reference getReference(Requirement req, PackageableElement pack) {		
+		for(Reference ref : model.getReferences()) {
+			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req))
+				return ref;
+		}
+		
+		return null;
+	}
 
 	/**
 	 * Load uml model.

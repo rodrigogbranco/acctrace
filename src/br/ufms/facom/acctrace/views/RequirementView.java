@@ -1,5 +1,7 @@
 package br.ufms.facom.acctrace.views;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -63,6 +65,8 @@ public class RequirementView extends ViewPart implements
 	private Action action2;
 	private Action doubleClickAction;
 	private static Requirement selectedRequirement = null;
+	
+	private static ArrayList<IPropertyChangeListener> listeners = null;
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -71,6 +75,15 @@ public class RequirementView extends ViewPart implements
 	 * or ignore it and always show the same content (like Task List, for
 	 * example).
 	 */
+	
+	public static void addPropertyChangeListener(
+			IPropertyChangeListener listener) {
+		if(listeners == null)
+			listeners = new ArrayList<IPropertyChangeListener>();
+		
+		if (!listeners.contains(listener))
+			listeners.add(listener);
+	}
 
 	class ViewContentProvider implements IStructuredContentProvider {
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
@@ -216,6 +229,16 @@ public class RequirementView extends ViewPart implements
 						.getFirstElement();
 				selectedRequirement = (Requirement)obj;
 				showMessage("Click detected on " + selectedRequirement);
+				for (IPropertyChangeListener element : listeners
+						.toArray(new IPropertyChangeListener[0])) {
+					if (element != null) {
+						PropertyChangeEvent pChange = new PropertyChangeEvent(
+								this, "elementSelected", null,
+								obj);
+						element.propertyChange(pChange);
+					} else
+						removePropertyChangeListener(element);
+				}				
 			}
 		});
 	}
@@ -252,4 +275,9 @@ public class RequirementView extends ViewPart implements
 	public static Requirement getSelectedRequirement() {
 		return selectedRequirement;
 	}
+	
+	public static void removePropertyChangeListener(
+			IPropertyChangeListener listener) {
+		listeners.remove(listener);
+	}	
 }
