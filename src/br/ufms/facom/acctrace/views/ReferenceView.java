@@ -3,6 +3,7 @@
  */
 package br.ufms.facom.acctrace.views;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -40,6 +41,8 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
+import org.obeonetwork.dsl.requirement.Requirement;
+import org.semanticweb.owlapi.model.IRI;
 
 import br.ufms.facom.acctrace.dialog.ApplicationAndDeviceDialog;
 import br.ufms.facom.acctrace.editors.AccTraceFormPage;
@@ -104,7 +107,7 @@ public class ReferenceView {
 	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
 	
-	private PackageableElement selectedElement = null;
+	private static PackageableElement selectedElement = null;
 
 	/**
 	 * Instantiates a new reference view.
@@ -115,6 +118,8 @@ public class ReferenceView {
 	 *            the composite
 	 */
 	public ReferenceView(AccTraceFormPage form, Composite composite) {
+		selectedElement = null;
+		
 		if (listeners == null)
 			listeners = new ArrayList<IPropertyChangeListener>();
 
@@ -462,6 +467,13 @@ public class ReferenceView {
 						.getShell(), "Application");
 				if (dialog.open() == Window.OK) {
 					// Save Model
+					try {
+						save(RequirementView.getSelectedRequirement(), selectedElement, 
+								ApplicationAndDeviceDialog.getSelectedIri());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		};		
@@ -472,7 +484,13 @@ public class ReferenceView {
 				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(form.getSite()
 						.getShell(), "Device");
 				if (dialog.open() == Window.OK) {
-					// Save Model
+					try {
+						save(RequirementView.getSelectedRequirement(), selectedElement, 
+								ApplicationAndDeviceDialog.getSelectedIri());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		};		
@@ -586,6 +604,11 @@ public class ReferenceView {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
+				if(obj instanceof PackageableElement && (obj instanceof Classifier))
+					selectedElement = (PackageableElement)obj;
+				else
+					selectedElement = null;				
+				
 				showMessage("Double-click detected on " + obj.toString());
 			}
 		};
@@ -660,7 +683,31 @@ public class ReferenceView {
 		hookSingleClickAction();
 	}
 	
-	public PackageableElement getSelectedElement() {
+	private void save(Requirement req, PackageableElement pack, IRI iri) throws IOException {
+		if(req == null) {
+			showMessage("Please select a requirement first in Requirement Associations View!");
+			return;
+		}
+		
+		if(pack == null) {
+			showMessage("Please select a UML Model in Requirement to Model to Techinique Mapping View!");
+			return;
+		}
+		
+		if(iri == null) {
+			showMessage("You need to select a accessibility reference. Right-click on UML model in" +
+					"Requirement to Model to Techinique Mapping View");
+			return;
+		}
+	
+		ModelController controller = ModelController.getInstance();
+		
+		controller.addAccessibilityReference(req,pack,iri);
+		
+		showMessage("chegou aqui?");
+	}
+	
+	public static PackageableElement getSelectedElement() {
 		return selectedElement;
 	}
 }

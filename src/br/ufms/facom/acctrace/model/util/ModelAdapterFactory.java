@@ -3,39 +3,35 @@
 package br.ufms.facom.acctrace.model.util;
 
 import br.ufms.facom.acctrace.model.*;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.requirement.NamedElement;
 
-import br.ufms.facom.acctrace.model.AccTraceModel;
-import br.ufms.facom.acctrace.model.ModelPackage;
-import br.ufms.facom.acctrace.model.OWLOntology;
-import br.ufms.facom.acctrace.model.Reference;
-import br.ufms.facom.acctrace.model.RequirementContainer;
-import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.UMLModel;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
- * an adapter <code>createXXX</code> method for each class of the model. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * The <b>Adapter Factory</b> for the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- end-user-doc -->
  * @see br.ufms.facom.acctrace.model.ModelPackage
  * @generated
  */
 public class ModelAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static ModelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ModelAdapterFactory() {
@@ -46,9 +42,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
-	 * the object is either the model's package or is an instance object of the
-	 * model. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * <!-- end-user-doc -->
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
@@ -64,12 +60,13 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<Adapter>() {
+	protected ModelSwitch<Adapter> modelSwitch =
+		new ModelSwitch<Adapter>() {
 			@Override
 			public Adapter caseReference(Reference object) {
 				return createReferenceAdapter();
@@ -77,14 +74,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAccTraceModel(AccTraceModel object) {
 				return createAccTraceModelAdapter();
-			}
-			@Override
-			public Adapter caseOWLOntology(OWLOntology object) {
-				return createOWLOntologyAdapter();
-			}
-			@Override
-			public Adapter caseUMLModel(UMLModel object) {
-				return createUMLModelAdapter();
 			}
 			@Override
 			public Adapter caseRequirementFilter(RequirementFilter object) {
@@ -109,13 +98,13 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link br.ufms.facom.acctrace.model.Reference <em>Reference</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 * Creates a new adapter for an object of class '{@link br.ufms.facom.acctrace.model.Reference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see br.ufms.facom.acctrace.model.Reference
 	 * @generated
@@ -126,9 +115,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link br.ufms.facom.acctrace.model.AccTraceModel <em>Acc Trace Model</em>}'.
-	 * <!-- begin-user-doc --> This default
-	 * implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see br.ufms.facom.acctrace.model.AccTraceModel
@@ -139,38 +128,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.ufms.facom.acctrace.model.OWLOntology <em>OWL Ontology</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see br.ufms.facom.acctrace.model.OWLOntology
-	 * @generated
-	 */
-	public Adapter createOWLOntologyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link br.ufms.facom.acctrace.model.UMLModel <em>UML Model</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see br.ufms.facom.acctrace.model.UMLModel
-	 * @generated
-	 */
-	public Adapter createUMLModelAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link br.ufms.facom.acctrace.model.RequirementFilter <em>Requirement Filter</em>}'.
-	 * <!-- begin-user-doc --> This default
-	 * implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see br.ufms.facom.acctrace.model.RequirementFilter
@@ -182,8 +143,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc --> This
-	 * default implementation returns null. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -191,4 +153,4 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} // ModelAdapterFactory
+} //ModelAdapterFactory

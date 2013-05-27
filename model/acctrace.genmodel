@@ -7,24 +7,16 @@
   <genPackages prefix="Model" basePackage="br.ufms.facom.acctrace" disposableProviderFactory="true"
       ecorePackage="acctrace.ecore#/">
     <genClasses provider="None" ecoreClass="acctrace.ecore#//Reference">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/umlModel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/ontologies"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//Reference/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/requirement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//Reference/umlModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute acctrace.ecore#//Reference/ontologies"/>
     </genClasses>
     <genClasses provider="None" ecoreClass="acctrace.ecore#//AccTraceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/references"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/filterType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acctrace.ecore#//AccTraceModel/requirementRepositories"/>
-    </genClasses>
-    <genClasses provider="None" ecoreClass="acctrace.ecore#//OWLOntology">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//OWLOntology/path"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference acctrace.ecore#//OWLOntology/reference"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//OWLOntology/id"/>
-    </genClasses>
-    <genClasses provider="None" ecoreClass="acctrace.ecore#//UMLModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//UMLModel/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//UMLModel/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//AccTraceModel/id"/>
     </genClasses>
     <genClasses ecoreClass="acctrace.ecore#//RequirementFilter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acctrace.ecore#//RequirementFilter/requirementType"/>

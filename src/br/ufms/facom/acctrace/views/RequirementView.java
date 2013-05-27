@@ -62,7 +62,7 @@ public class RequirementView extends ViewPart implements
 	private Action action1;
 	private Action action2;
 	private Action doubleClickAction;
-	private Requirement selectedRequirement = null;
+	private static Requirement selectedRequirement = null;
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -121,6 +121,8 @@ public class RequirementView extends ViewPart implements
 	 * it.
 	 */
 	public void createPartControl(Composite parent) {
+		selectedRequirement = null;
+		
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL);
 		viewer.setContentProvider(new ViewContentProvider());
@@ -213,7 +215,7 @@ public class RequirementView extends ViewPart implements
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
 				selectedRequirement = (Requirement)obj;
-				//showMessage("Click detected on " + selectedRequirement.toString());
+				showMessage("Click detected on " + selectedRequirement);
 			}
 		});
 	}
@@ -247,7 +249,7 @@ public class RequirementView extends ViewPart implements
 		viewer.refresh();
 	}
 	
-	public Requirement getSelectedRequirement() {
+	public static Requirement getSelectedRequirement() {
 		return selectedRequirement;
 	}
 }

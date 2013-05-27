@@ -49,13 +49,15 @@ public class ApplicationAndDeviceDialog extends Dialog {
 	
 	private OWLOntology ontology;
 	
-	private IRI selectedIri;
+	private static IRI selectedIri;
 	/**
 	 * Create the dialog.
 	 * @param parentShell
 	 */
 	public ApplicationAndDeviceDialog(Shell parentShell, String key) {
 		super(parentShell);
+		
+		selectedIri = null;
 		
 		keyChoice = key;
 		
@@ -195,6 +197,10 @@ public class ApplicationAndDeviceDialog extends Dialog {
 	@Override
 	protected Point getInitialSize() {
 		return new Point(450, 220);
+	}
+	
+	public static IRI getSelectedIri() {
+		return selectedIri;
 	}
 
 }

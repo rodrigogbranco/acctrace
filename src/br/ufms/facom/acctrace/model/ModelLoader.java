@@ -80,16 +80,19 @@ public final class ModelLoader {
 	 * @throws CoreException
 	 *             the core exception
 	 */
-	public void initializeAccTraceModel(String nameFile, IContainer container)
+	public void initializeAccTraceModel(String fileName, IContainer container)
 			throws IOException, CoreException {
 		AccTraceModel model = ModelFactory.eINSTANCE.createAccTraceModel();
 
 		ResourceSet resSet = new ResourceSetImpl();
-		Resource resource = resSet.createResource(URI.createURI(nameFile));
+		Resource resource = resSet.createResource(URI.createURI(fileName));
 
 		if (container != null)
 			loadRequirementFiles(model, container);
 
+		if(model.getId() == null)
+			model.setId(EcoreUtil.generateUUID());
+		
 		resource.getContents().add(model);
 
 		resource.save(options);

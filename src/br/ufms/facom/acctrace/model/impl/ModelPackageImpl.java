@@ -5,10 +5,8 @@ package br.ufms.facom.acctrace.model.impl;
 import br.ufms.facom.acctrace.model.AccTraceModel;
 import br.ufms.facom.acctrace.model.ModelFactory;
 import br.ufms.facom.acctrace.model.ModelPackage;
-import br.ufms.facom.acctrace.model.OWLOntology;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-import br.ufms.facom.acctrace.model.UMLModel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -39,20 +37,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass accTraceModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass owlOntologyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass umlModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,26 +123,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReference_UmlModel() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getReference_Ontologies() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getReference_Id() {
-		return (EAttribute)referenceEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -167,7 +133,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getReference_Requirement() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(3);
+		return (EReference)referenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getReference_UmlModel() {
+		return (EReference)referenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReference_Ontologies() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -211,62 +195,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOWLOntology() {
-		return owlOntologyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOWLOntology_Path() {
-		return (EAttribute)owlOntologyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOWLOntology_Reference() {
-		return (EReference)owlOntologyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOWLOntology_Id() {
-		return (EAttribute)owlOntologyEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUMLModel() {
-		return umlModelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUMLModel_Id() {
-		return (EAttribute)umlModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUMLModel_Path() {
-		return (EAttribute)umlModelEClass.getEStructuralFeatures().get(1);
+	public EAttribute getAccTraceModel_Id() {
+		return (EAttribute)accTraceModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -334,24 +264,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create classes and their features
 		referenceEClass = createEClass(REFERENCE);
-		createEReference(referenceEClass, REFERENCE__UML_MODEL);
-		createEReference(referenceEClass, REFERENCE__ONTOLOGIES);
 		createEAttribute(referenceEClass, REFERENCE__ID);
 		createEReference(referenceEClass, REFERENCE__REQUIREMENT);
+		createEReference(referenceEClass, REFERENCE__UML_MODEL);
+		createEAttribute(referenceEClass, REFERENCE__ONTOLOGIES);
 
 		accTraceModelEClass = createEClass(ACC_TRACE_MODEL);
 		createEReference(accTraceModelEClass, ACC_TRACE_MODEL__REFERENCES);
 		createEReference(accTraceModelEClass, ACC_TRACE_MODEL__FILTER_TYPE);
 		createEReference(accTraceModelEClass, ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES);
-
-		owlOntologyEClass = createEClass(OWL_ONTOLOGY);
-		createEAttribute(owlOntologyEClass, OWL_ONTOLOGY__PATH);
-		createEReference(owlOntologyEClass, OWL_ONTOLOGY__REFERENCE);
-		createEAttribute(owlOntologyEClass, OWL_ONTOLOGY__ID);
-
-		umlModelEClass = createEClass(UML_MODEL);
-		createEAttribute(umlModelEClass, UML_MODEL__ID);
-		createEAttribute(umlModelEClass, UML_MODEL__PATH);
+		createEAttribute(accTraceModelEClass, ACC_TRACE_MODEL__ID);
 
 		requirementFilterEClass = createEClass(REQUIREMENT_FILTER);
 		createEAttribute(requirementFilterEClass, REQUIREMENT_FILTER__REQUIREMENT_TYPE);
@@ -390,33 +312,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		umlModelEClass.getESuperTypes().add(ecorePackage.getEObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReference_UmlModel(), this.getUMLModel(), null, "umlModel", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Ontologies(), this.getOWLOntology(), this.getOWLOntology_Reference(), "ontologies", null, 0, -1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReference_Id(), ecorePackage.getEString(), "id", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Requirement(), theRequirementPackage.getRequirement(), null, "requirement", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_Id(), ecorePackage.getEString(), "id", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_Requirement(), theRequirementPackage.getRequirement(), null, "requirement", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_UmlModel(), ecorePackage.getEObject(), null, "umlModel", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_Ontologies(), ecorePackage.getEString(), "ontologies", null, 1, -1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(accTraceModelEClass, AccTraceModel.class, "AccTraceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAccTraceModel_References(), this.getReference(), null, "references", null, 0, -1, AccTraceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAccTraceModel_FilterType(), this.getRequirementFilter(), null, "filterType", null, 0, -1, AccTraceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAccTraceModel_RequirementRepositories(), theRequirementPackage.getRepository(), null, "requirementRepositories", null, 0, -1, AccTraceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(owlOntologyEClass, OWLOntology.class, "OWLOntology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOWLOntology_Path(), ecorePackage.getEString(), "path", null, 0, 1, OWLOntology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOWLOntology_Reference(), this.getReference(), this.getReference_Ontologies(), "reference", null, 0, 1, OWLOntology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOWLOntology_Id(), ecorePackage.getEString(), "id", null, 0, 1, OWLOntology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(umlModelEClass, UMLModel.class, "UMLModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUMLModel_Id(), ecorePackage.getEString(), "id", null, 0, 1, UMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUMLModel_Path(), ecorePackage.getEString(), "path", null, 0, 1, UMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAccTraceModel_Id(), ecorePackage.getEString(), "id", null, 0, 1, AccTraceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(requirementFilterEClass, RequirementFilter.class, "RequirementFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRequirementFilter_RequirementType(), theRequirementPackage.getRequirementType(), "requirementType", null, 0, 1, RequirementFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirementFilter_SubType(), ecorePackage.getEString(), "subType", null, 0, 1, RequirementFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequirementFilter_Id(), ecorePackage.getEString(), "id", null, 0, 1, RequirementFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequirementFilter_Id(), ecorePackage.getEString(), "id", null, 0, 1, RequirementFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

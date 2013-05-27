@@ -3,25 +3,22 @@
 package br.ufms.facom.acctrace.model.impl;
 
 import br.ufms.facom.acctrace.model.ModelPackage;
-import br.ufms.facom.acctrace.model.OWLOntology;
 import br.ufms.facom.acctrace.model.Reference;
-import br.ufms.facom.acctrace.model.UMLModel;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.obeonetwork.dsl.requirement.Requirement;
 
@@ -32,36 +29,16 @@ import org.obeonetwork.dsl.requirement.Requirement;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl#getUmlModel <em>Uml Model</em>}</li>
- *   <li>{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl#getOntologies <em>Ontologies</em>}</li>
  *   <li>{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl#getId <em>Id</em>}</li>
  *   <li>{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl#getRequirement <em>Requirement</em>}</li>
+ *   <li>{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl#getUmlModel <em>Uml Model</em>}</li>
+ *   <li>{@link br.ufms.facom.acctrace.model.impl.ReferenceImpl#getOntologies <em>Ontologies</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ReferenceImpl extends EObjectImpl implements Reference {
-	/**
-	 * The cached value of the '{@link #getUmlModel() <em>Uml Model</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUmlModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected UMLModel umlModel;
-
-	/**
-	 * The cached value of the '{@link #getOntologies() <em>Ontologies</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOntologies()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<OWLOntology> ontologies;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -83,7 +60,7 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRequirement() <em>Requirement</em>}' containment reference.
+	 * The cached value of the '{@link #getRequirement() <em>Requirement</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRequirement()
@@ -91,6 +68,26 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @ordered
 	 */
 	protected Requirement requirement;
+
+	/**
+	 * The cached value of the '{@link #getUmlModel() <em>Uml Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUmlModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EObject umlModel;
+
+	/**
+	 * The cached value of the '{@link #getOntologies() <em>Ontologies</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOntologies()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> ontologies;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,61 +106,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.REFERENCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UMLModel getUmlModel() {
-		return umlModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUmlModel(UMLModel newUmlModel, NotificationChain msgs) {
-		UMLModel oldUmlModel = umlModel;
-		umlModel = newUmlModel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE__UML_MODEL, oldUmlModel, newUmlModel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUmlModel(UMLModel newUmlModel) {
-		if (newUmlModel != umlModel) {
-			NotificationChain msgs = null;
-			if (umlModel != null)
-				msgs = ((InternalEObject)umlModel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.REFERENCE__UML_MODEL, null, msgs);
-			if (newUmlModel != null)
-				msgs = ((InternalEObject)newUmlModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.REFERENCE__UML_MODEL, null, msgs);
-			msgs = basicSetUmlModel(newUmlModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE__UML_MODEL, newUmlModel, newUmlModel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<OWLOntology> getOntologies() {
-		if (ontologies == null) {
-			ontologies = new EObjectWithInverseResolvingEList<OWLOntology>(OWLOntology.class, this, ModelPackage.REFERENCE__ONTOLOGIES, ModelPackage.OWL_ONTOLOGY__REFERENCE);
-		}
-		return ontologies;
 	}
 
 	/**
@@ -193,6 +135,14 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @generated
 	 */
 	public Requirement getRequirement() {
+		if (requirement != null && requirement.eIsProxy()) {
+			InternalEObject oldRequirement = (InternalEObject)requirement;
+			requirement = (Requirement)eResolveProxy(oldRequirement);
+			if (requirement != oldRequirement) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.REFERENCE__REQUIREMENT, oldRequirement, requirement));
+			}
+		}
 		return requirement;
 	}
 
@@ -201,14 +151,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequirement(Requirement newRequirement, NotificationChain msgs) {
-		Requirement oldRequirement = requirement;
-		requirement = newRequirement;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE__REQUIREMENT, oldRequirement, newRequirement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Requirement basicGetRequirement() {
+		return requirement;
 	}
 
 	/**
@@ -217,17 +161,10 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @generated
 	 */
 	public void setRequirement(Requirement newRequirement) {
-		if (newRequirement != requirement) {
-			NotificationChain msgs = null;
-			if (requirement != null)
-				msgs = ((InternalEObject)requirement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.REFERENCE__REQUIREMENT, null, msgs);
-			if (newRequirement != null)
-				msgs = ((InternalEObject)newRequirement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.REFERENCE__REQUIREMENT, null, msgs);
-			msgs = basicSetRequirement(newRequirement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE__REQUIREMENT, newRequirement, newRequirement));
+		Requirement oldRequirement = requirement;
+		requirement = newRequirement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE__REQUIREMENT, oldRequirement, requirement));
 	}
 
 	/**
@@ -235,14 +172,16 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelPackage.REFERENCE__ONTOLOGIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOntologies()).basicAdd(otherEnd, msgs);
+	public EObject getUmlModel() {
+		if (umlModel != null && umlModel.eIsProxy()) {
+			InternalEObject oldUmlModel = (InternalEObject)umlModel;
+			umlModel = eResolveProxy(oldUmlModel);
+			if (umlModel != oldUmlModel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.REFERENCE__UML_MODEL, oldUmlModel, umlModel));
+			}
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		return umlModel;
 	}
 
 	/**
@@ -250,17 +189,32 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelPackage.REFERENCE__UML_MODEL:
-				return basicSetUmlModel(null, msgs);
-			case ModelPackage.REFERENCE__ONTOLOGIES:
-				return ((InternalEList<?>)getOntologies()).basicRemove(otherEnd, msgs);
-			case ModelPackage.REFERENCE__REQUIREMENT:
-				return basicSetRequirement(null, msgs);
+	public EObject basicGetUmlModel() {
+		return umlModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUmlModel(EObject newUmlModel) {
+		EObject oldUmlModel = umlModel;
+		umlModel = newUmlModel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE__UML_MODEL, oldUmlModel, umlModel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getOntologies() {
+		if (ontologies == null) {
+			ontologies = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.REFERENCE__ONTOLOGIES);
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return ontologies;
 	}
 
 	/**
@@ -271,14 +225,16 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.REFERENCE__UML_MODEL:
-				return getUmlModel();
-			case ModelPackage.REFERENCE__ONTOLOGIES:
-				return getOntologies();
 			case ModelPackage.REFERENCE__ID:
 				return getId();
 			case ModelPackage.REFERENCE__REQUIREMENT:
-				return getRequirement();
+				if (resolve) return getRequirement();
+				return basicGetRequirement();
+			case ModelPackage.REFERENCE__UML_MODEL:
+				if (resolve) return getUmlModel();
+				return basicGetUmlModel();
+			case ModelPackage.REFERENCE__ONTOLOGIES:
+				return getOntologies();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -292,18 +248,18 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.REFERENCE__UML_MODEL:
-				setUmlModel((UMLModel)newValue);
-				return;
-			case ModelPackage.REFERENCE__ONTOLOGIES:
-				getOntologies().clear();
-				getOntologies().addAll((Collection<? extends OWLOntology>)newValue);
-				return;
 			case ModelPackage.REFERENCE__ID:
 				setId((String)newValue);
 				return;
 			case ModelPackage.REFERENCE__REQUIREMENT:
 				setRequirement((Requirement)newValue);
+				return;
+			case ModelPackage.REFERENCE__UML_MODEL:
+				setUmlModel((EObject)newValue);
+				return;
+			case ModelPackage.REFERENCE__ONTOLOGIES:
+				getOntologies().clear();
+				getOntologies().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -317,17 +273,17 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.REFERENCE__UML_MODEL:
-				setUmlModel((UMLModel)null);
-				return;
-			case ModelPackage.REFERENCE__ONTOLOGIES:
-				getOntologies().clear();
-				return;
 			case ModelPackage.REFERENCE__ID:
 				setId(ID_EDEFAULT);
 				return;
 			case ModelPackage.REFERENCE__REQUIREMENT:
 				setRequirement((Requirement)null);
+				return;
+			case ModelPackage.REFERENCE__UML_MODEL:
+				setUmlModel((EObject)null);
+				return;
+			case ModelPackage.REFERENCE__ONTOLOGIES:
+				getOntologies().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -341,14 +297,14 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.REFERENCE__UML_MODEL:
-				return umlModel != null;
-			case ModelPackage.REFERENCE__ONTOLOGIES:
-				return ontologies != null && !ontologies.isEmpty();
 			case ModelPackage.REFERENCE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ModelPackage.REFERENCE__REQUIREMENT:
 				return requirement != null;
+			case ModelPackage.REFERENCE__UML_MODEL:
+				return umlModel != null;
+			case ModelPackage.REFERENCE__ONTOLOGIES:
+				return ontologies != null && !ontologies.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -365,6 +321,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", ontologies: ");
+		result.append(ontologies);
 		result.append(')');
 		return result.toString();
 	}

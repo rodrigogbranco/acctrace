@@ -9,6 +9,7 @@ import br.ufms.facom.acctrace.model.RequirementFilter;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -34,6 +36,7 @@ import org.obeonetwork.dsl.requirement.Repository;
  *   <li>{@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl#getReferences <em>References</em>}</li>
  *   <li>{@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl#getFilterType <em>Filter Type</em>}</li>
  *   <li>{@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl#getRequirementRepositories <em>Requirement Repositories</em>}</li>
+ *   <li>{@link br.ufms.facom.acctrace.model.impl.AccTraceModelImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +72,26 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 	 * @ordered
 	 */
 	protected EList<Repository> requirementRepositories;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,6 +153,27 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ACC_TRACE_MODEL__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -155,6 +199,8 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 				return getFilterType();
 			case ModelPackage.ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES:
 				return getRequirementRepositories();
+			case ModelPackage.ACC_TRACE_MODEL__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +226,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 				getRequirementRepositories().clear();
 				getRequirementRepositories().addAll((Collection<? extends Repository>)newValue);
 				return;
+			case ModelPackage.ACC_TRACE_MODEL__ID:
+				setId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +250,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 			case ModelPackage.ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES:
 				getRequirementRepositories().clear();
 				return;
+			case ModelPackage.ACC_TRACE_MODEL__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -219,8 +271,26 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 				return filterType != null && !filterType.isEmpty();
 			case ModelPackage.ACC_TRACE_MODEL__REQUIREMENT_REPOSITORIES:
 				return requirementRepositories != null && !requirementRepositories.isEmpty();
+			case ModelPackage.ACC_TRACE_MODEL__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AccTraceModelImpl

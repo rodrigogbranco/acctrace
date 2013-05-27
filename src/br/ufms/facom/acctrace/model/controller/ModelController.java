@@ -9,15 +9,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.PackageableElement;
 import org.obeonetwork.dsl.requirement.Repository;
+import org.obeonetwork.dsl.requirement.Requirement;
+import org.semanticweb.owlapi.model.IRI;
 
 import br.ufms.facom.acctrace.model.AccTraceModel;
+import br.ufms.facom.acctrace.model.ModelFactory;
 import br.ufms.facom.acctrace.model.ModelLoader;
+import br.ufms.facom.acctrace.model.Reference;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -135,6 +143,31 @@ public final class ModelController {
 		model.getRequirementRepositories().add(repository);
 		model.eResource().save(options);
 	}
+	
+	public void addAccessibilityReference(Requirement req, PackageableElement pack, IRI iri) throws IOException {
+		EList<Reference> refs = model.getReferences();
+		
+		Reference reference = null;
+		for(Reference ref : refs) {
+			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req)) {
+				reference = ref;
+				break;
+			}
+		}
+		
+		if(reference == null) {
+			reference = ModelFactory.eINSTANCE.createReference();
+			reference.setRequirement(req);
+			reference.setUmlModel(pack);
+			reference.setId(EcoreUtil.generateUUID());
+			refs.add(reference);
+		}
+		
+		if(!reference.getOntologies().contains(iri.toString()))
+			reference.getOntologies().add(iri.toString());
+		
+		model.eResource().save(options);	
+	}	
 
 	/**
 	 * Load uml model.

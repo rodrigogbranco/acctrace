@@ -58,8 +58,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 		switch (eClass.getClassifierID()) {
 			case ModelPackage.REFERENCE: return createReference();
 			case ModelPackage.ACC_TRACE_MODEL: return createAccTraceModel();
-			case ModelPackage.OWL_ONTOLOGY: return createOWLOntology();
-			case ModelPackage.UML_MODEL: return createUMLModel();
 			case ModelPackage.REQUIREMENT_FILTER: return createRequirementFilter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -84,26 +82,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public AccTraceModel createAccTraceModel() {
 		AccTraceModelImpl accTraceModel = new AccTraceModelImpl();
 		return accTraceModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OWLOntology createOWLOntology() {
-		OWLOntologyImpl owlOntology = new OWLOntologyImpl();
-		return owlOntology;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UMLModel createUMLModel() {
-		UMLModelImpl umlModel = new UMLModelImpl();
-		return umlModel;
 	}
 
 	/**
