@@ -20,6 +20,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -298,15 +299,70 @@ public final class AccessibilityOWLFactory {
 	
 	
 	public String getDescription(OWLNamedIndividual individual, OWLOntology ontology) {
+		String name = "";
+		String description = "";
+		
 		for(OWLAnnotation ann : individual.getAnnotations(ontology)) {
+			if(ann.getValue() instanceof OWLLiteral
+					&& ann.getProperty().toString().equals(hasName)) {
+				OWLLiteral lit = ((OWLLiteral)ann.getValue());
+				log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasName);
+				log.debug(lit);
+				name = lit.getLiteral();
+			}			
 			if(ann.getValue() instanceof OWLLiteral
 					&& ann.getProperty().toString().equals(hasDescription)) {
 				OWLLiteral lit = ((OWLLiteral)ann.getValue());
 				log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasDescription);
 				log.debug(lit);
-				return lit.getLiteral();
+				description = lit.getLiteral();
 			}
 		}
+		return name +": " + description;
+	}
+	
+	public String getValue(OWLIndividual individual, String property, OWLOntology ontology) {
+		for(OWLNamedIndividual namedIndividual : individual.getIndividualsInSignature()) {
+			for(OWLAnnotation ann : namedIndividual.getAnnotations(ontology)) {
+				if(ann.getValue() instanceof OWLLiteral
+						&& ann.getProperty().toString().equals(getDataProperty(property))) {
+					OWLLiteral lit = ((OWLLiteral)ann.getValue());
+					return lit.getLiteral();
+				}		
+			}		
+		}		
 		return "";
+	}
+	
+	public String getValues(OWLIndividual individual, OWLOntology ontology) {
+		String values = "";
+		for(OWLNamedIndividual namedIndividual : individual.getIndividualsInSignature()) {
+			for(OWLAnnotation ann : namedIndividual.getAnnotations(ontology)) {
+				if(ann.getValue() instanceof OWLLiteral) {
+					OWLLiteral lit = ((OWLLiteral)ann.getValue());
+					
+					String literal = lit.getLiteral();
+					literal = literal.replaceAll("&lt;", "<");
+					literal = literal.replaceAll("&gt;", ">");
+
+					values += getDataLabel(ann.getProperty().toString())+": "+literal + "\n\n";
+				}
+			}		
+		}		
+		return values;
+	}
+	
+	public String getDataLabel(String property) {
+		String label = property.toString().substring(
+				property.toString().indexOf('#')+1, 
+				property.toString().length() - 1);
+		
+		label = label.replaceFirst("has", "");
+		
+		return label;
+	}
+	
+	public String getDataProperty(String prop) {
+		return "<" + nsBase + "GenericOntology.owl#"+prop+">";
 	}
 }

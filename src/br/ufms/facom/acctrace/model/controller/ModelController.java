@@ -169,6 +169,17 @@ public final class ModelController {
 		model.eResource().save(options);	
 	}
 	
+	public void removeAccessibilityReference(Requirement req, PackageableElement pack, IRI iri) throws IOException {
+		for(Reference ref : model.getReferences()) {
+			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req)) {
+				ref.getOntologies().remove(iri.toString());
+				break;
+			}
+		}
+		
+		model.eResource().save(options);
+	}	
+	
 	public Reference getReference(Requirement req, PackageableElement pack) {		
 		for(Reference ref : model.getReferences()) {
 			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req))

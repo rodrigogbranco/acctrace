@@ -228,7 +228,6 @@ public class RequirementView extends ViewPart implements
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
 				selectedRequirement = (Requirement)obj;
-				showMessage("Click detected on " + selectedRequirement);
 				for (IPropertyChangeListener element : listeners
 						.toArray(new IPropertyChangeListener[0])) {
 					if (element != null) {

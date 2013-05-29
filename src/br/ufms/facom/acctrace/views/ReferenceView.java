@@ -45,6 +45,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.semanticweb.owlapi.model.IRI;
 
 import br.ufms.facom.acctrace.dialog.ApplicationAndDeviceDialog;
+import br.ufms.facom.acctrace.dialog.WCAGDialog;
 import br.ufms.facom.acctrace.editors.AccTraceFormPage;
 import br.ufms.facom.acctrace.model.controller.ModelController;
 
@@ -460,20 +461,20 @@ public class ReferenceView {
 	/**
 	 * Make actions.
 	 */
-	private void makeActions() {		
+	private void makeActions() {
+		
 		applicationAction = new Action() {
 			public void run() {
 				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(form.getSite()
 						.getShell(), "Application");
 				if (dialog.open() == Window.OK) {
-					// Save Model
-					try {
-						save(RequirementView.getSelectedRequirement(), selectedElement, 
-								ApplicationAndDeviceDialog.getSelectedIri());
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+						try {
+							save(RequirementView.getSelectedRequirement(), selectedElement, 
+									ApplicationAndDeviceDialog.getSelectedIri());
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 				}
 			}
 		};		
@@ -542,10 +543,15 @@ public class ReferenceView {
 		
 		wcag2Action = new Action() {
 			public void run() {
-				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
-						.getShell());
-				if (addDialog.open() == Window.OK) {
-					// Save Model
+				WCAGDialog dialog = new WCAGDialog(form.getSite().getShell());
+				if (dialog.open() == Window.OK) {
+					try {
+						save(RequirementView.getSelectedRequirement(), selectedElement, 
+								WCAGDialog.getSelectedIri());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		};		
@@ -628,7 +634,6 @@ public class ReferenceView {
 				else
 					selectedElement = null;
 				
-				showMessage("Click detected on " + selectedElement);
 				for (IPropertyChangeListener element : listeners
 						.toArray(new IPropertyChangeListener[0])) {
 					if (element != null) {
@@ -703,8 +708,6 @@ public class ReferenceView {
 		ModelController controller = ModelController.getInstance();
 		
 		controller.addAccessibilityReference(req,pack,iri);
-		
-		showMessage("chegou aqui?");
 	}
 	
 	public static PackageableElement getSelectedElement() {

@@ -1,5 +1,6 @@
 package br.ufms.facom.acctrace.views;
 
+import java.io.IOException;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,6 +33,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.uml2.uml.PackageableElement;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
 
@@ -64,8 +66,6 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	private TableViewer viewer;
 	private Action action1;
-	private Action action2;
-	private Action doubleClickAction;
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -143,7 +143,6 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 				.setHelp(viewer.getControl(), "br.ufms.facom.acctrace.viewer");
 		makeActions();
 		hookContextMenu();
-		hookDoubleClickAction();
 		contributeToActionBars();
 	}
 
@@ -168,58 +167,46 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(action1);
-		manager.add(new Separator());
-		manager.add(action2);
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
-		manager.add(action2);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
-		manager.add(action2);
 	}
 
 	private void makeActions() {
 		action1 = new Action() {
-			public void run() {
-				showMessage("Action 1 executed");
+			public void run() {				
+				if(ReferenceView.getSelectedElement() != null && RequirementView.getSelectedRequirement()
+						!= null && viewer.getSelection() != null) {
+					ModelController controller = ModelController.getInstance();
+					
+					Object obj = ((IStructuredSelection) viewer.getSelection())
+							.getFirstElement();
+					IRI iri = IRI.create((String)obj);
+					
+					try {
+						controller.removeAccessibilityReference(
+								RequirementView.getSelectedRequirement(),
+								ReferenceView.getSelectedElement(),iri);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				viewer.refresh();
 			}
 		};
-		action1.setText("Action 1");
+		action1.setText("Remove");
 		action1.setToolTipText("Action 1 tooltip");
 		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
 				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-
-		action2 = new Action() {
-			public void run() {
-				showMessage("Action 2 executed");
-			}
-		};
-		action2.setText("Action 2");
-		action2.setToolTipText("Action 2 tooltip");
-		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
-				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		doubleClickAction = new Action() {
-			public void run() {
-				ISelection selection = viewer.getSelection();
-				Object obj = ((IStructuredSelection) selection)
-						.getFirstElement();
-				showMessage("Double-click detected on " + obj.toString());
-			}
-		};
-	}
-
-	private void hookDoubleClickAction() {
-		viewer.addDoubleClickListener(new IDoubleClickListener() {
-			public void doubleClick(DoubleClickEvent event) {
-				doubleClickAction.run();
-			}
-		});
 	}
 
 	private void showMessage(String message) {
