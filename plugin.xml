@@ -236,6 +236,13 @@
             id="br.ufms.facom.acctrace.wizards.AccTraceFileWizard"
             name="%wizard.name.0">
       </wizard>
+      <wizard
+            category="br.ufms.facom.acctrace"
+            class="br.ufms.facom.acctrace.wizards.TraceabilityMatrixWizard"
+            icon="icons/sample.gif"
+            id="br.ufms.facom.acctrace.wizards.TraceabilityMatrixWizard"
+            name="%wizard.name.2">
+      </wizard>
    </extension>
    <extension
          point="org.eclipse.ui.views">
@@ -258,7 +265,13 @@
             name="%view.name.2">
       </view>
    </extension>
+  
    <extension
+         point="org.eclipse.core.filebuffers.documentCreation">
+      <factory
+            class="br.ufms.facom.acctrace.DocumentFactory1">
+      </factory>
+   </extension> <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="org.eclipse.jdt.ui.JavaPerspective">

@@ -55,7 +55,7 @@ public class Activator extends AbstractUIPlugin {
 		 URL confURL = getBundle().getEntry("log4j.properties");
 	     PropertyConfigurator.configure( FileLocator.toFileURL(confURL).getFile());	
 			
-			AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
+			/*AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
 			
 			//Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
 			
@@ -89,7 +89,7 @@ public class Activator extends AbstractUIPlugin {
 				logger.error("Erro na criacao", e);
 			} catch (URISyntaxException e) {
 				logger.error("Erro na URI", e);
-			}
+			}*/
 	}
 
 	/*
