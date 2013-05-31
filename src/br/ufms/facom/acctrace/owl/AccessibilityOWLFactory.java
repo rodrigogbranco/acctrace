@@ -234,6 +234,7 @@ public final class AccessibilityOWLFactory {
 	}
 	
 	public OWLOntology getOWLOntologyByIRI(String iri) {
+		System.out.println(iri.substring(0, iri.indexOf('#')));
 		if(iri != null)
 			return manager.getOntology(IRI.create(iri.substring(0, iri.indexOf('#'))));
 		else

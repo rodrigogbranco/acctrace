@@ -6,7 +6,10 @@ package br.ufms.facom.acctrace.model.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.EList;
@@ -15,9 +18,11 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PackageableElement;
+import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.semanticweb.owlapi.model.IRI;
@@ -219,5 +224,61 @@ public final class ModelController {
 		umlClass += pElement.getQualifiedName() != null ? pElement
 				.getQualifiedName() : "";
 		return umlClass;
+	}
+	
+	public Map<Requirement,List<PackageableElement>> getReqUML(IFile inputFile) {
+		Map<Requirement,List<PackageableElement>> map = new HashMap<Requirement, List<PackageableElement>>();
+		
+		load(inputFile);
+		
+		EList<Repository> repositories = getModel().getRequirementRepositories();
+		
+		for(Repository repository : repositories) {
+			for(Category category : repository.getMainCategories()) {
+				navigateAndAdd(map, category);
+			}
+		}	
+		
+		return map;
+	}
+	
+	public Map<Requirement,List<String>> getReqTech(IFile inputFile) {
+		Map<Requirement,List<String>> map = new HashMap<Requirement, List<String>>();
+		
+		load(inputFile);
+		
+		for(Reference reference : getModel().getReferences()) {
+			List<String> list = map.get(reference.getRequirement());
+			if(list == null) {
+				list = new ArrayList<String>();
+				map.put(reference.getRequirement(), list);
+			}
+			
+			for(String ontology : reference.getOntologies()) {
+				list.add(ontology);
+			}
+		}	
+		
+		return map;
+	}	
+	
+	private void navigateAndAdd(Map<Requirement,List<PackageableElement>> map,Category category) {
+		for(Requirement requirement : category.getRequirements()) {
+			List<PackageableElement> list = map.get(requirement);
+			if(list == null) {
+				list = new ArrayList<PackageableElement>();
+				map.put(requirement, list);
+			}
+			
+			for(EObject obj : category.getReferencedObject()) {
+				if(obj instanceof PackageableElement && obj instanceof Classifier) {
+					list.add((PackageableElement) obj);
+				}
+			}
+		}
+		
+		for(Category subcategory : category.getSubCategories()) {
+			navigateAndAdd(map, subcategory);
+		}
 	}
 }
