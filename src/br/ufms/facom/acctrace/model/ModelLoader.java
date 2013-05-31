@@ -189,6 +189,16 @@ public final class ModelLoader {
 
 		return (AccTraceModel) resource.getContents().get(0);
 	}
+	
+	public AccTraceModel load(IFile inputFile) {
+		ResourceSet resSet = new ResourceSetImpl();
+
+		Resource resource = resSet.getResource(
+				URI.createURI(inputFile
+						.getFullPath().toString()), true);
+
+		return (AccTraceModel) resource.getContents().get(0);
+	}	
 
 	/**
 	 * Load uml model.

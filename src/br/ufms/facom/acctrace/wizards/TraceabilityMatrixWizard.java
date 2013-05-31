@@ -17,6 +17,8 @@ import org.eclipse.ui.ide.IDE;
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
 
+import br.ufms.facom.acctrace.model.controller.ModelController;
+
 /**
  * This is a sample new wizard. Its role is to create a new file 
  * resource in the provided container. If the container resource
@@ -108,6 +110,9 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 
 	private void createSpreadsheetDocument(IFile file, IFile acctraceFile) throws Exception {			
 			SpreadsheetDocument doc = SpreadsheetDocument.newSpreadsheetDocument();
+			
+			ModelController controller = ModelController.getInstance();
+			controller.load(acctraceFile);
 			
 			doc.save(file.getRawLocation().makeAbsolute().toFile());
 	}

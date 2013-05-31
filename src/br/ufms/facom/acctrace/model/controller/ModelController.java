@@ -82,6 +82,10 @@ public final class ModelController {
 	public void load(IEditorInput inputFile) {
 		model = loader.load(inputFile);
 	}
+	
+	public void load(IFile inputFile) {
+		model = loader.load(inputFile);
+	}	
 
 	/**
 	 * Gets the requirement repositories paths.
