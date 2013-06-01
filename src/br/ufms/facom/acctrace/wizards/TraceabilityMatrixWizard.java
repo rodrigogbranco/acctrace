@@ -199,7 +199,7 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 				OWLNamedIndividual individual = AccessibilityOWLFactory.
 						getInstance().getNamedIndividual(strOntology, ontology);
 				
-				row.getCellByIndex(i++).addParagraph(AccessibilityOWLFactory.getInstance().getDescription(individual, ontology));
+				row.getCellByIndex(i++).addParagraph(AccessibilityOWLFactory.getInstance().getValue(individual, "hasName", ontology));
 			}
 			
 			for(Requirement requirement : map2.keySet()) {
@@ -207,7 +207,53 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 				i = 0;
 				row.getCellByIndex(i++).addParagraph("Name: " + requirement.getName() + " ID: " + requirement.getId());
 				for(String strOntology : models2){
-					if(map.get(requirement).contains(strOntology))
+					if(map2.get(requirement).contains(strOntology))
+						row.getCellByIndex(i++).addParagraph("X");
+					else
+						row.getCellByIndex(i++).addParagraph(" ");
+				}
+			}
+			
+			Map<PackageableElement,List<String>> map3 = ModelController.getInstance().getModelTech(acctraceFile);
+			
+			Collection<List<String>> collection3 = map3.values();
+			
+			List<String> models3 = new ArrayList<String>();
+			
+			Iterator<List<String>> it3 = collection3.iterator();
+			while(it3.hasNext()) {
+				List<String> list = it3.next();
+				for(String ontology : list) {
+					if(!models3.contains(ontology))
+						models3.add(ontology);
+				}
+			}
+			
+			table = doc.appendSheet("Model x Techniques");
+			
+			j = 0;
+			row = table.getRowByIndex(j++);
+			
+			i = 1;
+			
+			for(String strOntology : models3){
+				
+				OWLOntology ontology = AccessibilityOWLFactory.getInstance().
+						getOWLOntologyByIRI(strOntology);
+				System.out.println(strOntology);
+				System.out.println(ontology);
+				OWLNamedIndividual individual = AccessibilityOWLFactory.
+						getInstance().getNamedIndividual(strOntology, ontology);
+				
+				row.getCellByIndex(i++).addParagraph(AccessibilityOWLFactory.getInstance().getValue(individual, "hasName", ontology));
+			}
+			
+			for(PackageableElement pack : map3.keySet()) {
+				row = table.getRowByIndex(j++);
+				i = 0;
+				row.getCellByIndex(i++).addParagraph(ModelController.getInstance().getLabel(pack));
+				for(String strOntology : models3){
+					if(map3.get(pack).contains(strOntology))
 						row.getCellByIndex(i++).addParagraph("X");
 					else
 						row.getCellByIndex(i++).addParagraph(" ");

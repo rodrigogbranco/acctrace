@@ -260,7 +260,27 @@ public final class ModelController {
 		}	
 		
 		return map;
-	}	
+	}
+	
+	public Map<PackageableElement,List<String>> getModelTech(IFile inputFile) {
+		Map<PackageableElement,List<String>> map = new HashMap<PackageableElement, List<String>>();
+		
+		load(inputFile);
+		
+		for(Reference reference : getModel().getReferences()) {
+			List<String> list = map.get((PackageableElement)reference.getUmlModel());
+			if(list == null) {
+				list = new ArrayList<String>();
+				map.put((PackageableElement)reference.getUmlModel(), list);
+			}
+			
+			for(String ontology : reference.getOntologies()) {
+				list.add(ontology);
+			}
+		}	
+		
+		return map;
+	}
 	
 	private void navigateAndAdd(Map<Requirement,List<PackageableElement>> map,Category category) {
 		for(Requirement requirement : category.getRequirements()) {

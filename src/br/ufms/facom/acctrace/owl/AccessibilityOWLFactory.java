@@ -73,6 +73,8 @@ public final class AccessibilityOWLFactory {
 	 * Instantiates a new accessibility owl factory. The constructor also set up
 	 * the owl Map (mapping general classes to specific ones) and owl Hash table
 	 * (mapping a class to a OWL file).
+	 * @throws URISyntaxException 
+	 * @throws OWLOntologyCreationException 
 	 */
 	private AccessibilityOWLFactory() {
 		// Generic
@@ -187,6 +189,13 @@ public final class AccessibilityOWLFactory {
 		owlHash.put("WCAG 2.0", "WCAG2");		
 		owlHash.put("Mobile Web Best Practices", "MWBP");		
 		owlHash.put("WAI/ARIA", "WAIARIA");
+		
+		try {
+			getOWLOntology();
+		} catch (OWLOntologyCreationException | URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -234,11 +243,10 @@ public final class AccessibilityOWLFactory {
 	}
 	
 	public OWLOntology getOWLOntologyByIRI(String iri) {
-		System.out.println(iri.substring(0, iri.indexOf('#')));
-		if(iri != null)
-			return manager.getOntology(IRI.create(iri.substring(0, iri.indexOf('#'))));
-		else
+		if(iri == null)
 			return manager.getOntology(iriMap.get("Generic"));
+			
+		return manager.getOntology(IRI.create(iri.substring(0, iri.indexOf('#'))));
 	}
 	
 	public String getIRIofClass(String clazz) {

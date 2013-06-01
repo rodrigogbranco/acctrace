@@ -96,6 +96,7 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		public String getColumnText(Object obj, int index) {
 			
 			if(obj != null) {
+				System.out.println(obj.toString());
 				OWLOntology ontology = AccessibilityOWLFactory.getInstance().
 						getOWLOntologyByIRI(obj.toString());
 				OWLNamedIndividual individual = AccessibilityOWLFactory.

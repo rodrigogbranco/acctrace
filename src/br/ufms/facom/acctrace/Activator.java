@@ -53,9 +53,11 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public Activator() throws IOException, OWLOntologyCreationException, URISyntaxException {
 		 URL confURL = getBundle().getEntry("log4j.properties");
-	     PropertyConfigurator.configure( FileLocator.toFileURL(confURL).getFile());	
+	     PropertyConfigurator.configure( FileLocator.toFileURL(confURL).getFile());
+	     
+	     	AccessibilityOWLFactory.getInstance();
 			
-			/*AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
+	     	/*AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory.getInstance();
 			
 			//Set<OWLOntology> ontologies = owlFactory.getOWLOntology();
 			
@@ -66,7 +68,6 @@ public class Activator extends AbstractUIPlugin {
 				for(OWLOntology ontology : ontologies.toArray(new OWLOntology[0])) {
 					for (OWLClass cls : ontology.getClassesInSignature()) {
 						if(cls.getIndividuals(ontology).size() > 0) {
-							logger.info("Class with friends: "+cls);
 							for(OWLIndividual owlIn : cls.getIndividuals(ontology)) {
 								Map<OWLDataPropertyExpression, Set<OWLLiteral>> map = owlIn.getDataPropertyValues(ontology);
 								for(OWLDataPropertyExpression exp : map.keySet()) {
