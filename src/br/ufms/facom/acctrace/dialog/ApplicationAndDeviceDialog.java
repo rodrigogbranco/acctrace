@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
@@ -32,8 +31,6 @@ import org.eclipse.swt.events.SelectionAdapter;
 public class ApplicationAndDeviceDialog extends Dialog {
 
 	private String keyChoice = "Application";
-	
-	Logger logger = Logger.getLogger(this.getClass());
 	
 	private HashMap<String, ArrayList<String>> map = new HashMap<>();
 	
@@ -111,7 +108,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 				
 				selectedIri = ontology.getOntologyID().getOntologyIRI();
 				
-				logger.debug(selectedIri);
+				System.out.println(selectedIri);
 	
 				individuals = owlFactory.getNames(selected, ontology);
 				
@@ -127,7 +124,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 		});
 		
 		selectedIri = IRI.create(owlFactory.getIRIofClass(keyChoice));
-		logger.debug(selectedIri);
+		System.out.println(selectedIri);
 		
 		combo.setItems(map.get(keyChoice).toArray(new String[0]));
 		
@@ -148,7 +145,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 				
 				selectedIri = ann.getIRI();
 				
-				logger.debug(selectedIri);
+				System.out.println(selectedIri);
 				
 				lblDescription_1.setText(owlFactory.getDescription(ann, ontology));			
 			}

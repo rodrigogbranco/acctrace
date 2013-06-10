@@ -1,5 +1,11 @@
 package br.ufms.facom.acctrace.builder;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -43,6 +49,7 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 			case IResourceDelta.ADDED:
 				// handle added resource
 				checkXML(resource);
+				checkAccTraceComments(resource);
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
@@ -50,6 +57,7 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 			case IResourceDelta.CHANGED:
 				// handle changed resource
 				checkXML(resource);
+				checkAccTraceComments(resource);
 				break;
 			}
 			// return true to continue visiting children.
@@ -139,6 +147,70 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 			addMarker(exception, IMarker.SEVERITY_WARNING);
 		}
 	}
+	
+	/**
+	 * The Class AccTraceComment.
+	 */
+	class AccTraceCommentHandler extends DefaultHandler {
+
+		/** The file. */
+		private IFile file;
+
+		/**
+		 * Instantiates a new xML error handler.
+		 * 
+		 * @param file
+		 *            the file
+		 */
+		public AccTraceCommentHandler(IFile file) {
+			this.file = file;
+		}
+
+		/**
+		 * Adds the marker.
+		 * 
+		 * @param e
+		 *            the e
+		 * @param severity
+		 *            the severity
+		 */
+		private void addMarker(SAXParseException e, int severity) {
+			SampleBuilder.this.addMarker(file, e.getMessage(),
+					e.getLineNumber(), severity);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.xml.sax.helpers.DefaultHandler#error(org.xml.sax.SAXParseException
+		 * )
+		 */
+		public void error(SAXParseException exception) throws SAXException {
+			addMarker(exception, IMarker.SEVERITY_ERROR);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see org.xml.sax.helpers.DefaultHandler#fatalError(org.xml.sax.
+		 * SAXParseException)
+		 */
+		public void fatalError(SAXParseException exception) throws SAXException {
+			addMarker(exception, IMarker.SEVERITY_ERROR);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.xml.sax.helpers.DefaultHandler#warning(org.xml.sax.SAXParseException
+		 * )
+		 */
+		public void warning(SAXParseException exception) throws SAXException {
+			addMarker(exception, IMarker.SEVERITY_WARNING);
+		}
+	}	
 
 	/** The Constant BUILDER_ID. */
 	public static final String BUILDER_ID = "br.ufms.facom.acctrace.sampleBuilder";
@@ -212,6 +284,37 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 				getParser().parse(file.getContents(), reporter);
 			} catch (Exception e1) {
 			}
+		}
+	}
+	
+	void checkAccTraceComments(IResource resource) {
+		if (resource instanceof IFile && resource.getName().endsWith(".xml")) {
+			IFile file = (IFile) resource;
+			deleteMarkers(file);
+			XMLErrorHandler reporter = new XMLErrorHandler(file);
+			try {
+				getParser().parse(file.getContents(), reporter);
+			} catch (Exception e1) {
+			}
+		}
+		if (resource instanceof IFile && resource.getName().endsWith(".java")) {
+			IFile file = (IFile) resource;
+			deleteMarkers(file);
+			XMLErrorHandler reporter = new XMLErrorHandler(file);
+			try {
+				getParser().parse(file.getContents(), reporter);
+			} catch (Exception e1) {
+			}
+		}
+	}
+	
+	private void parse(InputStream in, DefaultHandler handler) throws IOException {
+		Reader reader = new InputStreamReader(in);
+		BufferedReader br = new BufferedReader(reader);
+		String token = null;
+		
+		while((token = br.readLine()) != null) {
+			String[] tokens = token.split("\\*\\*!ACCTRACE!(/)?([^/\\0#]+(/)?)+\\.acctrace#(\\w)+\\*\\*\\/");
 		}
 	}
 

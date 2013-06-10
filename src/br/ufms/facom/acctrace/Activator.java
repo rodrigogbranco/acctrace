@@ -7,8 +7,6 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -41,9 +39,6 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	/** The plugin. */
 	private static Activator plugin;
-	
-	private Logger logger = Logger.getLogger(this.getClass());
-
 	/**
 	 * The constructor.
 	 * @throws IOException 
@@ -52,8 +47,6 @@ public class Activator extends AbstractUIPlugin {
 	 * @throws OWLOntologyCreationException
 	 */
 	public Activator() throws IOException, OWLOntologyCreationException, URISyntaxException {
-		 URL confURL = getBundle().getEntry("log4j.properties");
-	     PropertyConfigurator.configure( FileLocator.toFileURL(confURL).getFile());
 	     
 	     	AccessibilityOWLFactory.getInstance();
 			

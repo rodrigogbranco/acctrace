@@ -84,8 +84,11 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 		@SuppressWarnings("unchecked")
 		public Object[] getElements(Object parent) {
-			if (parent != null && parent instanceof Reference)
-				return ((Reference)parent).getOntologies().toArray();
+			if (parent != null && parent instanceof Reference) {
+				System.out.println(((Reference)parent).getId());
+				return new Object[0];
+				//return ((Reference)parent).getOntologies().toArray();
+			}
 
 			return new Object[0];
 		}

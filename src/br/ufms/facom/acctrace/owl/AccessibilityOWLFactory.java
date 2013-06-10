@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
@@ -59,8 +58,6 @@ public final class AccessibilityOWLFactory {
 	private HashMap<String, String> rdfID = new HashMap<String, String>();
 	
 	private HashMap<String, IRI> iriMap = new HashMap<String, IRI>();
-	
-	private Logger log = Logger.getLogger(this.getClass());
 	
 	private static final String nsBase = "http://www.AccessibleOntology.com/";
 	
@@ -233,9 +230,6 @@ public final class AccessibilityOWLFactory {
 	
 	
 	public OWLOntology getOWLOntology(String iri) {
-		log.debug(iri);
-		log.debug(iriMap.get(iri));
-		log.debug(rdfID.get(iri));
 		if(iriMap.get(iri) != null)
 			return manager.getOntology(iriMap.get(iri));
 		else
@@ -280,15 +274,13 @@ public final class AccessibilityOWLFactory {
 	public Map<String, OWLNamedIndividual> getNames(String choice, OWLOntology ontology) {
 		HashMap<String, OWLNamedIndividual> map = new HashMap<>();
 		
-		log.debug(ontology);
-		
 		for(OWLNamedIndividual n : ontology.getIndividualsInSignature()) {
 			for(OWLAnnotation ann : n.getAnnotations(ontology)) {
 				if(ann.getValue() instanceof OWLLiteral
 						&& ann.getProperty().toString().equals(hasName)) {
 					OWLLiteral lit = ((OWLLiteral)ann.getValue());
-					log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasName);
-					log.debug(lit);
+					System.out.println(ann.getProperty()+" "+AccessibilityOWLFactory.hasName);
+					System.out.println(lit);
 					map.put(lit.getLiteral(), n);
 				}
 			}
@@ -315,15 +307,15 @@ public final class AccessibilityOWLFactory {
 			if(ann.getValue() instanceof OWLLiteral
 					&& ann.getProperty().toString().equals(hasName)) {
 				OWLLiteral lit = ((OWLLiteral)ann.getValue());
-				log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasName);
-				log.debug(lit);
+				System.out.println(ann.getProperty()+" "+AccessibilityOWLFactory.hasName);
+				System.out.println(lit);
 				name = lit.getLiteral();
 			}			
 			if(ann.getValue() instanceof OWLLiteral
 					&& ann.getProperty().toString().equals(hasDescription)) {
 				OWLLiteral lit = ((OWLLiteral)ann.getValue());
-				log.debug(ann.getProperty()+" "+AccessibilityOWLFactory.hasDescription);
-				log.debug(lit);
+				System.out.println(ann.getProperty()+" "+AccessibilityOWLFactory.hasDescription);
+				System.out.println(lit);
 				description = lit.getLiteral();
 			}
 		}

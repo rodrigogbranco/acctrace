@@ -301,4 +301,36 @@
          </view>
       </perspectiveExtension>
    </extension>
+                <extension
+                      point="org.eclipse.ui.actionSets">
+                   <actionSet
+                         id="br.ufms.facom.acctrace.actionSet"
+                         label="Sample Action Set"
+                         visible="true">
+                      <menu
+                            id="sampleMenu"
+                            label="Sample &amp;Menu">
+                         <separator
+                               name="sampleGroup">
+                         </separator>
+                      </menu>
+                      <action
+                            class="br.ufms.facom.acctrace.actions.SampleAction"
+                            icon="icons/sample.gif"
+                            id="br.ufms.facom.acctrace.actions.SampleAction"
+                            label="&amp;Sample Action"
+                            menubarPath="sampleMenu/sampleGroup"
+                            toolbarPath="sampleGroup"
+                            tooltip="Hello, Eclipse world">
+                      </action>
+                   </actionSet>
+                </extension>
+                <extension
+                      point="org.eclipse.jdt.ui.javaEditorTextHovers">
+					<hover
+					   id="br.ufms.facom.acctrace.hovers.AccTraceCommentHover"
+					   class="br.ufms.facom.acctrace.hovers.AccTraceCommentHover"
+					   label="%javaVariableHover">
+					  </hover>                      
+                </extension>
 </plugin>

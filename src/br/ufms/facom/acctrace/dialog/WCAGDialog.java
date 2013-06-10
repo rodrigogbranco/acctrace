@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
@@ -35,8 +34,6 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.Text;
 
 public class WCAGDialog extends Dialog {
-	
-	Logger logger = Logger.getLogger(this.getClass());
 	
 	private HashMap<String, ArrayList<String>> map = new HashMap<>();
 	
@@ -91,7 +88,7 @@ public class WCAGDialog extends Dialog {
 				
 				OWLClass clazz = classes.get(selected);
 				
-				logger.info(clazz.getIndividuals(ontology));
+				System.out.println(clazz.getIndividuals(ontology));
 				
 				individuals.clear();
 				
@@ -111,7 +108,7 @@ public class WCAGDialog extends Dialog {
 		});
 		
 		//selectedIri = IRI.create(owlFactory.getIRIofClass(keyChoice));
-		logger.debug(selectedIri);
+		System.out.println(selectedIri);
 		
 		for(OWLClass clazz : ontology.getClassesInSignature()) {
 			if(clazz.getSubClasses(ontology).size() == 0) {
