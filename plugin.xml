@@ -328,9 +328,19 @@
                 <extension
                       point="org.eclipse.jdt.ui.javaEditorTextHovers">
 					<hover
+					   activate="true"
 					   id="br.ufms.facom.acctrace.hovers.AccTraceCommentHover"
 					   class="br.ufms.facom.acctrace.hovers.AccTraceCommentHover"
 					   label="%javaVariableHover">
 					  </hover>                      
                 </extension>
+			<extension
+			      point="org.eclipse.jdt.core.compilationParticipant">
+			   <compilationParticipant
+            class="br.ufms.facom.acctrace.compiler.AccTraceCommentCompilerMarker"
+            id="br.ufms.facom.acctrace.compiler.AccTraceCommentCompilerMarker"
+            requiredSourceLevel="1.4">
+			      <managedMarker markerType="org.eclipse.jdt.apt.core.compile.problem"/>
+			   </compilationParticipant>
+			</extension>
 </plugin>

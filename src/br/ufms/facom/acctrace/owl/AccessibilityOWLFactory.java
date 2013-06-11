@@ -187,12 +187,12 @@ public final class AccessibilityOWLFactory {
 		owlHash.put("Mobile Web Best Practices", "MWBP");		
 		owlHash.put("WAI/ARIA", "WAIARIA");
 		
-		try {
+		/*try {
 			getOWLOntology();
 		} catch (OWLOntologyCreationException | URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 

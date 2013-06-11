@@ -18,6 +18,8 @@
         upperBound="-1" eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Repository"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementRepositories"
+        upperBound="-1" eType="#//Repository" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementType" eType="ecore:EEnum platform:/plugin/org.obeonetwork.dsl.requirement/model/requirement.ecore#//RequirementType"/>
@@ -25,4 +27,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Repository"/>
 </ecore:EPackage>

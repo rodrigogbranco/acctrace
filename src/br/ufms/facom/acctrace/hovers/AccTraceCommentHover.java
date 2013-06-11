@@ -21,7 +21,7 @@ public class AccTraceCommentHover implements IJavaEditorTextHover {
 	 * 
 	 */
 	public AccTraceCommentHover() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	/* (non-Javadoc)
@@ -31,12 +31,27 @@ public class AccTraceCommentHover implements IJavaEditorTextHover {
 	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
 		if (hoverRegion != null) {
 			try {
-				if (hoverRegion.getLength() > -1)
-					return textViewer.getDocument().get(hoverRegion.getOffset(), hoverRegion.getLength());					
+				if (hoverRegion.getLength() > -1) {
+					String textHover = textViewer.getDocument().get(hoverRegion.getOffset()-4, hoverRegion.getLength()+5);
+					
+					if(textHover.equals("/**!ACCTRACE!")) {
+						int i = 6;
+						
+						while((textHover = textViewer.getDocument().
+								get(hoverRegion.getOffset()-4, hoverRegion.getLength()+ i++)) != null) {
+							System.out.println(textHover);
+							if(textHover.matches("/\\*\\*!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+\\*\\*/"))
+								return textHover;
+							else if(textHover.matches(" "))
+								return null;
+						}
+					}
+				}
+					//return textViewer.getDocument().get(hoverRegion.getOffset(), hoverRegion.getLength());					
 			} catch (BadLocationException x) {
 			}
 		}
-		return "JavaTextHover.emptySelection"; 
+		return null; 
 	}
 
 	/* (non-Javadoc)

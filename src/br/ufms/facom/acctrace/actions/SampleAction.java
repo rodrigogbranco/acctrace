@@ -1,26 +1,15 @@
 package br.ufms.facom.acctrace.actions;
 
-import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor;
-import org.eclipse.jdt.internal.ui.javaeditor.JavaEditor;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IRegion;
 import org.eclipse.jface.text.ITextHover;
-import org.eclipse.jface.text.ITextHoverExtension2;
-import org.eclipse.jface.text.ITextOperationTarget;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.Region;
-import org.eclipse.jface.text.TextSelection;
-import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.editors.text.TextEditor;
-import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 /**
