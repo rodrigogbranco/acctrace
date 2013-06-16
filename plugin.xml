@@ -351,4 +351,44 @@
 			      <attribute name="description" />
 			      <persistent value="false" />
 			   </extension>
+   <extension
+         point="org.eclipse.ui.editors.annotationTypes">
+      <type
+            markerSeverity="2"
+            markerType="br.ufms.facom.acctrace.markes.AccTraceMarker"
+            name="br.ufms.facom.acctrace.AccTraceAnnotationType"
+            super="org.eclipse.ui.workbench.texteditor.info">
+      </type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.markerAnnotationSpecification">
+      <specification
+            annotationType="br.ufms.facom.acctrace.AccTraceAnnotationType"
+            colorPreferenceKey="clcolor"
+            colorPreferenceValue="255,255,0"
+            includeOnPreferencePage="true"
+            label="AccTrace Annotation"
+            overviewRulerPreferenceKey="clruler"
+            overviewRulerPreferenceValue="true"
+            textPreferenceKey="clstyle"
+            textPreferenceValue="true"
+            textStylePreferenceKey="clstyle"
+            textStylePreferenceValue="DASHED_BOX"
+            verticalRulerPreferenceKey="clvertical"
+            verticalRulerPreferenceValue="true">
+      </specification>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="br.ufms.facom.acctrace.rulers"
+            targetID="org.eclipse.jdt.ui.CompilationUnitEditor">
+				<action
+               	label="%AccTraceRulerAction.label"
+               		class="br.ufms.facom.acctrace.rulers.AccTraceRulerAction"
+               		actionID="RulerClick"
+               		id="br.ufms.facom.acctrace.rulers.AccTraceRulerAction">
+         		</action>            
+      </editorContribution>
+   </extension>
 </plugin>

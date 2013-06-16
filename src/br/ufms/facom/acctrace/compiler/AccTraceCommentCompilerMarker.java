@@ -1,8 +1,10 @@
 package br.ufms.facom.acctrace.compiler;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.internal.resources.ResourceException;
 import org.eclipse.core.resources.IFile;
@@ -20,11 +22,15 @@ import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.LineComment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.uml2.uml.NamedElement;
+import org.obeonetwork.dsl.requirement.Requirement;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLOntology;
 
 import br.ufms.facom.acctrace.markers.AccTraceMarker;
 import br.ufms.facom.acctrace.model.AccTraceModel;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.controller.ModelController;
+import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
 /**
  * @author Rodrigo Branco
@@ -38,6 +44,11 @@ public class AccTraceCommentCompilerMarker extends CompilationParticipant {
 	
 	private ReconcileContext context = null;
 	
+	private Map<Path,AccTraceModel> modelMap = new HashMap<Path,AccTraceModel>();
+	private Map<String,Reference> referenceMap = new HashMap<String,Reference>();
+	private Map<Reference,Requirement> requirementMap = new HashMap<Reference,Requirement>();
+	private Map<Reference,NamedElement> umlMap = new HashMap<Reference,NamedElement>();
+	
 	class AccTraceCommentVisitor extends ASTVisitor {
 
 		public boolean visit(LineComment comment) {			
@@ -45,9 +56,11 @@ public class AccTraceCommentCompilerMarker extends CompilationParticipant {
 		        String lineComment = source[startLineNumber].trim();
 		        
 		        if(lineComment.matches("//!ACCTRACE!(/)?([^/\\\\0#]+(/)?)+#([^\\*\\*/])+")) {	        	
-		        	String stringPath = lineComment.substring(12, lineComment.indexOf('#'));
+		        	/*String stringPath = lineComment.substring(12, lineComment.indexOf('#'));
 		        	String referenceId = lineComment.substring(lineComment.indexOf('#')+1,lineComment.length());
 		        	
+		        	String message = AccTraceCommentHandler.getInstance().getMessage(stringPath, referenceId);*/
+
 		        	CategorizedProblem prob = new AccTraceMarker
 		        			(lineComment, 
 		        			cu.getJavaElement().getPath().toOSString().toCharArray(),
@@ -55,57 +68,9 @@ public class AccTraceCommentCompilerMarker extends CompilationParticipant {
 		        			startLineNumber, null);
 		        	
 		        	context.putProblems(AccTraceMarker.MARKER_TYPE, new CategorizedProblem[] { prob });
-		        	
-		        	return true;
-		        	
-		        	/*Path path = new Path(stringPath);
-		        	
-		        	IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-		        	
-		        	if(file == null) {
-			        	CategorizedProblem prob = new AccTraceMarker
-			        			("Error: I could not open the file "+stringPath, 
-			        			cu.getJavaElement().getPath().toOSString().toCharArray(),
-			        			comment.getStartPosition(), comment.getStartPosition() + comment.getLength(), 
-			        			startLineNumber, null);
-			        	
-			        	context.putProblems(AccTraceMarker.MARKER_TYPE, new CategorizedProblem[] { prob });
-			        	
-			        	return true;
-		        	}
-		        		
-			        ModelController.getInstance().load(file);
-			        	
-			        AccTraceModel model = ModelController.getInstance().getModel();
-			        
-			        for(Reference ref : model.getReferences()) {
-			        	if(ref.getId().equals(referenceId)) {
-			        		String message = "";
-			        		
-			        		message += "Requirement: " + ref.getRequirement().getName() 
-			        				+ " ID: " + ref.getRequirement().getId()+"\n";
-			        		message += "UML Model: " + ModelController.getInstance().
-			        				getLabel((NamedElement)ref.getUmlModel())+"\n";			        		
-			        		
-			        		
-			        		return true;
-			        	}
-			        }
-			        	
-		        	CategorizedProblem prob = new AccTraceMarker
-		        			("Error: There isn't a reference with the ID "+referenceId+" in "+stringPath, 
-		        			cu.getJavaElement().getPath().toOSString().toCharArray(),
-		        			comment.getStartPosition(), comment.getStartPosition() + comment.getLength(), 
-		        			startLineNumber, null);
-		        	
-		        	context.putProblems(AccTraceMarker.MARKER_TYPE, new CategorizedProblem[] { prob });
-		        	
-		        	return true;*/		        		      	
-		        }
-
-	        return true;
 		  }		
-		
+		  return true;
+		}
 	}
 	
 	@Override

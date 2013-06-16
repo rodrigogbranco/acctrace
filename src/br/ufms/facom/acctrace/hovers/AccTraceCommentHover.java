@@ -20,16 +20,20 @@ import org.eclipse.ui.IEditorPart;
  * @author Rodrigo Branco
  *
  */
-public class AccTraceCommentHover implements IAnnotationHover {
+public class AccTraceCommentHover implements IJavaEditorTextHover {
 
 	@Override
-	public String getHoverInfo(ISourceViewer sourceViewer, int lineNumber) {
-		Iterator it = sourceViewer.getAnnotationModel().getAnnotationIterator();
-		while(it.hasNext()) {
-			Annotation an = (Annotation)it.next();
-			System.out.println(an);
-		}
+	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
 		return null;
+	}
+
+	@Override
+	public IRegion getHoverRegion(ITextViewer textViewer, int offset) {
+		return null;
+	}
+
+	@Override
+	public void setEditor(IEditorPart arg0) {
 	}
 
 
