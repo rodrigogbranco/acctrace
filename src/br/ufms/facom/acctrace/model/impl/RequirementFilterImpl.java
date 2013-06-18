@@ -2,17 +2,14 @@
  */
 package br.ufms.facom.acctrace.model.impl;
 
-import br.ufms.facom.acctrace.model.ModelPackage;
-import br.ufms.facom.acctrace.model.RequirementFilter;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.obeonetwork.dsl.requirement.RequirementType;
+
+import br.ufms.facom.acctrace.model.ModelPackage;
+import br.ufms.facom.acctrace.model.RequirementFilter;
 
 /**
  * <!-- begin-user-doc -->

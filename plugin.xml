@@ -264,6 +264,13 @@
             id="br.ufms.facom.acctrace.views.AccessibilitySpecificationsView"
             name="%view.name.2">
       </view>
+      <view
+            category="br.ufms.facom.acctrace"
+            class="br.ufms.facom.acctrace.views.AccTraceCommentView"
+            icon="icons/sample.gif"
+            id="br.ufms.facom.acctrace.AccTraceCommentView"
+            name="%view.name.3">
+      </view>
    </extension>
   
    <extension
@@ -305,11 +312,11 @@
                       point="org.eclipse.ui.actionSets">
                    <actionSet
                          id="br.ufms.facom.acctrace.actionSet"
-                         label="Sample Action Set"
+                         label="%actionSet.label"
                          visible="true">
                       <menu
                             id="sampleMenu"
-                            label="Sample &amp;Menu">
+                            label="%menu.label.0">
                          <separator
                                name="sampleGroup">
                          </separator>
@@ -318,10 +325,10 @@
                             class="br.ufms.facom.acctrace.actions.SampleAction"
                             icon="icons/sample.gif"
                             id="br.ufms.facom.acctrace.actions.SampleAction"
-                            label="&amp;Sample Action"
+                            label="%action.label"
                             menubarPath="sampleMenu/sampleGroup"
                             toolbarPath="sampleGroup"
-                            tooltip="Hello, Eclipse world">
+                            tooltip="%action.tooltip">
                       </action>
                    </actionSet>
                 </extension>
@@ -345,7 +352,7 @@
 			</extension>
 			<extension
          id="br.ufms.facom.acctrace.markes.AccTraceMarker"
-         name="AccTrace Marker"
+         name="%extension.name.2"
          point="org.eclipse.core.resources.markers">
 			      <super type="org.eclipse.core.resources.textmarker"/>
 			      <attribute name="description" />
@@ -365,17 +372,16 @@
       <specification
             annotationType="br.ufms.facom.acctrace.AccTraceAnnotationType"
             colorPreferenceKey="clcolor"
-            colorPreferenceValue="255,255,0"
-            includeOnPreferencePage="true"
-            label="AccTrace Annotation"
-            overviewRulerPreferenceKey="clruler"
-            overviewRulerPreferenceValue="true"
-            textPreferenceKey="clstyle"
-            textPreferenceValue="true"
-            textStylePreferenceKey="clstyle"
-            textStylePreferenceValue="DASHED_BOX"
-            verticalRulerPreferenceKey="clvertical"
-            verticalRulerPreferenceValue="true">
+	         colorPreferenceValue="192,255,192"
+	         contributesToHeader="false"
+	         highlightPreferenceValue="true"
+	         includeOnPreferencePage="true"
+	         label="AccTrace Annotation"
+	         overviewRulerPreferenceValue="true"
+	         presentationLayer="0"
+	         textPreferenceValue="true"
+	         textStylePreferenceValue="DASHED_BOX"
+	         verticalRulerPreferenceValue="true">
       </specification>
    </extension>
    <extension

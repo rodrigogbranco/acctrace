@@ -2,12 +2,14 @@
  */
 package br.ufms.facom.acctrace.model.util;
 
-import br.ufms.facom.acctrace.model.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import br.ufms.facom.acctrace.model.AccTraceModel;
+import br.ufms.facom.acctrace.model.ModelPackage;
+import br.ufms.facom.acctrace.model.Reference;
+import br.ufms.facom.acctrace.model.RequirementFilter;
 
 /**
  * <!-- begin-user-doc -->

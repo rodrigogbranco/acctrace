@@ -2,15 +2,17 @@
  */
 package br.ufms.facom.acctrace.model.impl;
 
-import br.ufms.facom.acctrace.model.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import br.ufms.facom.acctrace.model.AccTraceModel;
+import br.ufms.facom.acctrace.model.ModelFactory;
+import br.ufms.facom.acctrace.model.ModelPackage;
+import br.ufms.facom.acctrace.model.Reference;
+import br.ufms.facom.acctrace.model.RequirementFilter;
 
 /**
  * <!-- begin-user-doc -->

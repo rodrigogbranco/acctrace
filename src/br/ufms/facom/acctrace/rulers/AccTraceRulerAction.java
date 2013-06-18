@@ -2,8 +2,6 @@ package br.ufms.facom.acctrace.rulers;
 
 import java.util.ResourceBundle;
 
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.jdt.internal.ui.javaeditor.JavaSelectAnnotationRulerAction;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.text.source.IVerticalRulerInfo;
 import org.eclipse.ui.texteditor.AbstractRulerActionDelegate;

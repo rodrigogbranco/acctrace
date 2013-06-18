@@ -5,7 +5,6 @@ package br.ufms.facom.acctrace.markers;
 
 import javax.print.attribute.standard.Severity;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.jdt.core.compiler.CategorizedProblem;
 
 /**

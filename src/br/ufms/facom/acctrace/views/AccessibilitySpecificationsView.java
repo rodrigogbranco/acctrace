@@ -1,9 +1,8 @@
 package br.ufms.facom.acctrace.views;
 
 import java.io.IOException;
-import java.util.Map;
+import java.net.URISyntaxException;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -13,9 +12,6 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -32,10 +28,10 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.uml2.uml.PackageableElement;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.controller.ModelController;
@@ -85,7 +81,7 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		@SuppressWarnings("unchecked")
 		public Object[] getElements(Object parent) {
 			if (parent != null && parent instanceof Reference) {
-				return ((Reference)parent).getOntologies().toArray();
+				return ((Reference) parent).getOntologies().toArray();
 			}
 
 			return new Object[0];
@@ -95,17 +91,26 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	class ViewLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
 		public String getColumnText(Object obj, int index) {
-			
-			if(obj != null) {
+
+			if (obj != null) {
 				System.out.println(obj.toString());
-				OWLOntology ontology = AccessibilityOWLFactory.getInstance().
-						getOWLOntologyByIRI(obj.toString());
-				OWLNamedIndividual individual = AccessibilityOWLFactory.
-						getInstance().getNamedIndividual(obj.toString(), ontology);
-				return AccessibilityOWLFactory.getInstance().getDescription(individual, ontology);
-			}
-			else
+				OWLOntology ontology;
+				try {
+					ontology = AccessibilityOWLFactory.getInstance()
+							.getOWLOntologyByIRI(obj.toString());
+					OWLNamedIndividual individual = AccessibilityOWLFactory
+							.getInstance().getNamedIndividual(obj.toString(),
+									ontology);
+					return AccessibilityOWLFactory.getInstance()
+							.getDescription(individual, ontology);
+				} catch (OWLOntologyCreationException | URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else
 				return getText(obj);
+
+			return "";
 		}
 
 		public Image getColumnImage(Object obj, int index) {
@@ -183,25 +188,26 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	private void makeActions() {
 		action1 = new Action() {
-			public void run() {				
-				if(ReferenceView.getSelectedElement() != null && RequirementView.getSelectedRequirement()
-						!= null && viewer.getSelection() != null) {
+			public void run() {
+				if (ReferenceView.getSelectedElement() != null
+						&& RequirementView.getSelectedRequirement() != null
+						&& viewer.getSelection() != null) {
 					ModelController controller = ModelController.getInstance();
-					
+
 					Object obj = ((IStructuredSelection) viewer.getSelection())
 							.getFirstElement();
-					IRI iri = IRI.create((String)obj);
-					
+					IRI iri = IRI.create((String) obj);
+
 					try {
 						controller.removeAccessibilityReference(
 								RequirementView.getSelectedRequirement(),
-								ReferenceView.getSelectedElement(),iri);
+								ReferenceView.getSelectedElement(), iri);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
-				
+
 				viewer.refresh();
 			}
 		};
@@ -224,18 +230,16 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	}
 
 	@Override
-	public void propertyChange(PropertyChangeEvent event) {	
+	public void propertyChange(PropertyChangeEvent event) {
 		if (event.getNewValue() != null) {
-			if(ReferenceView.getSelectedElement() != null && RequirementView.getSelectedRequirement()
-					!= null) {
-				viewer.setInput(ModelController.getInstance().
-						getReference(RequirementView.getSelectedRequirement(), 
-								ReferenceView.getSelectedElement()));
-			}
-			else
-				viewer.setInput(null);				
-		}
-		else
+			if (ReferenceView.getSelectedElement() != null
+					&& RequirementView.getSelectedRequirement() != null) {
+				viewer.setInput(ModelController.getInstance().getReference(
+						RequirementView.getSelectedRequirement(),
+						ReferenceView.getSelectedElement()));
+			} else
+				viewer.setInput(null);
+		} else
 			viewer.setInput(null);
 		viewer.refresh();
 	}

@@ -2,20 +2,18 @@
  */
 package br.ufms.facom.acctrace.model.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
+
 import br.ufms.facom.acctrace.model.AccTraceModel;
 import br.ufms.facom.acctrace.model.ModelFactory;
 import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.obeonetwork.dsl.requirement.RequirementPackage;
 
 /**
  * <!-- begin-user-doc -->
