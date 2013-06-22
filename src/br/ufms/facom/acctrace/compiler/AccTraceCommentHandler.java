@@ -80,7 +80,11 @@ public class AccTraceCommentHandler {
 	public NamedElement getUml(Reference ref) {
 		NamedElement uml = null;
 		if ((uml = umlMap.get(ref)) == null) {
-			uml = (NamedElement) ref.getUmlModel();
+			try {
+				uml = (NamedElement) ref.getUmlModel();
+			} catch (ClassCastException e) {
+				e.printStackTrace();
+			}
 			umlMap.put(ref, uml);
 		}
 

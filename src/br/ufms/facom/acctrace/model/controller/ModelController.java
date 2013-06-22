@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -84,10 +85,10 @@ public final class ModelController {
 	public void load(IEditorInput inputFile) {
 		model = loader.load(inputFile);
 	}
-	
+
 	public void load(IFile inputFile) {
 		model = loader.load(inputFile);
-	}	
+	}
 
 	/**
 	 * Gets the requirement repositories paths.
@@ -149,49 +150,54 @@ public final class ModelController {
 		model.getRequirementRepositories().add(repository);
 		model.eResource().save(options);
 	}
-	
-	public void addAccessibilityReference(Requirement req, PackageableElement pack, IRI iri) throws IOException {
+
+	public void addAccessibilityReference(Requirement req,
+			PackageableElement pack, IRI iri) throws IOException {
 		EList<Reference> refs = model.getReferences();
-		
+
 		Reference reference = null;
-		for(Reference ref : refs) {
-			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req)) {
+		for (Reference ref : refs) {
+			if (ref.getUmlModel().equals(pack)
+					&& ref.getRequirement().equals(req)) {
 				reference = ref;
 				break;
 			}
 		}
-		
-		if(reference == null) {
+
+		if (reference == null) {
 			reference = ModelFactory.eINSTANCE.createReference();
 			reference.setRequirement(req);
 			reference.setUmlModel(pack);
 			reference.setId(EcoreUtil.generateUUID());
 			refs.add(reference);
 		}
-		
-		if(!reference.getOntologies().contains(iri.toString()))
+
+		if (!reference.getOntologies().contains(iri.toString()))
 			reference.getOntologies().add(iri.toString());
-		
-		model.eResource().save(options);	
+
+		model.eResource().save(options);
 	}
-	
-	public void removeAccessibilityReference(Requirement req, PackageableElement pack, IRI iri) throws IOException {
-		for(Reference ref : model.getReferences()) {
-			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req)) {
+
+	public void removeAccessibilityReference(Requirement req,
+			PackageableElement pack, IRI iri) throws IOException {
+		for (Reference ref : model.getReferences()) {
+			if (ref.getUmlModel().equals(pack)
+					&& ref.getRequirement().equals(req)) {
 				ref.getOntologies().remove(iri.toString());
 				break;
 			}
 		}
-		
+
 		model.eResource().save(options);
-	}	
-	
-	public Reference getReference(Requirement req, PackageableElement pack) {		
-		for(Reference ref : model.getReferences()) {
-			if(ref.getUmlModel().equals(pack) && ref.getRequirement().equals(req))
+	}
+
+	public Reference getReference(Requirement req, PackageableElement pack) {
+		for (Reference ref : model.getReferences()) {
+			if (ref.getUmlModel().equals(pack)
+					&& ref.getRequirement().equals(req))
 				return ref;
 		}
-		
+
 		return null;
 	}
 
@@ -222,79 +228,98 @@ public final class ModelController {
 				.getQualifiedName() : "";
 		return umlClass;
 	}
-	
-	public Map<Requirement,List<PackageableElement>> getReqUML(IFile inputFile) {
-		Map<Requirement,List<PackageableElement>> map = new HashMap<Requirement, List<PackageableElement>>();
-		
+
+	public String getLabel(EObject pElement) {
+		int lastIndexofPeriod = pElement.getClass().toString().lastIndexOf(".");
+		int indexOfImpl = pElement.getClass().toString().indexOf("Impl");
+		String umlClass = pElement.getClass().toString()
+				.substring(lastIndexofPeriod + 1, indexOfImpl);
+		if (pElement instanceof EClass)
+			umlClass += ((EClass) pElement).getName() != null ? ((EClass) pElement)
+					.getName() : "";
+		else {
+			umlClass += ((NamedElement) pElement).getQualifiedName() != null ? ((NamedElement) pElement)
+					.getQualifiedName() : "";
+		}
+		return umlClass;
+	}
+
+	public Map<Requirement, List<PackageableElement>> getReqUML(IFile inputFile) {
+		Map<Requirement, List<PackageableElement>> map = new HashMap<Requirement, List<PackageableElement>>();
+
 		load(inputFile);
-		
-		EList<Repository> repositories = getModel().getRequirementRepositories();
-		
-		for(Repository repository : repositories) {
-			for(Category category : repository.getMainCategories()) {
+
+		EList<Repository> repositories = getModel()
+				.getRequirementRepositories();
+
+		for (Repository repository : repositories) {
+			for (Category category : repository.getMainCategories()) {
 				navigateAndAdd(map, category);
 			}
-		}	
-		
+		}
+
 		return map;
 	}
-	
-	public Map<Requirement,List<String>> getReqTech(IFile inputFile) {
-		Map<Requirement,List<String>> map = new HashMap<Requirement, List<String>>();
-		
+
+	public Map<Requirement, List<String>> getReqTech(IFile inputFile) {
+		Map<Requirement, List<String>> map = new HashMap<Requirement, List<String>>();
+
 		load(inputFile);
-		
-		for(Reference reference : getModel().getReferences()) {
+
+		for (Reference reference : getModel().getReferences()) {
 			List<String> list = map.get(reference.getRequirement());
-			if(list == null) {
+			if (list == null) {
 				list = new ArrayList<String>();
 				map.put(reference.getRequirement(), list);
 			}
-			
-			for(String ontology : reference.getOntologies()) {
+
+			for (String ontology : reference.getOntologies()) {
 				list.add(ontology);
 			}
-		}	
-		
+		}
+
 		return map;
 	}
-	
-	public Map<PackageableElement,List<String>> getModelTech(IFile inputFile) {
-		Map<PackageableElement,List<String>> map = new HashMap<PackageableElement, List<String>>();
-		
+
+	public Map<PackageableElement, List<String>> getModelTech(IFile inputFile) {
+		Map<PackageableElement, List<String>> map = new HashMap<PackageableElement, List<String>>();
+
 		load(inputFile);
-		
-		for(Reference reference : getModel().getReferences()) {
-			List<String> list = map.get((PackageableElement)reference.getUmlModel());
-			if(list == null) {
+
+		for (Reference reference : getModel().getReferences()) {
+			List<String> list = map.get((PackageableElement) reference
+					.getUmlModel());
+			if (list == null) {
 				list = new ArrayList<String>();
-				map.put((PackageableElement)reference.getUmlModel(), list);
+				map.put((PackageableElement) reference.getUmlModel(), list);
 			}
-			
-			for(String ontology : reference.getOntologies()) {
+
+			for (String ontology : reference.getOntologies()) {
 				list.add(ontology);
 			}
-		}	
-		
+		}
+
 		return map;
 	}
-	
-	private void navigateAndAdd(Map<Requirement,List<PackageableElement>> map,Category category) {
-		for(Requirement requirement : category.getRequirements()) {
+
+	private void navigateAndAdd(Map<Requirement, List<PackageableElement>> map,
+			Category category) {
+		for (Requirement requirement : category.getRequirements()) {
 			List<PackageableElement> list = map.get(requirement);
-			if(list == null) {
+			if (list == null) {
 				list = new ArrayList<PackageableElement>();
 				map.put(requirement, list);
 			}
-			
-			for(EObject obj : category.getReferencedObject()) {
-				if(obj instanceof PackageableElement && obj instanceof Classifier) {
+
+			for (EObject obj : category.getReferencedObject()) {
+				if (obj instanceof PackageableElement
+						&& obj instanceof Classifier) {
 					list.add((PackageableElement) obj);
 				}
 			}
 		}
-		
-		for(Category subcategory : category.getSubCategories()) {
+
+		for (Category subcategory : category.getSubCategories()) {
 			navigateAndAdd(map, subcategory);
 		}
 	}

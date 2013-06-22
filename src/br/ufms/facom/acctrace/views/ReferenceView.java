@@ -43,6 +43,7 @@ import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import br.ufms.facom.acctrace.dialog.ApplicationAndDeviceDialog;
 import br.ufms.facom.acctrace.dialog.WCAGDialog;
@@ -68,23 +69,23 @@ public class ReferenceView {
 
 	/** The action2. */
 	private Action action2;
-	
+
 	private Action applicationAction;
-	
+
 	private Action deviceAction;
-	
+
 	private Action impairmentAction;
-	
+
 	private Action disabilityAction;
-	
+
 	private Action functionalLimitationAction;
-	
+
 	private Action waiAriaAction;
-	
+
 	private Action wcag2Action;
-	
+
 	private Action webServiceAction;
-	
+
 	private Action mwbpAction;
 
 	/** The double click action. */
@@ -107,7 +108,7 @@ public class ReferenceView {
 
 	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
-	
+
 	private static PackageableElement selectedElement = null;
 
 	/**
@@ -120,7 +121,7 @@ public class ReferenceView {
 	 */
 	public ReferenceView(AccTraceFormPage form, Composite composite) {
 		selectedElement = null;
-		
+
 		if (listeners == null)
 			listeners = new ArrayList<IPropertyChangeListener>();
 
@@ -138,9 +139,9 @@ public class ReferenceView {
 	 */
 	public static void addPropertyChangeListener(
 			IPropertyChangeListener listener) {
-		if(listeners == null)
+		if (listeners == null)
 			listeners = new ArrayList<IPropertyChangeListener>();
-		
+
 		if (!listeners.contains(listener))
 			listeners.add(listener);
 	}
@@ -437,10 +438,9 @@ public class ReferenceView {
 		subMenu.add(wcag2Action);
 		subMenu.add(webServiceAction);
 		subMenu.add(mwbpAction);
-		
-		
-		//subMenu.add(action2);
-		//manager.add(new Separator());
+
+		// subMenu.add(action2);
+		// manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
@@ -462,31 +462,15 @@ public class ReferenceView {
 	 * Make actions.
 	 */
 	private void makeActions() {
-		
+
 		applicationAction = new Action() {
 			public void run() {
-				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(form.getSite()
-						.getShell(), "Application");
-				if (dialog.open() == Window.OK) {
-						try {
-							save(RequirementView.getSelectedRequirement(), selectedElement, 
-									ApplicationAndDeviceDialog.getSelectedIri());
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-				}
-			}
-		};		
-		applicationAction.setText("Application");
-		
-		deviceAction = new Action() {
-			public void run() {
-				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(form.getSite()
-						.getShell(), "Device");
+				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(
+						form.getSite().getShell(), "Application");
 				if (dialog.open() == Window.OK) {
 					try {
-						save(RequirementView.getSelectedRequirement(), selectedElement, 
+						save(RequirementView.getSelectedRequirement(),
+								selectedElement,
 								ApplicationAndDeviceDialog.getSelectedIri());
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
@@ -494,9 +478,27 @@ public class ReferenceView {
 					}
 				}
 			}
-		};		
+		};
+		applicationAction.setText("Application");
+
+		deviceAction = new Action() {
+			public void run() {
+				ApplicationAndDeviceDialog dialog = new ApplicationAndDeviceDialog(
+						form.getSite().getShell(), "Device");
+				if (dialog.open() == Window.OK) {
+					try {
+						save(RequirementView.getSelectedRequirement(),
+								selectedElement,
+								ApplicationAndDeviceDialog.getSelectedIri());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		};
 		deviceAction.setText("Device");
-		
+
 		impairmentAction = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -505,9 +507,9 @@ public class ReferenceView {
 					// Save Model
 				}
 			}
-		};		
+		};
 		impairmentAction.setText("Impairment");
-		
+
 		disabilityAction = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -516,9 +518,9 @@ public class ReferenceView {
 					// Save Model
 				}
 			}
-		};		
+		};
 		disabilityAction.setText("Disability");
-		
+
 		functionalLimitationAction = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -527,9 +529,9 @@ public class ReferenceView {
 					// Save Model
 				}
 			}
-		};		
+		};
 		functionalLimitationAction.setText("Functional Limitation");
-		
+
 		waiAriaAction = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -538,25 +540,33 @@ public class ReferenceView {
 					// Save Model
 				}
 			}
-		};		
+		};
 		waiAriaAction.setText("WAI ARIA");
-		
+
 		wcag2Action = new Action() {
 			public void run() {
-				WCAGDialog dialog = new WCAGDialog(form.getSite().getShell());
-				if (dialog.open() == Window.OK) {
-					try {
-						save(RequirementView.getSelectedRequirement(), selectedElement, 
-								WCAGDialog.getSelectedIri());
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				WCAGDialog dialog = null;
+				try {
+					dialog = new WCAGDialog(form.getSite().getShell());
+
+					if (dialog.open() == Window.OK) {
+						try {
+							save(RequirementView.getSelectedRequirement(),
+									selectedElement,
+									WCAGDialog.getSelectedIri());
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
+				} catch (OWLOntologyCreationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
-		};		
+		};
 		wcag2Action.setText("WCAG 2.0");
-		
+
 		webServiceAction = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -565,9 +575,9 @@ public class ReferenceView {
 					// Save Model
 				}
 			}
-		};		
+		};
 		webServiceAction.setText("Web Service");
-		
+
 		mwbpAction = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -576,12 +586,9 @@ public class ReferenceView {
 					// Save Model
 				}
 			}
-		};		
+		};
 		mwbpAction.setText("Mobile Web Best Practices");
-		
-		
-		
-		
+
 		action1 = new Action() {
 			public void run() {
 				AddOWLDialog addDialog = new AddOWLDialog(form.getSite()
@@ -610,11 +617,12 @@ public class ReferenceView {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
-				if(obj instanceof PackageableElement && (obj instanceof Classifier))
-					selectedElement = (PackageableElement)obj;
+				if (obj instanceof PackageableElement
+						&& (obj instanceof Classifier))
+					selectedElement = (PackageableElement) obj;
 				else
-					selectedElement = null;				
-				
+					selectedElement = null;
+
 				showMessage("Double-click detected on " + obj.toString());
 			}
 		};
@@ -629,11 +637,12 @@ public class ReferenceView {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
-				if(obj instanceof PackageableElement && (obj instanceof Classifier))
-					selectedElement = (PackageableElement)obj;
+				if (obj instanceof PackageableElement
+						&& (obj instanceof Classifier))
+					selectedElement = (PackageableElement) obj;
 				else
 					selectedElement = null;
-				
+
 				for (IPropertyChangeListener element : listeners
 						.toArray(new IPropertyChangeListener[0])) {
 					if (element != null) {
@@ -687,29 +696,30 @@ public class ReferenceView {
 		contributeToActionBars();
 		hookSingleClickAction();
 	}
-	
-	private void save(Requirement req, PackageableElement pack, IRI iri) throws IOException {
-		if(req == null) {
+
+	private void save(Requirement req, PackageableElement pack, IRI iri)
+			throws IOException {
+		if (req == null) {
 			showMessage("Please select a requirement first in Requirement Associations View!");
 			return;
 		}
-		
-		if(pack == null) {
+
+		if (pack == null) {
 			showMessage("Please select a UML Model in Requirement to Model to Techinique Mapping View!");
 			return;
 		}
-		
-		if(iri == null) {
-			showMessage("You need to select a accessibility reference. Right-click on UML model in" +
-					"Requirement to Model to Techinique Mapping View");
+
+		if (iri == null) {
+			showMessage("You need to select a accessibility reference. Right-click on UML model in"
+					+ "Requirement to Model to Techinique Mapping View");
 			return;
 		}
-	
+
 		ModelController controller = ModelController.getInstance();
-		
-		controller.addAccessibilityReference(req,pack,iri);
+
+		controller.addAccessibilityReference(req, pack, iri);
 	}
-	
+
 	public static PackageableElement getSelectedElement() {
 		return selectedElement;
 	}

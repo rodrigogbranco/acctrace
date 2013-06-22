@@ -237,13 +237,48 @@ public final class AccessibilityOWLFactory {
 		return manager.getOntologies();
 	}
 
-	public OWLOntology getOWLOntology(String iri) {
-		if (iriMap.get(iri) != null)
-			return manager.getOntology(iriMap.get(iri));
-		else
-			return manager.getOntology(iriMap.get("Generic"));
+	/**
+	 * @param stringIri
+	 * @param iri
+	 * @return
+	 * @throws OWLOntologyCreationException
+	 */
+	public OWLOntology getOWLOntology(String stringIri)
+			throws OWLOntologyCreationException {
+		OWLOntology o = null;
+		if (iriMap.get(stringIri) != null) {
+			o = manager.getOntology(iriMap.get(stringIri));
+
+			if (o != null)
+				return manager.getOntology(iriMap.get(stringIri));
+
+			IRI iri = iriMap.get(stringIri);
+
+			if ((o = manager.getOntology(iri)) == null)
+				o = manager.loadOntology(iri);
+
+			return o;
+		} else {
+			o = manager.getOntology(iriMap.get("Generic"));
+
+			if (o != null)
+				return o;
+
+			IRI iri = iriMap.get("Generic");
+
+			if ((o = manager.getOntology(iri)) == null)
+				o = manager.loadOntology(iri);
+
+			return o;
+		}
 	}
 
+	/**
+	 * @param stringIri
+	 * @return
+	 * @throws URISyntaxException
+	 * @throws OWLOntologyCreationException
+	 */
 	public OWLOntology getOWLOntologyByIRI(String stringIri)
 			throws URISyntaxException, OWLOntologyCreationException {
 		if (stringIri == null)
@@ -255,7 +290,7 @@ public final class AccessibilityOWLFactory {
 		ontoString = ontoString.substring(0, ontoString.indexOf('.'));
 
 		if (iriMap.get(ontoString) != null) {
-			OWLOntology o = manager.loadOntology(iriMap.get(ontoString));
+			OWLOntology o = manager.getOntology(iriMap.get(ontoString));
 			return o;
 		}
 
@@ -264,7 +299,10 @@ public final class AccessibilityOWLFactory {
 
 		IRI iri = IRI.create(url.toURI());
 
-		OWLOntology o = manager.loadOntology(iri);
+		OWLOntology o = null;
+		if ((o = manager.getOntology(iri)) == null) {
+			o = manager.loadOntology(iri);
+		}
 
 		iriMap.put(ontoString, o.getOntologyID().getOntologyIRI());
 
