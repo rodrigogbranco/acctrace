@@ -30,6 +30,7 @@ import org.eclipse.ui.ide.IDE;
 
 import br.ufms.facom.acctrace.model.ModelLoader;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is a sample new wizard. Its role is to create a new file resource in the
  * provided container. If the container resource (a folder or a project) is
@@ -40,7 +41,11 @@ import br.ufms.facom.acctrace.model.ModelLoader;
  */
 
 public class AccTraceFileWizard extends Wizard implements INewWizard {
+	
+	/** The page. */
 	private AccTraceFileWizardPage page;
+	
+	/** The selection. */
 	private ISelection selection;
 
 	/**
@@ -63,6 +68,8 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	/**
 	 * This method is called when 'Finish' button is pressed in the wizard. We
 	 * will create an operation and run it using wizard as execution context.
+	 *
+	 * @return true, if successful
 	 */
 	public boolean performFinish() {
 		final String containerName = page.getContainerName();
@@ -98,8 +105,13 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	 * The worker method. It will find the container, create the file if missing
 	 * or just replace its contents, and open the editor on the newly created
 	 * file.
-	 * 
-	 * @throws IOException
+	 *
+	 * @param containerName the container name
+	 * @param fileName the file name
+	 * @param monitor the monitor
+	 * @param addReqFile the add req file
+	 * @throws CoreException the core exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 
 	private void doFinish(String containerName, String fileName,
@@ -142,6 +154,12 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 		monitor.worked(1);
 	}
 
+	/**
+	 * Throw core exception.
+	 *
+	 * @param message the message
+	 * @throws CoreException the core exception
+	 */
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status = new Status(IStatus.ERROR, "br.ufms.facom.acctrace",
 				IStatus.OK, message, null);
@@ -151,7 +169,9 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	/**
 	 * We will accept the selection in the workbench to see if we can initialize
 	 * from it.
-	 * 
+	 *
+	 * @param workbench the workbench
+	 * @param selection the selection
 	 * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
 	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {

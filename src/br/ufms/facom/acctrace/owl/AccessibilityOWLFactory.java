@@ -23,6 +23,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+// TODO: Auto-generated Javadoc
 /**
  * A factory for creating AccessibilityOWL objects.
  */
@@ -52,15 +53,20 @@ public final class AccessibilityOWLFactory {
 	/** The owl hash. */
 	private HashMap<String, String> owlHash = new HashMap<String, String>();
 
+	/** The rdf id. */
 	private HashMap<String, String> rdfID = new HashMap<String, String>();
 
+	/** The iri map. */
 	private HashMap<String, IRI> iriMap = new HashMap<String, IRI>();
 
+	/** The Constant nsBase. */
 	private static final String nsBase = "http://www.AccessibleOntology.com/";
 
+	/** The Constant hasName. */
 	public static final String hasName = "<" + nsBase
 			+ "GenericOntology.owl#hasName" + ">";
 
+	/** The Constant hasDescription. */
 	public static final String hasDescription = "<" + nsBase
 			+ "GenericOntology.owl#hasDescription" + ">";
 
@@ -68,9 +74,7 @@ public final class AccessibilityOWLFactory {
 	 * Instantiates a new accessibility owl factory. The constructor also set up
 	 * the owl Map (mapping general classes to specific ones) and owl Hash table
 	 * (mapping a class to a OWL file).
-	 * 
-	 * @throws URISyntaxException
-	 * @throws OWLOntologyCreationException
+	 *
 	 */
 	private AccessibilityOWLFactory() {
 		// Generic
@@ -238,10 +242,11 @@ public final class AccessibilityOWLFactory {
 	}
 
 	/**
-	 * @param stringIri
-	 * @param iri
-	 * @return
-	 * @throws OWLOntologyCreationException
+	 * Gets the oWL ontology.
+	 *
+	 * @param stringIri the string iri
+	 * @return the oWL ontology
+	 * @throws OWLOntologyCreationException the oWL ontology creation exception
 	 */
 	public OWLOntology getOWLOntology(String stringIri)
 			throws OWLOntologyCreationException {
@@ -274,10 +279,12 @@ public final class AccessibilityOWLFactory {
 	}
 
 	/**
-	 * @param stringIri
-	 * @return
-	 * @throws URISyntaxException
-	 * @throws OWLOntologyCreationException
+	 * Gets the oWL ontology by iri.
+	 *
+	 * @param stringIri the string iri
+	 * @return the oWL ontology by iri
+	 * @throws URISyntaxException the uRI syntax exception
+	 * @throws OWLOntologyCreationException the oWL ontology creation exception
 	 */
 	public OWLOntology getOWLOntologyByIRI(String stringIri)
 			throws URISyntaxException, OWLOntologyCreationException {
@@ -309,10 +316,21 @@ public final class AccessibilityOWLFactory {
 		return o;
 	}
 
+	/**
+	 * Gets the iR iof class.
+	 *
+	 * @param clazz the clazz
+	 * @return the iR iof class
+	 */
 	public String getIRIofClass(String clazz) {
 		return rdfID.get(clazz);
 	}
 
+	/**
+	 * Gets the data factory.
+	 *
+	 * @return the data factory
+	 */
 	public OWLDataFactory getDataFactory() {
 		return manager.getOWLDataFactory();
 	}
@@ -337,6 +355,13 @@ public final class AccessibilityOWLFactory {
 		return getKeys(keyString);
 	}
 
+	/**
+	 * Gets the names.
+	 *
+	 * @param choice the choice
+	 * @param ontology the ontology
+	 * @return the names
+	 */
 	public Map<String, OWLNamedIndividual> getNames(String choice,
 			OWLOntology ontology) {
 		HashMap<String, OWLNamedIndividual> map = new HashMap<>();
@@ -354,6 +379,13 @@ public final class AccessibilityOWLFactory {
 		return map;
 	}
 
+	/**
+	 * Gets the named individual.
+	 *
+	 * @param choice the choice
+	 * @param ontology the ontology
+	 * @return the named individual
+	 */
 	public OWLNamedIndividual getNamedIndividual(String choice,
 			OWLOntology ontology) {
 		for (OWLNamedIndividual n : ontology.getIndividualsInSignature()) {
@@ -364,6 +396,13 @@ public final class AccessibilityOWLFactory {
 		return null;
 	}
 
+	/**
+	 * Gets the description.
+	 *
+	 * @param individual the individual
+	 * @param ontology the ontology
+	 * @return the description
+	 */
 	public String getDescription(OWLNamedIndividual individual,
 			OWLOntology ontology) {
 		String name = "";
@@ -384,6 +423,14 @@ public final class AccessibilityOWLFactory {
 		return name + ": " + description;
 	}
 
+	/**
+	 * Gets the value.
+	 *
+	 * @param individual the individual
+	 * @param property the property
+	 * @param ontology the ontology
+	 * @return the value
+	 */
 	public String getValue(OWLIndividual individual, String property,
 			OWLOntology ontology) {
 		for (OWLNamedIndividual namedIndividual : individual
@@ -400,6 +447,13 @@ public final class AccessibilityOWLFactory {
 		return "";
 	}
 
+	/**
+	 * Gets the values.
+	 *
+	 * @param individual the individual
+	 * @param ontology the ontology
+	 * @return the values
+	 */
 	public String getValues(OWLIndividual individual, OWLOntology ontology) {
 		String values = "";
 		for (OWLNamedIndividual namedIndividual : individual
@@ -420,6 +474,12 @@ public final class AccessibilityOWLFactory {
 		return values;
 	}
 
+	/**
+	 * Gets the data label.
+	 *
+	 * @param property the property
+	 * @return the data label
+	 */
 	public String getDataLabel(String property) {
 		String label = property.toString().substring(
 				property.toString().indexOf('#') + 1,
@@ -430,6 +490,12 @@ public final class AccessibilityOWLFactory {
 		return label;
 	}
 
+	/**
+	 * Gets the data property.
+	 *
+	 * @param prop the prop
+	 * @return the data property
+	 */
 	public String getDataProperty(String prop) {
 		return "<" + nsBase + "GenericOntology.owl#" + prop + ">";
 	}

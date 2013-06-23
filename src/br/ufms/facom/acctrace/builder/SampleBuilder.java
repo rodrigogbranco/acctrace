@@ -1,10 +1,5 @@
 package br.ufms.facom.acctrace.builder;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -146,7 +141,7 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 			addMarker(exception, IMarker.SEVERITY_WARNING);
 		}
 	}
-	
+
 	/**
 	 * The Class AccTraceComment.
 	 */
@@ -209,7 +204,7 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 		public void warning(SAXParseException exception) throws SAXException {
 			addMarker(exception, IMarker.SEVERITY_WARNING);
 		}
-	}	
+	}
 
 	/** The Constant BUILDER_ID. */
 	public static final String BUILDER_ID = "br.ufms.facom.acctrace.sampleBuilder";
@@ -285,7 +280,7 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 			}
 		}
 	}
-	
+
 	void checkAccTraceComments(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(".xml")) {
 			IFile file = (IFile) resource;
@@ -304,16 +299,6 @@ public class SampleBuilder extends IncrementalProjectBuilder {
 				getParser().parse(file.getContents(), reporter);
 			} catch (Exception e1) {
 			}
-		}
-	}
-	
-	private void parse(InputStream in, DefaultHandler handler) throws IOException {
-		Reader reader = new InputStreamReader(in);
-		BufferedReader br = new BufferedReader(reader);
-		String token = null;
-		
-		while((token = br.readLine()) != null) {
-			String[] tokens = token.split("\\*\\*!ACCTRACE!(/)?([^/\\0#]+(/)?)+\\.acctrace#(\\w)+\\*\\*\\/");
 		}
 	}
 

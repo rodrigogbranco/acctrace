@@ -70,22 +70,31 @@ public class ReferenceView {
 	/** The action2. */
 	private Action action2;
 
+	/** The application action. */
 	private Action applicationAction;
 
+	/** The device action. */
 	private Action deviceAction;
 
+	/** The impairment action. */
 	private Action impairmentAction;
 
+	/** The disability action. */
 	private Action disabilityAction;
 
+	/** The functional limitation action. */
 	private Action functionalLimitationAction;
 
+	/** The wai aria action. */
 	private Action waiAriaAction;
 
+	/** The wcag2 action. */
 	private Action wcag2Action;
 
+	/** The web service action. */
 	private Action webServiceAction;
 
+	/** The mwbp action. */
 	private Action mwbpAction;
 
 	/** The double click action. */
@@ -109,6 +118,7 @@ public class ReferenceView {
 	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
 
+	/** The selected element. */
 	private static PackageableElement selectedElement = null;
 
 	/**
@@ -448,9 +458,7 @@ public class ReferenceView {
 
 	/**
 	 * Fill local tool bar.
-	 * 
-	 * @param manager
-	 *            the manager
+	 *
 	 */
 	/*
 	 * private void fillLocalToolBar(IToolBarManager manager) {
@@ -697,6 +705,14 @@ public class ReferenceView {
 		hookSingleClickAction();
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param req the req
+	 * @param pack the pack
+	 * @param iri the iri
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private void save(Requirement req, PackageableElement pack, IRI iri)
 			throws IOException {
 		if (req == null) {
@@ -720,6 +736,11 @@ public class ReferenceView {
 		controller.addAccessibilityReference(req, pack, iri);
 	}
 
+	/**
+	 * Gets the selected element.
+	 *
+	 * @return the selected element
+	 */
 	public static PackageableElement getSelectedElement() {
 		return selectedElement;
 	}

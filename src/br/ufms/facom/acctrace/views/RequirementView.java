@@ -37,6 +37,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementType;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
  * shows data obtained from the model. The sample creates a dummy model on the
@@ -60,12 +61,22 @@ public class RequirementView extends ViewPart implements
 	 */
 	public static final String ID = "br.ufms.facom.acctrace.views.RequirementView";
 
+	/** The viewer. */
 	private TableViewer viewer;
+	
+	/** The action1. */
 	private Action action1;
+	
+	/** The action2. */
 	private Action action2;
+	
+	/** The double click action. */
 	private Action doubleClickAction;
+	
+	/** The selected requirement. */
 	private static Requirement selectedRequirement = null;
 	
+	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
 
 	/*
@@ -76,6 +87,11 @@ public class RequirementView extends ViewPart implements
 	 * example).
 	 */
 	
+	/**
+	 * Adds the property change listener.
+	 *
+	 * @param listener the listener
+	 */
 	public static void addPropertyChangeListener(
 			IPropertyChangeListener listener) {
 		if(listeners == null)
@@ -85,25 +101,48 @@ public class RequirementView extends ViewPart implements
 			listeners.add(listener);
 	}
 
+	/**
+	 * The Class ViewContentProvider.
+	 */
 	class ViewContentProvider implements IStructuredContentProvider {
+		
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+		 */
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		}
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
+		 */
 		public void dispose() {
 		}
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
+		 */
 		public Object[] getElements(Object parent) {
 			return ((Category) parent).getRequirements().toArray();
 		}
 	}
 
+	/**
+	 * The Class ViewLabelProvider.
+	 */
 	class ViewLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
+		
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.lang.Object, int)
+		 */
 		public String getColumnText(Object obj, int index) {
 			Requirement req = (Requirement) obj;
 			return "Name: " + req.getName() + " ID: " + req.getId();
 		}
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang.Object, int)
+		 */
 		@SuppressWarnings("deprecation")
 		public Image getColumnImage(Object obj, int index) {
 			Requirement req = (Requirement) obj;
@@ -119,6 +158,9 @@ public class RequirementView extends ViewPart implements
 		}
 	}
 
+	/**
+	 * The Class NameSorter.
+	 */
 	class NameSorter extends ViewerSorter {
 	}
 
@@ -132,6 +174,8 @@ public class RequirementView extends ViewPart implements
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
 	 * it.
+	 *
+	 * @param parent the parent
 	 */
 	public void createPartControl(Composite parent) {
 		selectedRequirement = null;
@@ -152,6 +196,9 @@ public class RequirementView extends ViewPart implements
 		contributeToActionBars();
 	}
 
+	/**
+	 * Hook context menu.
+	 */
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
@@ -165,18 +212,31 @@ public class RequirementView extends ViewPart implements
 		getSite().registerContextMenu(menuMgr, viewer);
 	}
 
+	/**
+	 * Contribute to action bars.
+	 */
 	private void contributeToActionBars() {
 		IActionBars bars = getViewSite().getActionBars();
 		fillLocalPullDown(bars.getMenuManager());
 		fillLocalToolBar(bars.getToolBarManager());
 	}
 
+	/**
+	 * Fill local pull down.
+	 *
+	 * @param manager the manager
+	 */
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(action1);
 		manager.add(new Separator());
 		manager.add(action2);
 	}
 
+	/**
+	 * Fill context menu.
+	 *
+	 * @param manager the manager
+	 */
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
 		manager.add(action2);
@@ -184,11 +244,19 @@ public class RequirementView extends ViewPart implements
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
+	/**
+	 * Fill local tool bar.
+	 *
+	 * @param manager the manager
+	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
 		manager.add(action2);
 	}
 
+	/**
+	 * Make actions.
+	 */
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
@@ -219,6 +287,9 @@ public class RequirementView extends ViewPart implements
 		};
 	}
 	
+	/**
+	 * Hook single click action.
+	 */
 	private void hookSingleClickAction() {
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			
@@ -242,6 +313,9 @@ public class RequirementView extends ViewPart implements
 		});
 	}
 
+	/**
+	 * Hook double click action.
+	 */
 	private void hookDoubleClickAction() {
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
@@ -250,6 +324,11 @@ public class RequirementView extends ViewPart implements
 		});
 	}
 
+	/**
+	 * Show message.
+	 *
+	 * @param message the message
+	 */
 	private void showMessage(String message) {
 		MessageDialog.openInformation(viewer.getControl().getShell(),
 				"Requirement  Associations", message);
@@ -262,6 +341,9 @@ public class RequirementView extends ViewPart implements
 		viewer.getControl().setFocus();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
+	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		if (event.getNewValue() instanceof Category)
@@ -271,10 +353,20 @@ public class RequirementView extends ViewPart implements
 		viewer.refresh();
 	}
 	
+	/**
+	 * Gets the selected requirement.
+	 *
+	 * @return the selected requirement
+	 */
 	public static Requirement getSelectedRequirement() {
 		return selectedRequirement;
 	}
 	
+	/**
+	 * Removes the property change listener.
+	 *
+	 * @param listener the listener
+	 */
 	public static void removePropertyChangeListener(
 			IPropertyChangeListener listener) {
 		listeners.remove(listener);

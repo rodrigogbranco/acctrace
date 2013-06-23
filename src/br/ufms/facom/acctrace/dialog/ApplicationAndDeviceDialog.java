@@ -26,31 +26,45 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ApplicationAndDeviceDialog.
+ */
 public class ApplicationAndDeviceDialog extends Dialog {
 
+	/** The key choice. */
 	private String keyChoice = "Application";
 
+	/** The map. */
 	private HashMap<String, ArrayList<String>> map = new HashMap<>();
 
+	/** The lbl description_1. */
 	private Label lblDescription_1;
 
+	/** The combo. */
 	private Combo combo;
 
+	/** The combo_1. */
 	private Combo combo_1;
 
+	/** The owl factory. */
 	private AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory
 			.getInstance();
 
+	/** The individuals. */
 	private Map<String, OWLNamedIndividual> individuals = null;
 
+	/** The ontology. */
 	private OWLOntology ontology;
 
+	/** The selected iri. */
 	private static IRI selectedIri;
 
 	/**
 	 * Create the dialog.
-	 * 
-	 * @param parentShell
+	 *
+	 * @param parentShell the parent shell
+	 * @param key the key
 	 */
 	public ApplicationAndDeviceDialog(Shell parentShell, String key) {
 		super(parentShell);
@@ -82,8 +96,9 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Create contents of the dialog.
-	 * 
-	 * @param parent
+	 *
+	 * @param parent the parent
+	 * @return the control
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
@@ -188,8 +203,8 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Create contents of the button bar.
-	 * 
-	 * @param parent
+	 *
+	 * @param parent the parent
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
@@ -206,12 +221,19 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Return the initial size of the dialog.
+	 *
+	 * @return the initial size
 	 */
 	@Override
 	protected Point getInitialSize() {
 		return new Point(450, 220);
 	}
 
+	/**
+	 * Gets the selected iri.
+	 *
+	 * @return the selected iri
+	 */
 	public static IRI getSelectedIri() {
 		return selectedIri;
 	}

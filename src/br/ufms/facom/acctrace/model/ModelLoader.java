@@ -70,15 +70,11 @@ public final class ModelLoader {
 
 	/**
 	 * Initialize acc trace model.
-	 * 
-	 * @param nameFile
-	 *            the name file
-	 * @param container
-	 *            the container
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 * @throws CoreException
-	 *             the core exception
+	 *
+	 * @param fileName the file name
+	 * @param container the container
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws CoreException the core exception
 	 */
 	public void initializeAccTraceModel(String fileName, IContainer container)
 			throws IOException, CoreException {
@@ -190,6 +186,12 @@ public final class ModelLoader {
 		return (AccTraceModel) resource.getContents().get(0);
 	}
 	
+	/**
+	 * Load.
+	 *
+	 * @param inputFile the input file
+	 * @return the acc trace model
+	 */
 	public AccTraceModel load(IFile inputFile) {
 		ResourceSet resSet = new ResourceSetImpl();
 

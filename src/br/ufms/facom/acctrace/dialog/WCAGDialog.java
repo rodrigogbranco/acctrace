@@ -1,6 +1,5 @@
 package br.ufms.facom.acctrace.dialog;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,31 +27,44 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class WCAGDialog.
+ */
 public class WCAGDialog extends Dialog {
 
-	private HashMap<String, ArrayList<String>> map = new HashMap<>();
-
+	/** The combo. */
 	private Combo combo;
 
+	/** The combo_1. */
 	private Combo combo_1;
 
+	/** The owl factory. */
 	private AccessibilityOWLFactory owlFactory = AccessibilityOWLFactory
 			.getInstance();
 
+	/** The individuals. */
 	private Map<String, OWLIndividual> individuals = new HashMap<>();
 
+	/** The classes. */
 	private Map<String, OWLClass> classes = new HashMap<>();
 
+	/** The ontology. */
 	private OWLOntology ontology;
 
+	/** The selected iri. */
 	private static IRI selectedIri;
+
+	/** The text. */
 	private Text text;
 
 	/**
 	 * Create the dialog.
 	 * 
 	 * @param parentShell
+	 *            the parent shell
 	 * @throws OWLOntologyCreationException
+	 *             the oWL ontology creation exception
 	 */
 	public WCAGDialog(Shell parentShell) throws OWLOntologyCreationException {
 		super(parentShell);
@@ -64,6 +76,8 @@ public class WCAGDialog extends Dialog {
 	 * Create contents of the dialog.
 	 * 
 	 * @param parent
+	 *            the parent
+	 * @return the control
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
@@ -170,6 +184,7 @@ public class WCAGDialog extends Dialog {
 	 * Create contents of the button bar.
 	 * 
 	 * @param parent
+	 *            the parent
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
@@ -186,12 +201,19 @@ public class WCAGDialog extends Dialog {
 
 	/**
 	 * Return the initial size of the dialog.
+	 * 
+	 * @return the initial size
 	 */
 	@Override
 	protected Point getInitialSize() {
 		return new Point(542, 367);
 	}
 
+	/**
+	 * Gets the selected iri.
+	 * 
+	 * @return the selected iri
+	 */
 	public static IRI getSelectedIri() {
 		return selectedIri;
 	}

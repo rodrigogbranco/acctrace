@@ -11,6 +11,7 @@ import org.obeonetwork.dsl.requirement.RequirementType;
 import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.RequirementFilter;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Requirement Filter</b></em>'.
@@ -89,7 +90,8 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
 	 * @generated
 	 */
 	protected RequirementFilterImpl() {
@@ -98,7 +100,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the e class
 	 * @generated
 	 */
 	@Override
@@ -108,7 +112,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement type
 	 * @generated
 	 */
 	public RequirementType getRequirementType() {
@@ -117,7 +123,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newRequirementType the new requirement type
 	 * @generated
 	 */
 	public void setRequirementType(RequirementType newRequirementType) {
@@ -129,7 +137,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the sub type
 	 * @generated
 	 */
 	public String getSubType() {
@@ -138,7 +148,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newSubType the new sub type
 	 * @generated
 	 */
 	public void setSubType(String newSubType) {
@@ -150,7 +162,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the id
 	 * @generated
 	 */
 	public String getId() {
@@ -159,7 +173,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newId the new id
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -171,7 +187,12 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @param resolve the resolve
+	 * @param coreType the core type
+	 * @return the object
 	 * @generated
 	 */
 	@Override
@@ -189,7 +210,10 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @param newValue the new value
 	 * @generated
 	 */
 	@Override
@@ -210,7 +234,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
 	 * @generated
 	 */
 	@Override
@@ -231,7 +257,10 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @return true, if successful
 	 * @generated
 	 */
 	@Override
@@ -249,7 +278,9 @@ public class RequirementFilterImpl extends EObjectImpl implements RequirementFil
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the string
 	 * @generated
 	 */
 	@Override

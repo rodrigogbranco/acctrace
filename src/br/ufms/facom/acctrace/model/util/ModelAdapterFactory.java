@@ -12,6 +12,7 @@ import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
@@ -46,6 +47,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc -->
 	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
 	 * <!-- end-user-doc -->
+	 *
+	 * @param object the object
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */

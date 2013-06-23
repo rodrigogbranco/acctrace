@@ -12,11 +12,16 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AddOWLDialog.
+ */
 public class AddOWLDialog extends Dialog {
 
 	/**
 	 * Create the dialog.
-	 * @param parentShell
+	 *
+	 * @param parentShell the parent shell
 	 */
 	public AddOWLDialog(Shell parentShell) {
 		super(parentShell);
@@ -24,7 +29,9 @@ public class AddOWLDialog extends Dialog {
 
 	/**
 	 * Create contents of the dialog.
-	 * @param parent
+	 *
+	 * @param parent the parent
+	 * @return the control
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
@@ -44,7 +51,8 @@ public class AddOWLDialog extends Dialog {
 
 	/**
 	 * Create contents of the button bar.
-	 * @param parent
+	 *
+	 * @param parent the parent
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
@@ -56,6 +64,8 @@ public class AddOWLDialog extends Dialog {
 
 	/**
 	 * Return the initial size of the dialog.
+	 *
+	 * @return the initial size
 	 */
 	@Override
 	protected Point getInitialSize() {

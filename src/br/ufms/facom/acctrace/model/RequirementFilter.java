@@ -5,6 +5,7 @@ package br.ufms.facom.acctrace.model;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.requirement.RequirementType;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Requirement Filter</b></em>'.

@@ -14,6 +14,7 @@ import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
@@ -21,10 +22,13 @@ import br.ufms.facom.acctrace.model.RequirementFilter;
  * @generated
  */
 public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
+	
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 *
+	 * @return the model factory
 	 * @generated
 	 */
 	public static ModelFactory init() {
@@ -52,7 +56,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param eClass the e class
+	 * @return the e object
 	 * @generated
 	 */
 	@Override
@@ -68,7 +75,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the reference
 	 * @generated
 	 */
 	public Reference createReference() {
@@ -78,7 +87,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the acc trace model
 	 * @generated
 	 */
 	public AccTraceModel createAccTraceModel() {
@@ -88,7 +99,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement filter
 	 * @generated
 	 */
 	public RequirementFilter createRequirementFilter() {
@@ -98,7 +111,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the model package
 	 * @generated
 	 */
 	public ModelPackage getModelPackage() {
@@ -107,7 +122,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the package
 	 * @deprecated
 	 * @generated
 	 */

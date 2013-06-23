@@ -18,23 +18,34 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import br.ufms.facom.acctrace.compiler.AccTraceCommentHandler;
 import br.ufms.facom.acctrace.rulers.DataRequestSelectAnnotationRulerAction;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AccTraceCommentView.
+ *
+ * @author Rodrigo Branco
+ */
 public class AccTraceCommentView extends ViewPart implements
 		IPropertyChangeListener {
+	
+	/** The text. */
 	private Text text;
 
+	/** The message. */
 	private String message = "";
 
-	private int i = 0;
-
+	/** The Constant ID. */
 	public static final String ID = "br.ufms.facom.acctrace.views.AccTraceCommentView";
 
 	/**
-	 * 
+	 * Instantiates a new acc trace comment view.
 	 */
 	public AccTraceCommentView() {
 		DataRequestSelectAnnotationRulerAction.addListener(this);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
+	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 
@@ -75,6 +86,9 @@ public class AccTraceCommentView extends ViewPart implements
 
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
+	 */
 	@Override
 	public void createPartControl(Composite parent) {
 
@@ -84,6 +98,9 @@ public class AccTraceCommentView extends ViewPart implements
 
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+	 */
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
@@ -91,7 +108,9 @@ public class AccTraceCommentView extends ViewPart implements
 	}
 
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

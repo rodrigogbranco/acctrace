@@ -86,6 +86,11 @@ public final class ModelController {
 		model = loader.load(inputFile);
 	}
 
+	/**
+	 * Load.
+	 *
+	 * @param inputFile the input file
+	 */
 	public void load(IFile inputFile) {
 		model = loader.load(inputFile);
 	}
@@ -151,6 +156,14 @@ public final class ModelController {
 		model.eResource().save(options);
 	}
 
+	/**
+	 * Adds the accessibility reference.
+	 *
+	 * @param req the req
+	 * @param pack the pack
+	 * @param iri the iri
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void addAccessibilityReference(Requirement req,
 			PackageableElement pack, IRI iri) throws IOException {
 		EList<Reference> refs = model.getReferences();
@@ -178,6 +191,14 @@ public final class ModelController {
 		model.eResource().save(options);
 	}
 
+	/**
+	 * Removes the accessibility reference.
+	 *
+	 * @param req the req
+	 * @param pack the pack
+	 * @param iri the iri
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void removeAccessibilityReference(Requirement req,
 			PackageableElement pack, IRI iri) throws IOException {
 		for (Reference ref : model.getReferences()) {
@@ -191,6 +212,13 @@ public final class ModelController {
 		model.eResource().save(options);
 	}
 
+	/**
+	 * Gets the reference.
+	 *
+	 * @param req the req
+	 * @param pack the pack
+	 * @return the reference
+	 */
 	public Reference getReference(Requirement req, PackageableElement pack) {
 		for (Reference ref : model.getReferences()) {
 			if (ref.getUmlModel().equals(pack)
@@ -229,6 +257,12 @@ public final class ModelController {
 		return umlClass;
 	}
 
+	/**
+	 * Gets the label.
+	 *
+	 * @param pElement the element
+	 * @return the label
+	 */
 	public String getLabel(EObject pElement) {
 		int lastIndexofPeriod = pElement.getClass().toString().lastIndexOf(".");
 		int indexOfImpl = pElement.getClass().toString().indexOf("Impl");
@@ -244,6 +278,12 @@ public final class ModelController {
 		return umlClass;
 	}
 
+	/**
+	 * Gets the req uml.
+	 *
+	 * @param inputFile the input file
+	 * @return the req uml
+	 */
 	public Map<Requirement, List<PackageableElement>> getReqUML(IFile inputFile) {
 		Map<Requirement, List<PackageableElement>> map = new HashMap<Requirement, List<PackageableElement>>();
 
@@ -261,6 +301,12 @@ public final class ModelController {
 		return map;
 	}
 
+	/**
+	 * Gets the req tech.
+	 *
+	 * @param inputFile the input file
+	 * @return the req tech
+	 */
 	public Map<Requirement, List<String>> getReqTech(IFile inputFile) {
 		Map<Requirement, List<String>> map = new HashMap<Requirement, List<String>>();
 
@@ -281,6 +327,12 @@ public final class ModelController {
 		return map;
 	}
 
+	/**
+	 * Gets the model tech.
+	 *
+	 * @param inputFile the input file
+	 * @return the model tech
+	 */
 	public Map<PackageableElement, List<String>> getModelTech(IFile inputFile) {
 		Map<PackageableElement, List<String>> map = new HashMap<PackageableElement, List<String>>();
 
@@ -302,6 +354,12 @@ public final class ModelController {
 		return map;
 	}
 
+	/**
+	 * Navigate and add.
+	 *
+	 * @param map the map
+	 * @param category the category
+	 */
 	private void navigateAndAdd(Map<Requirement, List<PackageableElement>> map,
 			Category category) {
 		for (Requirement requirement : category.getRequirements()) {

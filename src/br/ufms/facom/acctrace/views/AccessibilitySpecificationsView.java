@@ -9,7 +9,6 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -37,6 +36,7 @@ import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.controller.ModelController;
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
+// TODO: Auto-generated Javadoc
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
  * shows data obtained from the model. The sample creates a dummy model on the
@@ -60,7 +60,10 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	 */
 	public static final String ID = "br.ufms.facom.acctrace.views.AccessibilitySpecificationsView";
 
+	/** The viewer. */
 	private TableViewer viewer;
+	
+	/** The action1. */
 	private Action action1;
 
 	/*
@@ -71,14 +74,26 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	 * example).
 	 */
 
+	/**
+	 * The Class ViewContentProvider.
+	 */
 	class ViewContentProvider implements IStructuredContentProvider {
+		
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+		 */
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		}
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
+		 */
 		public void dispose() {
 		}
 
-		@SuppressWarnings("unchecked")
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
+		 */
 		public Object[] getElements(Object parent) {
 			if (parent != null && parent instanceof Reference) {
 				return ((Reference) parent).getOntologies().toArray();
@@ -88,8 +103,15 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		}
 	}
 
+	/**
+	 * The Class ViewLabelProvider.
+	 */
 	class ViewLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
+		
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.lang.Object, int)
+		 */
 		public String getColumnText(Object obj, int index) {
 
 			if (obj != null) {
@@ -113,16 +135,25 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 			return "";
 		}
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang.Object, int)
+		 */
 		public Image getColumnImage(Object obj, int index) {
 			return getImage(obj);
 		}
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
+		 */
 		public Image getImage(Object obj) {
 			return PlatformUI.getWorkbench().getSharedImages()
 					.getImage(ISharedImages.IMG_OBJ_ELEMENT);
 		}
 	}
 
+	/**
+	 * The Class NameSorter.
+	 */
 	class NameSorter extends ViewerSorter {
 	}
 
@@ -137,6 +168,8 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
 	 * it.
+	 *
+	 * @param parent the parent
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
@@ -153,6 +186,9 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		contributeToActionBars();
 	}
 
+	/**
+	 * Hook context menu.
+	 */
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
@@ -166,26 +202,47 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		getSite().registerContextMenu(menuMgr, viewer);
 	}
 
+	/**
+	 * Contribute to action bars.
+	 */
 	private void contributeToActionBars() {
 		IActionBars bars = getViewSite().getActionBars();
 		fillLocalPullDown(bars.getMenuManager());
 		fillLocalToolBar(bars.getToolBarManager());
 	}
 
+	/**
+	 * Fill local pull down.
+	 *
+	 * @param manager the manager
+	 */
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(action1);
 	}
 
+	/**
+	 * Fill context menu.
+	 *
+	 * @param manager the manager
+	 */
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
+	/**
+	 * Fill local tool bar.
+	 *
+	 * @param manager the manager
+	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
 	}
 
+	/**
+	 * Make actions.
+	 */
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
@@ -217,11 +274,6 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
 	}
 
-	private void showMessage(String message) {
-		MessageDialog.openInformation(viewer.getControl().getShell(),
-				"Accessibility Specifications View", message);
-	}
-
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
@@ -229,6 +281,9 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		viewer.getControl().setFocus();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
+	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		if (event.getNewValue() != null) {

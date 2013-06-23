@@ -7,26 +7,51 @@ import javax.print.attribute.standard.Severity;
 
 import org.eclipse.jdt.core.compiler.CategorizedProblem;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rodrigo Branco
+ * The Class AccTraceMarker.
  *
+ * @author Rodrigo Branco
  */
 public class AccTraceMarker extends CategorizedProblem {
 
+	/** The severity. */
 	Severity severity = Severity.REPORT;
+	
+	/** The message. */
 	String message = null;
+	
+	/** The start offset. */
 	int startOffset = 0;
+	
+	/** The end offset. */
 	int endOffset = 0;
+	
+	/** The line. */
 	int line = 0;
+	
+	/** The file. */
 	char[] file = null;
+	
+	/** The args. */
 	String[] args = null;
 	
+	/** The Constant ID. */
 	public final static int ID = 5500;
+	
+	/** The Constant MARKER_TYPE. */
 	public final static String MARKER_TYPE = "br.ufms.facom.acctrace.markers.AccTraceMarker";
 	
 	
 	/**
-	 * 
+	 * Instantiates a new acc trace marker.
+	 *
+	 * @param msg the msg
+	 * @param file the file
+	 * @param startingOffset the starting offset
+	 * @param endingOffset the ending offset
+	 * @param line the line
+	 * @param args the args
 	 */
 	public AccTraceMarker(String msg, 
 			char[] file,                
@@ -154,6 +179,9 @@ public class AccTraceMarker extends CategorizedProblem {
 		return MARKER_TYPE;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jdt.core.compiler.IProblem#getArguments()
+	 */
 	@Override
 	public String[] getArguments() {
 		return args;

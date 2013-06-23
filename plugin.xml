@@ -272,13 +272,7 @@
             name="%view.name.3">
       </view>
    </extension>
-  
    <extension
-         point="org.eclipse.core.filebuffers.documentCreation">
-      <factory
-            class="br.ufms.facom.acctrace.DocumentFactory1">
-      </factory>
-   </extension> <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="org.eclipse.jdt.ui.JavaPerspective">

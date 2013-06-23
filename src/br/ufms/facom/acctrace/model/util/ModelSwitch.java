@@ -11,6 +11,7 @@ import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * The <b>Switch</b> for the model's inheritance hierarchy.
@@ -21,16 +22,14 @@ import br.ufms.facom.acctrace.model.RequirementFilter;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
+ *
+ * @param <T> the generic type
  * @see br.ufms.facom.acctrace.model.ModelPackage
  * @generated
  */
 public class ModelSwitch<T> extends Switch<T> {
-	/**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	
+	/** The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	protected static ModelPackage modelPackage;
 
 	/**
@@ -49,8 +48,10 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 *
+	 * @param ePackage the e package
 	 * @return whether this is a switch for the given package.
+	 * @parameter ePackage the package in question.
 	 * @generated
 	 */
 	@Override
@@ -62,6 +63,9 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 *
+	 * @param classifierID the classifier id
+	 * @param theEObject the the e object
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */

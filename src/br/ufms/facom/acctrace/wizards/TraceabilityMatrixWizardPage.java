@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ResourceListSelectionDialog;
 
+// TODO: Auto-generated Javadoc
 /**
  * The "New" wizard page allows setting the container for the new file as well
  * as the file name. The page will only accept file name without the extension
@@ -29,18 +30,23 @@ import org.eclipse.ui.dialogs.ResourceListSelectionDialog;
  */
 
 public class TraceabilityMatrixWizardPage extends WizardPage {
+	
+	/** The container text. */
 	private Text containerText;
 
+	/** The file text. */
 	private Text fileText;
 
+	/** The selection. */
 	private ISelection selection;
 	
+	/** The selected file. */
 	private IFile selectedFile = null;
 
 	/**
 	 * Constructor for SampleNewWizardPage.
-	 * 
-	 * @param pageName
+	 *
+	 * @param selection the selection
 	 */
 	public TraceabilityMatrixWizardPage(ISelection selection) {
 		super("wizardPage");
@@ -50,6 +56,9 @@ public class TraceabilityMatrixWizardPage extends WizardPage {
 	}
 
 	/**
+	 * Creates the control.
+	 *
+	 * @param parent the parent
 	 * @see IDialogPage#createControl(Composite)
 	 */
 	public void createControl(Composite parent) {
@@ -173,15 +182,30 @@ public class TraceabilityMatrixWizardPage extends WizardPage {
 		updateStatus(null);
 	}
 
+	/**
+	 * Update status.
+	 *
+	 * @param message the message
+	 */
 	private void updateStatus(String message) {
 		setErrorMessage(message);
 		setPageComplete(message == null);
 	}
 
+	/**
+	 * Gets the acc trace file.
+	 *
+	 * @return the acc trace file
+	 */
 	public IFile getAccTraceFile() {
 		return selectedFile;
 	}
 
+	/**
+	 * Gets the file name.
+	 *
+	 * @return the file name
+	 */
 	public String getFileName() {
 		return fileText.getText();
 	}

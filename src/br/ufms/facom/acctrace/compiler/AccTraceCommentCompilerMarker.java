@@ -16,22 +16,34 @@ import org.eclipse.jdt.core.dom.LineComment;
 
 import br.ufms.facom.acctrace.markers.AccTraceMarker;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class AccTraceCommentCompilerMarker.
+ *
  * @author Rodrigo Branco
- * 
  */
 public class AccTraceCommentCompilerMarker extends CompilationParticipant {
 
+	/** The cu. */
 	private CompilationUnit cu = null;
 
+	/** The source. */
 	private String[] source = null;
 
+	/** The context. */
 	private ReconcileContext context = null;
 
+	/** The cp. */
 	private ArrayList<CategorizedProblem> cp = new ArrayList<CategorizedProblem>();
 
+	/**
+	 * The Class AccTraceCommentVisitor.
+	 */
 	class AccTraceCommentVisitor extends ASTVisitor {
 
+		/* (non-Javadoc)
+		 * @see org.eclipse.jdt.core.dom.ASTVisitor#visit(org.eclipse.jdt.core.dom.LineComment)
+		 */
 		public boolean visit(LineComment comment) {
 			int startLineNumber = cu.getLineNumber(comment.getStartPosition()) - 1;
 			String lineComment = source[startLineNumber].trim();
@@ -50,6 +62,9 @@ public class AccTraceCommentCompilerMarker extends CompilationParticipant {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jdt.core.compiler.CompilationParticipant#reconcile(org.eclipse.jdt.core.compiler.ReconcileContext)
+	 */
 	@Override
 	public void reconcile(ReconcileContext con) {
 		try {
@@ -69,16 +84,25 @@ public class AccTraceCommentCompilerMarker extends CompilationParticipant {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jdt.core.compiler.CompilationParticipant#isActive(org.eclipse.jdt.core.IJavaProject)
+	 */
 	@Override
 	public boolean isActive(IJavaProject project) {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jdt.core.compiler.CompilationParticipant#isAnnotationProcessor()
+	 */
 	@Override
 	public boolean isAnnotationProcessor() {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jdt.core.compiler.CompilationParticipant#buildStarting(org.eclipse.jdt.core.compiler.BuildContext[], boolean)
+	 */
 	@Override
 	public void buildStarting(BuildContext[] files, boolean isBatch) {
 		super.buildStarting(files, isBatch);

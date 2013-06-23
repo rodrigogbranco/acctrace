@@ -4,6 +4,7 @@ package br.ufms.facom.acctrace.model;
 
 import org.eclipse.emf.ecore.EFactory;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * The <b>Factory</b> for the model.

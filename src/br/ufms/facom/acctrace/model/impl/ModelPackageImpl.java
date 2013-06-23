@@ -15,6 +15,7 @@ import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -22,29 +23,19 @@ import br.ufms.facom.acctrace.model.RequirementFilter;
  * @generated
  */
 public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	
+	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private EClass referenceEClass = null;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private EClass accTraceModelEClass = null;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private EClass requirementFilterEClass = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with
+	 * Creates an instance of the model <b>Package</b>, registered with.
+	 *
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
 	 * <p>Note: the correct way to create the package is via the static
@@ -62,11 +53,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		super(eNS_URI, ModelFactory.eINSTANCE);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private static boolean isInited = false;
 
 	/**
@@ -76,6 +63,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 *
+	 * @return the model package
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -109,7 +98,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the reference
 	 * @generated
 	 */
 	public EClass getReference() {
@@ -118,7 +109,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the reference_ id
 	 * @generated
 	 */
 	public EAttribute getReference_Id() {
@@ -127,7 +120,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the reference_ requirement
 	 * @generated
 	 */
 	public EReference getReference_Requirement() {
@@ -136,7 +131,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the reference_ uml model
 	 * @generated
 	 */
 	public EReference getReference_UmlModel() {
@@ -145,7 +142,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the reference_ ontologies
 	 * @generated
 	 */
 	public EAttribute getReference_Ontologies() {
@@ -154,7 +153,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the acc trace model
 	 * @generated
 	 */
 	public EClass getAccTraceModel() {
@@ -163,7 +164,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the acc trace model_ references
 	 * @generated
 	 */
 	public EReference getAccTraceModel_References() {
@@ -172,7 +175,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the acc trace model_ filter type
 	 * @generated
 	 */
 	public EReference getAccTraceModel_FilterType() {
@@ -181,7 +186,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the acc trace model_ requirement repositories
 	 * @generated
 	 */
 	public EReference getAccTraceModel_RequirementRepositories() {
@@ -190,7 +197,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the acc trace model_ id
 	 * @generated
 	 */
 	public EAttribute getAccTraceModel_Id() {
@@ -199,7 +208,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement filter
 	 * @generated
 	 */
 	public EClass getRequirementFilter() {
@@ -208,7 +219,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement filter_ requirement type
 	 * @generated
 	 */
 	public EAttribute getRequirementFilter_RequirementType() {
@@ -217,7 +230,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement filter_ sub type
 	 * @generated
 	 */
 	public EAttribute getRequirementFilter_SubType() {
@@ -226,7 +241,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement filter_ id
 	 * @generated
 	 */
 	public EAttribute getRequirementFilter_Id() {
@@ -235,18 +252,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the model factory
 	 * @generated
 	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private boolean isCreated = false;
 
 	/**
@@ -279,11 +294,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(requirementFilterEClass, REQUIREMENT_FILTER__ID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	/** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
 	private boolean isInitialized = false;
 
 	/**

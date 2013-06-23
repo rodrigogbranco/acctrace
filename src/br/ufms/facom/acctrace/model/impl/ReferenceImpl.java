@@ -17,6 +17,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Reference</b></em>'.
@@ -86,7 +87,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
 	 * @generated
 	 */
 	protected ReferenceImpl() {
@@ -95,7 +97,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the e class
 	 * @generated
 	 */
 	@Override
@@ -105,7 +109,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the id
 	 * @generated
 	 */
 	public String getId() {
@@ -114,7 +120,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newId the new id
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -126,7 +134,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement
 	 * @generated
 	 */
 	public Requirement getRequirement() {
@@ -143,7 +153,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement
 	 * @generated
 	 */
 	public Requirement basicGetRequirement() {
@@ -152,7 +164,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newRequirement the new requirement
 	 * @generated
 	 */
 	public void setRequirement(Requirement newRequirement) {
@@ -164,7 +178,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the uml model
 	 * @generated
 	 */
 	public EObject getUmlModel() {
@@ -181,7 +197,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the e object
 	 * @generated
 	 */
 	public EObject basicGetUmlModel() {
@@ -190,7 +208,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newUmlModel the new uml model
 	 * @generated
 	 */
 	public void setUmlModel(EObject newUmlModel) {
@@ -202,7 +222,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the ontologies
 	 * @generated
 	 */
 	public EList<String> getOntologies() {
@@ -214,7 +236,12 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @param resolve the resolve
+	 * @param coreType the core type
+	 * @return the object
 	 * @generated
 	 */
 	@Override
@@ -236,7 +263,10 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @param newValue the new value
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -262,7 +292,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
 	 * @generated
 	 */
 	@Override
@@ -286,7 +318,10 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @return true, if successful
 	 * @generated
 	 */
 	@Override
@@ -306,7 +341,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the string
 	 * @generated
 	 */
 	@Override

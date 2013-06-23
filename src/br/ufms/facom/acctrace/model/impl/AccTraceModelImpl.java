@@ -21,6 +21,7 @@ import br.ufms.facom.acctrace.model.ModelPackage;
 import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.RequirementFilter;
 
+// TODO: Auto-generated Javadoc
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Acc Trace Model</b></em>'.
@@ -90,7 +91,8 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
 	 * @generated
 	 */
 	protected AccTraceModelImpl() {
@@ -99,7 +101,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the e class
 	 * @generated
 	 */
 	@Override
@@ -109,7 +113,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the references
 	 * @generated
 	 */
 	public EList<Reference> getReferences() {
@@ -121,7 +127,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the filter type
 	 * @generated
 	 */
 	public EList<RequirementFilter> getFilterType() {
@@ -133,7 +141,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the requirement repositories
 	 * @generated
 	 */
 	public EList<Repository> getRequirementRepositories() {
@@ -145,7 +155,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the id
 	 * @generated
 	 */
 	public String getId() {
@@ -154,7 +166,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param newId the new id
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -166,7 +180,12 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param otherEnd the other end
+	 * @param featureID the feature id
+	 * @param msgs the msgs
+	 * @return the notification chain
 	 * @generated
 	 */
 	@Override
@@ -182,7 +201,12 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @param resolve the resolve
+	 * @param coreType the core type
+	 * @return the object
 	 * @generated
 	 */
 	@Override
@@ -202,7 +226,10 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @param newValue the new value
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -230,7 +257,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
 	 * @generated
 	 */
 	@Override
@@ -254,7 +283,10 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @param featureID the feature id
+	 * @return true, if successful
 	 * @generated
 	 */
 	@Override
@@ -274,7 +306,9 @@ public class AccTraceModelImpl extends EObjectImpl implements AccTraceModel {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->.
+	 *
+	 * @return the string
 	 * @generated
 	 */
 	@Override

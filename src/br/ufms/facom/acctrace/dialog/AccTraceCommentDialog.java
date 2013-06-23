@@ -12,16 +12,25 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rodrigo Branco
+ * The Class AccTraceCommentDialog.
  *
+ * @author Rodrigo Branco
  */
 public class AccTraceCommentDialog extends Dialog {
+	
+	/** The text. */
 	private Text text;
+	
+	/** The message. */
 	private String message;
 
 	/**
-	 * @param parentShell
+	 * Instantiates a new acc trace comment dialog.
+	 *
+	 * @param parentShell the parent shell
+	 * @param message the message
 	 * @wbp.parser.constructor
 	 */
 	public AccTraceCommentDialog(Shell parentShell, String message) {
@@ -30,12 +39,17 @@ public class AccTraceCommentDialog extends Dialog {
 	}
 
 	/**
-	 * @param parentShell
+	 * Instantiates a new acc trace comment dialog.
+	 *
+	 * @param parentShell the parent shell
 	 */
 	public AccTraceCommentDialog(IShellProvider parentShell) {
 		super(parentShell);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.Dialog#createDialogArea(org.eclipse.swt.widgets.Composite)
+	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);

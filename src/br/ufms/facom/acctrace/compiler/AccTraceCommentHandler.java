@@ -18,19 +18,42 @@ import br.ufms.facom.acctrace.model.Reference;
 import br.ufms.facom.acctrace.model.controller.ModelController;
 import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AccTraceCommentHandler.
+ */
 public class AccTraceCommentHandler {
 
+	/** The instance. */
 	private static AccTraceCommentHandler instance = null;
 
+	/** The file map. */
 	private Map<String, IFile> fileMap = new HashMap<String, IFile>();
+	
+	/** The model map. */
 	private Map<IFile, AccTraceModel> modelMap = new HashMap<IFile, AccTraceModel>();
+	
+	/** The reference map. */
 	private Map<String, Reference> referenceMap = new HashMap<String, Reference>();
+	
+	/** The requirement map. */
 	private Map<Reference, Requirement> requirementMap = new HashMap<Reference, Requirement>();
+	
+	/** The uml map. */
 	private Map<Reference, NamedElement> umlMap = new HashMap<Reference, NamedElement>();
 
+	/**
+	 * Instantiates a new acc trace comment handler.
+	 */
 	private AccTraceCommentHandler() {
 	}
 
+	/**
+	 * Gets the file.
+	 *
+	 * @param stringPath the string path
+	 * @return the file
+	 */
 	public IFile getFile(String stringPath) {
 		IFile file = null;
 		if ((file = fileMap.get(stringPath)) == null) {
@@ -41,6 +64,12 @@ public class AccTraceCommentHandler {
 		return file;
 	}
 
+	/**
+	 * Gets the model.
+	 *
+	 * @param file the file
+	 * @return the model
+	 */
 	public AccTraceModel getModel(IFile file) {
 		AccTraceModel model = null;
 		try {
@@ -54,6 +83,13 @@ public class AccTraceCommentHandler {
 		return model;
 	}
 
+	/**
+	 * Gets the reference.
+	 *
+	 * @param model the model
+	 * @param referenceId the reference id
+	 * @return the reference
+	 */
 	public Reference getReference(AccTraceModel model, String referenceId) {
 		Reference ref = null;
 		if ((ref = referenceMap.get(referenceId)) == null) {
@@ -68,6 +104,12 @@ public class AccTraceCommentHandler {
 		return ref;
 	}
 
+	/**
+	 * Gets the requirement.
+	 *
+	 * @param ref the ref
+	 * @return the requirement
+	 */
 	public Requirement getRequirement(Reference ref) {
 		Requirement req = null;
 		if ((req = requirementMap.get(ref)) == null) {
@@ -77,6 +119,12 @@ public class AccTraceCommentHandler {
 		return req;
 	}
 
+	/**
+	 * Gets the uml.
+	 *
+	 * @param ref the ref
+	 * @return the uml
+	 */
 	public NamedElement getUml(Reference ref) {
 		NamedElement uml = null;
 		if ((uml = umlMap.get(ref)) == null) {
@@ -91,6 +139,11 @@ public class AccTraceCommentHandler {
 		return uml;
 	}
 
+	/**
+	 * Gets the single instance of AccTraceCommentHandler.
+	 *
+	 * @return single instance of AccTraceCommentHandler
+	 */
 	public static AccTraceCommentHandler getInstance() {
 		if (instance == null)
 			instance = new AccTraceCommentHandler();
@@ -98,6 +151,14 @@ public class AccTraceCommentHandler {
 		return instance;
 	}
 
+	/**
+	 * Gets the message.
+	 *
+	 * @param comment the comment
+	 * @return the message
+	 * @throws OWLOntologyCreationException the oWL ontology creation exception
+	 * @throws URISyntaxException the uRI syntax exception
+	 */
 	public String getMessage(String comment)
 			throws OWLOntologyCreationException, URISyntaxException {
 		String stringPath = comment.substring(12, comment.indexOf('#'));
@@ -107,6 +168,15 @@ public class AccTraceCommentHandler {
 		return getMessage(stringPath, referenceId);
 	}
 
+	/**
+	 * Gets the message.
+	 *
+	 * @param stringPath the string path
+	 * @param referenceId the reference id
+	 * @return the message
+	 * @throws OWLOntologyCreationException the oWL ontology creation exception
+	 * @throws URISyntaxException the uRI syntax exception
+	 */
 	public String getMessage(String stringPath, String referenceId)
 			throws OWLOntologyCreationException, URISyntaxException {
 		IFile file = getFile(stringPath);

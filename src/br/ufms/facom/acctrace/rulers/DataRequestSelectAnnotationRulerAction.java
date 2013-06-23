@@ -14,33 +14,46 @@ import org.eclipse.ui.texteditor.AbstractMarkerAnnotationModel;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.texteditor.SelectMarkerRulerAction;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rodrigo Branco
+ * The Class DataRequestSelectAnnotationRulerAction.
  * 
+ * @author Rodrigo Branco
  */
 public class DataRequestSelectAnnotationRulerAction extends
 		SelectMarkerRulerAction {
 
-	private ITextEditor fTextEditor;
+	/** The has correction. */
 	private boolean fHasCorrection;
+
+	/** The annotation. */
 	private Annotation fAnnotation;
 
+	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
 
 	/**
+	 * Instantiates a new data request select annotation ruler action.
+	 * 
 	 * @param bundle
+	 *            the bundle
 	 * @param prefix
+	 *            the prefix
 	 * @param editor
+	 *            the editor
 	 * @param ruler
+	 *            the ruler
 	 */
 	public DataRequestSelectAnnotationRulerAction(ResourceBundle bundle,
 			String prefix, ITextEditor editor, IVerticalRulerInfo ruler) {
 		super(bundle, prefix, editor, ruler);
-		fTextEditor = editor;
 	}
 
 	/**
+	 * Adds the listener.
+	 * 
 	 * @param listener
+	 *            the listener
 	 */
 	public static void addListener(IPropertyChangeListener listener) {
 		if (listeners == null)
@@ -51,12 +64,20 @@ public class DataRequestSelectAnnotationRulerAction extends
 	}
 
 	/**
+	 * Removes the listener.
+	 * 
 	 * @param listener
+	 *            the listener
 	 */
 	public static void removeListener(IPropertyChangeListener listener) {
 		listeners.remove(listener);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.texteditor.SelectMarkerRulerAction#update()
+	 */
 	@Override
 	public void update() {
 		findDataRequestAnnotation();
@@ -78,6 +99,10 @@ public class DataRequestSelectAnnotationRulerAction extends
 		}
 	}
 
+	/**
+	 * Find data request annotation.
+	 */
+	@SuppressWarnings("rawtypes")
 	private void findDataRequestAnnotation() {
 		fAnnotation = null;
 		fHasCorrection = false;
