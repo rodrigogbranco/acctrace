@@ -36,7 +36,6 @@ import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementType;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -63,19 +62,19 @@ public class RequirementView extends ViewPart implements
 
 	/** The viewer. */
 	private TableViewer viewer;
-	
+
 	/** The action1. */
 	private Action action1;
-	
+
 	/** The action2. */
 	private Action action2;
-	
+
 	/** The double click action. */
 	private Action doubleClickAction;
-	
+
 	/** The selected requirement. */
 	private static Requirement selectedRequirement = null;
-	
+
 	/** The listeners. */
 	private static ArrayList<IPropertyChangeListener> listeners = null;
 
@@ -86,17 +85,18 @@ public class RequirementView extends ViewPart implements
 	 * or ignore it and always show the same content (like Task List, for
 	 * example).
 	 */
-	
+
 	/**
 	 * Adds the property change listener.
-	 *
-	 * @param listener the listener
+	 * 
+	 * @param listener
+	 *            the listener
 	 */
 	public static void addPropertyChangeListener(
 			IPropertyChangeListener listener) {
-		if(listeners == null)
+		if (listeners == null)
 			listeners = new ArrayList<IPropertyChangeListener>();
-		
+
 		if (!listeners.contains(listener))
 			listeners.add(listener);
 	}
@@ -105,21 +105,31 @@ public class RequirementView extends ViewPart implements
 	 * The Class ViewContentProvider.
 	 */
 	class ViewContentProvider implements IStructuredContentProvider {
-		
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse
+		 * .jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 		 */
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		}
 
-		/* (non-Javadoc)
+		/*
+		 * (non-Javadoc)
+		 * 
 		 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 		 */
 		public void dispose() {
 		}
 
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.IStructuredContentProvider#getElements(
+		 * java.lang.Object)
 		 */
 		public Object[] getElements(Object parent) {
 			return ((Category) parent).getRequirements().toArray();
@@ -131,17 +141,25 @@ public class RequirementView extends ViewPart implements
 	 */
 	class ViewLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
-		
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.lang.Object, int)
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.
+		 * lang.Object, int)
 		 */
 		public String getColumnText(Object obj, int index) {
 			Requirement req = (Requirement) obj;
 			return "Name: " + req.getName() + " ID: " + req.getId();
 		}
 
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang.Object, int)
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java
+		 * .lang.Object, int)
 		 */
 		@SuppressWarnings("deprecation")
 		public Image getColumnImage(Object obj, int index) {
@@ -174,12 +192,13 @@ public class RequirementView extends ViewPart implements
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
 	 * it.
-	 *
-	 * @param parent the parent
+	 * 
+	 * @param parent
+	 *            the parent
 	 */
 	public void createPartControl(Composite parent) {
 		selectedRequirement = null;
-		
+
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL);
 		viewer.setContentProvider(new ViewContentProvider());
@@ -223,8 +242,9 @@ public class RequirementView extends ViewPart implements
 
 	/**
 	 * Fill local pull down.
-	 *
-	 * @param manager the manager
+	 * 
+	 * @param manager
+	 *            the manager
 	 */
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(action1);
@@ -234,8 +254,9 @@ public class RequirementView extends ViewPart implements
 
 	/**
 	 * Fill context menu.
-	 *
-	 * @param manager the manager
+	 * 
+	 * @param manager
+	 *            the manager
 	 */
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
@@ -246,8 +267,9 @@ public class RequirementView extends ViewPart implements
 
 	/**
 	 * Fill local tool bar.
-	 *
-	 * @param manager the manager
+	 * 
+	 * @param manager
+	 *            the manager
 	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
@@ -286,29 +308,28 @@ public class RequirementView extends ViewPart implements
 			}
 		};
 	}
-	
+
 	/**
 	 * Hook single click action.
 	 */
 	private void hookSingleClickAction() {
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			
+
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection)
 						.getFirstElement();
-				selectedRequirement = (Requirement)obj;
+				selectedRequirement = (Requirement) obj;
 				for (IPropertyChangeListener element : listeners
 						.toArray(new IPropertyChangeListener[0])) {
 					if (element != null) {
 						PropertyChangeEvent pChange = new PropertyChangeEvent(
-								this, "elementSelected", null,
-								obj);
+								this, "elementSelected", null, obj);
 						element.propertyChange(pChange);
 					} else
 						removePropertyChangeListener(element);
-				}				
+				}
 			}
 		});
 	}
@@ -326,8 +347,9 @@ public class RequirementView extends ViewPart implements
 
 	/**
 	 * Show message.
-	 *
-	 * @param message the message
+	 * 
+	 * @param message
+	 *            the message
 	 */
 	private void showMessage(String message) {
 		MessageDialog.openInformation(viewer.getControl().getShell(),
@@ -341,8 +363,12 @@ public class RequirementView extends ViewPart implements
 		viewer.getControl().setFocus();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse
+	 * .jface.util.PropertyChangeEvent)
 	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
@@ -352,23 +378,24 @@ public class RequirementView extends ViewPart implements
 			viewer.setInput(event.getOldValue());
 		viewer.refresh();
 	}
-	
+
 	/**
 	 * Gets the selected requirement.
-	 *
+	 * 
 	 * @return the selected requirement
 	 */
 	public static Requirement getSelectedRequirement() {
 		return selectedRequirement;
 	}
-	
+
 	/**
 	 * Removes the property change listener.
-	 *
-	 * @param listener the listener
+	 * 
+	 * @param listener
+	 *            the listener
 	 */
 	public static void removePropertyChangeListener(
 			IPropertyChangeListener listener) {
 		listeners.remove(listener);
-	}	
+	}
 }

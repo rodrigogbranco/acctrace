@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -458,7 +459,7 @@ public class ReferenceView {
 
 	/**
 	 * Fill local tool bar.
-	 *
+	 * 
 	 */
 	/*
 	 * private void fillLocalToolBar(IToolBarManager manager) {
@@ -642,21 +643,27 @@ public class ReferenceView {
 	private void hookSingleClickAction() {
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-				ISelection selection = viewer.getSelection();
-				Object obj = ((IStructuredSelection) selection)
-						.getFirstElement();
+				ITreeSelection selection = (ITreeSelection) (viewer
+						.getSelection());
+
+				Object obj = selection.getFirstElement();
 				if (obj instanceof PackageableElement
 						&& (obj instanceof Classifier))
 					selectedElement = (PackageableElement) obj;
 				else
 					selectedElement = null;
 
+				Object parent = null;
+				if (selection.getPaths().length > 0) {
+					parent = selection.getPaths()[0].getParentPath()
+							.getLastSegment();
+				}
+
 				for (IPropertyChangeListener element : listeners
 						.toArray(new IPropertyChangeListener[0])) {
 					if (element != null) {
 						PropertyChangeEvent pChange = new PropertyChangeEvent(
-								this, "elementSelected", parentMap.get(obj),
-								obj);
+								this, "elementSelected", parent, obj);
 						element.propertyChange(pChange);
 					} else
 						removePropertyChangeListener(element);
@@ -707,11 +714,15 @@ public class ReferenceView {
 
 	/**
 	 * Save.
-	 *
-	 * @param req the req
-	 * @param pack the pack
-	 * @param iri the iri
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * 
+	 * @param req
+	 *            the req
+	 * @param pack
+	 *            the pack
+	 * @param iri
+	 *            the iri
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	private void save(Requirement req, PackageableElement pack, IRI iri)
 			throws IOException {
@@ -738,7 +749,7 @@ public class ReferenceView {
 
 	/**
 	 * Gets the selected element.
-	 *
+	 * 
 	 * @return the selected element
 	 */
 	public static PackageableElement getSelectedElement() {
