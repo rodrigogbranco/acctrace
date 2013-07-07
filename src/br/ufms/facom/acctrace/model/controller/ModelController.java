@@ -88,8 +88,9 @@ public final class ModelController {
 
 	/**
 	 * Load.
-	 *
-	 * @param inputFile the input file
+	 * 
+	 * @param inputFile
+	 *            the input file
 	 */
 	public void load(IFile inputFile) {
 		model = loader.load(inputFile);
@@ -158,11 +159,15 @@ public final class ModelController {
 
 	/**
 	 * Adds the accessibility reference.
-	 *
-	 * @param req the req
-	 * @param pack the pack
-	 * @param iri the iri
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * 
+	 * @param req
+	 *            the req
+	 * @param pack
+	 *            the pack
+	 * @param iri
+	 *            the iri
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public void addAccessibilityReference(Requirement req,
 			PackageableElement pack, IRI iri) throws IOException {
@@ -193,11 +198,15 @@ public final class ModelController {
 
 	/**
 	 * Removes the accessibility reference.
-	 *
-	 * @param req the req
-	 * @param pack the pack
-	 * @param iri the iri
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * 
+	 * @param req
+	 *            the req
+	 * @param pack
+	 *            the pack
+	 * @param iri
+	 *            the iri
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public void removeAccessibilityReference(Requirement req,
 			PackageableElement pack, IRI iri) throws IOException {
@@ -214,9 +223,11 @@ public final class ModelController {
 
 	/**
 	 * Gets the reference.
-	 *
-	 * @param req the req
-	 * @param pack the pack
+	 * 
+	 * @param req
+	 *            the req
+	 * @param pack
+	 *            the pack
 	 * @return the reference
 	 */
 	public Reference getReference(Requirement req, PackageableElement pack) {
@@ -248,6 +259,9 @@ public final class ModelController {
 	 * @return the label
 	 */
 	public String getLabel(NamedElement pElement) {
+		if (pElement == null || pElement.getClass() == null)
+			return "";
+
 		int lastIndexofPeriod = pElement.getClass().toString().lastIndexOf(".");
 		int indexOfImpl = pElement.getClass().toString().indexOf("Impl");
 		String umlClass = pElement.getClass().toString()
@@ -259,8 +273,9 @@ public final class ModelController {
 
 	/**
 	 * Gets the label.
-	 *
-	 * @param pElement the element
+	 * 
+	 * @param pElement
+	 *            the element
 	 * @return the label
 	 */
 	public String getLabel(EObject pElement) {
@@ -280,8 +295,9 @@ public final class ModelController {
 
 	/**
 	 * Gets the req uml.
-	 *
-	 * @param inputFile the input file
+	 * 
+	 * @param inputFile
+	 *            the input file
 	 * @return the req uml
 	 */
 	public Map<Requirement, List<PackageableElement>> getReqUML(IFile inputFile) {
@@ -303,8 +319,9 @@ public final class ModelController {
 
 	/**
 	 * Gets the req tech.
-	 *
-	 * @param inputFile the input file
+	 * 
+	 * @param inputFile
+	 *            the input file
 	 * @return the req tech
 	 */
 	public Map<Requirement, List<String>> getReqTech(IFile inputFile) {
@@ -329,8 +346,9 @@ public final class ModelController {
 
 	/**
 	 * Gets the model tech.
-	 *
-	 * @param inputFile the input file
+	 * 
+	 * @param inputFile
+	 *            the input file
 	 * @return the model tech
 	 */
 	public Map<PackageableElement, List<String>> getModelTech(IFile inputFile) {
@@ -356,9 +374,11 @@ public final class ModelController {
 
 	/**
 	 * Navigate and add.
-	 *
-	 * @param map the map
-	 * @param category the category
+	 * 
+	 * @param map
+	 *            the map
+	 * @param category
+	 *            the category
 	 */
 	private void navigateAndAdd(Map<Requirement, List<PackageableElement>> map,
 			Category category) {
