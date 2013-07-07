@@ -69,7 +69,7 @@ public class WCAGDialog extends Dialog {
 	public WCAGDialog(Shell parentShell) throws OWLOntologyCreationException {
 		super(parentShell);
 
-		ontology = owlFactory.getOWLOntology("WCAG 2.0");
+		ontology = owlFactory.getOWLOntology("WCAG2");
 	}
 
 	/**
@@ -104,8 +104,6 @@ public class WCAGDialog extends Dialog {
 
 				OWLClass clazz = classes.get(selected);
 
-				System.out.println(clazz.getIndividuals(ontology));
-
 				individuals.clear();
 
 				for (OWLIndividual ind : clazz.getIndividuals(ontology)) {
@@ -124,7 +122,6 @@ public class WCAGDialog extends Dialog {
 		});
 
 		// selectedIri = IRI.create(owlFactory.getIRIofClass(keyChoice));
-		System.out.println(selectedIri);
 
 		for (OWLClass clazz : ontology.getClassesInSignature()) {
 			if (clazz.getSubClasses(ontology).size() == 0) {

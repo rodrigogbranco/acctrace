@@ -6,6 +6,7 @@ package br.ufms.facom.acctrace.views;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
@@ -121,6 +122,8 @@ public class ReferenceView {
 
 	/** The selected element. */
 	private static PackageableElement selectedElement = null;
+
+	private static Iterator it = null;
 
 	/**
 	 * Instantiates a new reference view.
@@ -478,9 +481,20 @@ public class ReferenceView {
 						form.getSite().getShell(), "Application");
 				if (dialog.open() == Window.OK) {
 					try {
-						save(RequirementView.getSelectedRequirement(),
-								selectedElement,
-								ApplicationAndDeviceDialog.getSelectedIri());
+						if (it == null) {
+							save(RequirementView.getSelectedRequirement(),
+									selectedElement,
+									ApplicationAndDeviceDialog.getSelectedIri());
+						} else {
+							while (it.hasNext()) {
+								PackageableElement pack = (PackageableElement) it
+										.next();
+								save(RequirementView.getSelectedRequirement(),
+										pack,
+										ApplicationAndDeviceDialog
+												.getSelectedIri());
+							}
+						}
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -560,9 +574,19 @@ public class ReferenceView {
 
 					if (dialog.open() == Window.OK) {
 						try {
-							save(RequirementView.getSelectedRequirement(),
-									selectedElement,
-									WCAGDialog.getSelectedIri());
+							if (it == null) {
+								save(RequirementView.getSelectedRequirement(),
+										selectedElement,
+										WCAGDialog.getSelectedIri());
+							} else {
+								while (it.hasNext()) {
+									PackageableElement pack = (PackageableElement) it
+											.next();
+									save(RequirementView
+											.getSelectedRequirement(),
+											pack, WCAGDialog.getSelectedIri());
+								}
+							}
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -655,8 +679,11 @@ public class ReferenceView {
 
 				Object parent = null;
 				if (selection.getPaths().length > 0) {
+					it = selection.iterator();
 					parent = selection.getPaths()[0].getParentPath()
 							.getLastSegment();
+				} else {
+					it = null;
 				}
 
 				for (IPropertyChangeListener element : listeners

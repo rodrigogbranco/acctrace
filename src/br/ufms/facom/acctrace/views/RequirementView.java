@@ -302,9 +302,10 @@ public class RequirementView extends ViewPart implements
 		doubleClickAction = new Action() {
 			public void run() {
 				ISelection selection = viewer.getSelection();
-				Object obj = ((IStructuredSelection) selection)
+				Requirement obj = (Requirement) ((IStructuredSelection) selection)
 						.getFirstElement();
-				showMessage("Double-click detected on " + obj.getClass());
+				showMessage(obj.getId() + " - " + obj.getName() + "\n"
+						+ obj.getStatement());
 			}
 		};
 	}

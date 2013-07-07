@@ -74,7 +74,7 @@ public final class AccessibilityOWLFactory {
 	 * Instantiates a new accessibility owl factory. The constructor also set up
 	 * the owl Map (mapping general classes to specific ones) and owl Hash table
 	 * (mapping a class to a OWL file).
-	 *
+	 * 
 	 */
 	private AccessibilityOWLFactory() {
 		// Generic
@@ -243,33 +243,51 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the oWL ontology.
-	 *
-	 * @param stringIri the string iri
+	 * 
+	 * @param stringIri
+	 *            the string iri
 	 * @return the oWL ontology
-	 * @throws OWLOntologyCreationException the oWL ontology creation exception
+	 * @throws OWLOntologyCreationException
+	 *             the oWL ontology creation exception
 	 */
 	public OWLOntology getOWLOntology(String stringIri)
 			throws OWLOntologyCreationException {
 		OWLOntology o = null;
+		IRI iri = null;
 		if (iriMap.get(stringIri) != null) {
 			o = manager.getOntology(iriMap.get(stringIri));
 
 			if (o != null)
 				return manager.getOntology(iriMap.get(stringIri));
 
-			IRI iri = iriMap.get(stringIri);
+			iri = iriMap.get(stringIri);
 
 			if ((o = manager.getOntology(iri)) == null)
 				o = manager.loadOntology(iri);
 
 			return o;
 		} else {
+			try {
+				URL url = FileLocator.find(bundle, new Path(owlPath + stringIri
+						+ owlExtension), null);
+				iri = IRI.create(url.toURI());
+				o = manager.loadOntology(iri);
+
+				if (o != null) {
+					iriMap.put(stringIri, o.getOntologyID().getOntologyIRI());
+					return o;
+				}
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			o = manager.getOntology(iriMap.get("Generic"));
 
 			if (o != null)
 				return o;
 
-			IRI iri = iriMap.get("Generic");
+			iri = iriMap.get("Generic");
 
 			if ((o = manager.getOntology(iri)) == null)
 				o = manager.loadOntology(iri);
@@ -280,11 +298,14 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the oWL ontology by iri.
-	 *
-	 * @param stringIri the string iri
+	 * 
+	 * @param stringIri
+	 *            the string iri
 	 * @return the oWL ontology by iri
-	 * @throws URISyntaxException the uRI syntax exception
-	 * @throws OWLOntologyCreationException the oWL ontology creation exception
+	 * @throws URISyntaxException
+	 *             the uRI syntax exception
+	 * @throws OWLOntologyCreationException
+	 *             the oWL ontology creation exception
 	 */
 	public OWLOntology getOWLOntologyByIRI(String stringIri)
 			throws URISyntaxException, OWLOntologyCreationException {
@@ -318,8 +339,9 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the iR iof class.
-	 *
-	 * @param clazz the clazz
+	 * 
+	 * @param clazz
+	 *            the clazz
 	 * @return the iR iof class
 	 */
 	public String getIRIofClass(String clazz) {
@@ -328,7 +350,7 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the data factory.
-	 *
+	 * 
 	 * @return the data factory
 	 */
 	public OWLDataFactory getDataFactory() {
@@ -357,9 +379,11 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the names.
-	 *
-	 * @param choice the choice
-	 * @param ontology the ontology
+	 * 
+	 * @param choice
+	 *            the choice
+	 * @param ontology
+	 *            the ontology
 	 * @return the names
 	 */
 	public Map<String, OWLNamedIndividual> getNames(String choice,
@@ -381,9 +405,11 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the named individual.
-	 *
-	 * @param choice the choice
-	 * @param ontology the ontology
+	 * 
+	 * @param choice
+	 *            the choice
+	 * @param ontology
+	 *            the ontology
 	 * @return the named individual
 	 */
 	public OWLNamedIndividual getNamedIndividual(String choice,
@@ -398,9 +424,11 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the description.
-	 *
-	 * @param individual the individual
-	 * @param ontology the ontology
+	 * 
+	 * @param individual
+	 *            the individual
+	 * @param ontology
+	 *            the ontology
 	 * @return the description
 	 */
 	public String getDescription(OWLNamedIndividual individual,
@@ -425,10 +453,13 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the value.
-	 *
-	 * @param individual the individual
-	 * @param property the property
-	 * @param ontology the ontology
+	 * 
+	 * @param individual
+	 *            the individual
+	 * @param property
+	 *            the property
+	 * @param ontology
+	 *            the ontology
 	 * @return the value
 	 */
 	public String getValue(OWLIndividual individual, String property,
@@ -449,9 +480,11 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the values.
-	 *
-	 * @param individual the individual
-	 * @param ontology the ontology
+	 * 
+	 * @param individual
+	 *            the individual
+	 * @param ontology
+	 *            the ontology
 	 * @return the values
 	 */
 	public String getValues(OWLIndividual individual, OWLOntology ontology) {
@@ -476,8 +509,9 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the data label.
-	 *
-	 * @param property the property
+	 * 
+	 * @param property
+	 *            the property
 	 * @return the data label
 	 */
 	public String getDataLabel(String property) {
@@ -492,8 +526,9 @@ public final class AccessibilityOWLFactory {
 
 	/**
 	 * Gets the data property.
-	 *
-	 * @param prop the prop
+	 * 
+	 * @param prop
+	 *            the prop
 	 * @return the data property
 	 */
 	public String getDataProperty(String prop) {

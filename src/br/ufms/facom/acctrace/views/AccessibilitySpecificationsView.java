@@ -62,7 +62,7 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	/** The viewer. */
 	private TableViewer viewer;
-	
+
 	/** The action1. */
 	private Action action1;
 
@@ -78,21 +78,31 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	 * The Class ViewContentProvider.
 	 */
 	class ViewContentProvider implements IStructuredContentProvider {
-		
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse
+		 * .jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 		 */
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
 		}
 
-		/* (non-Javadoc)
+		/*
+		 * (non-Javadoc)
+		 * 
 		 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 		 */
 		public void dispose() {
 		}
 
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.IStructuredContentProvider#getElements(
+		 * java.lang.Object)
 		 */
 		public Object[] getElements(Object parent) {
 			if (parent != null && parent instanceof Reference) {
@@ -108,14 +118,17 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	 */
 	class ViewLabelProvider extends LabelProvider implements
 			ITableLabelProvider {
-		
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.lang.Object, int)
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.
+		 * lang.Object, int)
 		 */
 		public String getColumnText(Object obj, int index) {
 
 			if (obj != null) {
-				System.out.println(obj.toString());
 				OWLOntology ontology;
 				try {
 					ontology = AccessibilityOWLFactory.getInstance()
@@ -123,8 +136,12 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 					OWLNamedIndividual individual = AccessibilityOWLFactory
 							.getInstance().getNamedIndividual(obj.toString(),
 									ontology);
-					return AccessibilityOWLFactory.getInstance()
+
+					String text = AccessibilityOWLFactory.getInstance()
 							.getDescription(individual, ontology);
+					text = text.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+					return text;
+
 				} catch (OWLOntologyCreationException | URISyntaxException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -135,15 +152,22 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 			return "";
 		}
 
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang.Object, int)
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java
+		 * .lang.Object, int)
 		 */
 		public Image getColumnImage(Object obj, int index) {
 			return getImage(obj);
 		}
 
-		/* (non-Javadoc)
-		 * @see org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
 		 */
 		public Image getImage(Object obj) {
 			return PlatformUI.getWorkbench().getSharedImages()
@@ -168,8 +192,9 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
 	 * it.
-	 *
-	 * @param parent the parent
+	 * 
+	 * @param parent
+	 *            the parent
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
@@ -213,8 +238,9 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	/**
 	 * Fill local pull down.
-	 *
-	 * @param manager the manager
+	 * 
+	 * @param manager
+	 *            the manager
 	 */
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(action1);
@@ -222,8 +248,9 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	/**
 	 * Fill context menu.
-	 *
-	 * @param manager the manager
+	 * 
+	 * @param manager
+	 *            the manager
 	 */
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(action1);
@@ -233,8 +260,9 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 
 	/**
 	 * Fill local tool bar.
-	 *
-	 * @param manager the manager
+	 * 
+	 * @param manager
+	 *            the manager
 	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
@@ -281,8 +309,12 @@ public class AccessibilitySpecificationsView extends ViewPart implements
 		viewer.getControl().setFocus();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.jface.util.IPropertyChangeListener#propertyChange(org.eclipse
+	 * .jface.util.PropertyChangeEvent)
 	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {

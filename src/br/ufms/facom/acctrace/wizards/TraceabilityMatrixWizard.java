@@ -40,10 +40,10 @@ import br.ufms.facom.acctrace.owl.AccessibilityOWLFactory;
  */
 
 public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
-	
+
 	/** The page. */
 	private TraceabilityMatrixWizardPage page;
-	
+
 	/** The selection. */
 	private ISelection selection;
 
@@ -67,7 +67,7 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 	/**
 	 * This method is called when 'Finish' button is pressed in the wizard. We
 	 * will create an operation and run it using wizard as execution context.
-	 *
+	 * 
 	 * @return true, if successful
 	 */
 	public boolean performFinish() {
@@ -101,9 +101,11 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 	 * The worker method. It will find the container, create the file if missing
 	 * or just replace its contents, and open the editor on the newly created
 	 * file.
-	 *
-	 * @param fileName the file name
-	 * @param monitor the monitor
+	 * 
+	 * @param fileName
+	 *            the file name
+	 * @param monitor
+	 *            the monitor
 	 */
 
 	private void doFinish(String fileName, IProgressMonitor monitor) {
@@ -122,10 +124,13 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 
 	/**
 	 * We will initialize file contents with a sample text.
-	 *
-	 * @param file the file
-	 * @param acctraceFile the acctrace file
-	 * @throws Exception the exception
+	 * 
+	 * @param file
+	 *            the file
+	 * @param acctraceFile
+	 *            the acctrace file
+	 * @throws Exception
+	 *             the exception
 	 */
 
 	private void createSpreadsheetDocument(IFile file, IFile acctraceFile)
@@ -202,8 +207,6 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 
 			OWLOntology ontology = AccessibilityOWLFactory.getInstance()
 					.getOWLOntologyByIRI(strOntology);
-			System.out.println(strOntology);
-			System.out.println(ontology);
 			OWLNamedIndividual individual = AccessibilityOWLFactory
 					.getInstance().getNamedIndividual(strOntology, ontology);
 
@@ -253,8 +256,6 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 
 			OWLOntology ontology = AccessibilityOWLFactory.getInstance()
 					.getOWLOntologyByIRI(strOntology);
-			System.out.println(strOntology);
-			System.out.println(ontology);
 			OWLNamedIndividual individual = AccessibilityOWLFactory
 					.getInstance().getNamedIndividual(strOntology, ontology);
 
@@ -282,9 +283,11 @@ public class TraceabilityMatrixWizard extends Wizard implements INewWizard {
 	/**
 	 * We will accept the selection in the workbench to see if we can initialize
 	 * from it.
-	 *
-	 * @param workbench the workbench
-	 * @param selection the selection
+	 * 
+	 * @param workbench
+	 *            the workbench
+	 * @param selection
+	 *            the selection
 	 * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
 	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {

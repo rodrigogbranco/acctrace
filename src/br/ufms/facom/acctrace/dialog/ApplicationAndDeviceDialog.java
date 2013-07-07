@@ -62,9 +62,11 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Create the dialog.
-	 *
-	 * @param parentShell the parent shell
-	 * @param key the key
+	 * 
+	 * @param parentShell
+	 *            the parent shell
+	 * @param key
+	 *            the key
 	 */
 	public ApplicationAndDeviceDialog(Shell parentShell, String key) {
 		super(parentShell);
@@ -96,8 +98,9 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Create contents of the dialog.
-	 *
-	 * @param parent the parent
+	 * 
+	 * @param parent
+	 *            the parent
 	 * @return the control
 	 */
 	@Override
@@ -128,8 +131,6 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 					selectedIri = ontology.getOntologyID().getOntologyIRI();
 
-					System.out.println(selectedIri);
-
 					individuals = owlFactory.getNames(selected, ontology);
 
 					combo_1.setItems(individuals.keySet()
@@ -149,7 +150,6 @@ public class ApplicationAndDeviceDialog extends Dialog {
 		});
 
 		selectedIri = IRI.create(owlFactory.getIRIofClass(keyChoice));
-		System.out.println(selectedIri);
 
 		combo.setItems(map.get(keyChoice).toArray(new String[0]));
 
@@ -171,8 +171,6 @@ public class ApplicationAndDeviceDialog extends Dialog {
 				OWLNamedIndividual ann = individuals.get(selected);
 
 				selectedIri = ann.getIRI();
-
-				System.out.println(selectedIri);
 
 				lblDescription_1.setText(owlFactory.getDescription(ann,
 						ontology));
@@ -203,8 +201,9 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Create contents of the button bar.
-	 *
-	 * @param parent the parent
+	 * 
+	 * @param parent
+	 *            the parent
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
@@ -221,7 +220,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Return the initial size of the dialog.
-	 *
+	 * 
 	 * @return the initial size
 	 */
 	@Override
@@ -231,7 +230,7 @@ public class ApplicationAndDeviceDialog extends Dialog {
 
 	/**
 	 * Gets the selected iri.
-	 *
+	 * 
 	 * @return the selected iri
 	 */
 	public static IRI getSelectedIri() {
