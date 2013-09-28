@@ -105,7 +105,7 @@ public final class ModelController {
 		ArrayList<String> list = new ArrayList<String>();
 		for (EObject object : model.getRequirementRepositories()) {
 			Repository repository = (Repository) object;
-			list.add(repository.eResource().getURI().toString());
+			list.add(EcoreUtil.getURI(repository).toString());
 		}
 		return list;
 	}

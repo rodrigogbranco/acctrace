@@ -70,11 +70,15 @@ public final class ModelLoader {
 
 	/**
 	 * Initialize acc trace model.
-	 *
-	 * @param fileName the file name
-	 * @param container the container
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws CoreException the core exception
+	 * 
+	 * @param fileName
+	 *            the file name
+	 * @param container
+	 *            the container
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 * @throws CoreException
+	 *             the core exception
 	 */
 	public void initializeAccTraceModel(String fileName, IContainer container)
 			throws IOException, CoreException {
@@ -86,9 +90,9 @@ public final class ModelLoader {
 		if (container != null)
 			loadRequirementFiles(model, container);
 
-		if(model.getId() == null)
+		if (model.getId() == null)
 			model.setId(EcoreUtil.generateUUID());
-		
+
 		resource.getContents().add(model);
 
 		resource.save(options);
@@ -127,6 +131,7 @@ public final class ModelLoader {
 			throws CoreException, IOException {
 		for (IResource member : container.members()) {
 			if (member.getType() == IResource.FILE
+					&& ((IFile) member).getFileExtension() != null
 					&& ((IFile) member).getFileExtension()
 							.equals("requirement"))
 				model.getRequirementRepositories().add(
@@ -185,22 +190,22 @@ public final class ModelLoader {
 
 		return (AccTraceModel) resource.getContents().get(0);
 	}
-	
+
 	/**
 	 * Load.
-	 *
-	 * @param inputFile the input file
+	 * 
+	 * @param inputFile
+	 *            the input file
 	 * @return the acc trace model
 	 */
 	public AccTraceModel load(IFile inputFile) {
 		ResourceSet resSet = new ResourceSetImpl();
 
 		Resource resource = resSet.getResource(
-				URI.createURI(inputFile
-						.getFullPath().toString()), true);
+				URI.createURI(inputFile.getFullPath().toString()), true);
 
 		return (AccTraceModel) resource.getContents().get(0);
-	}	
+	}
 
 	/**
 	 * Load uml model.

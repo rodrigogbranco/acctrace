@@ -41,10 +41,10 @@ import br.ufms.facom.acctrace.model.ModelLoader;
  */
 
 public class AccTraceFileWizard extends Wizard implements INewWizard {
-	
+
 	/** The page. */
 	private AccTraceFileWizardPage page;
-	
+
 	/** The selection. */
 	private ISelection selection;
 
@@ -68,7 +68,7 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	/**
 	 * This method is called when 'Finish' button is pressed in the wizard. We
 	 * will create an operation and run it using wizard as execution context.
-	 *
+	 * 
 	 * @return true, if successful
 	 */
 	public boolean performFinish() {
@@ -93,6 +93,7 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 		} catch (InterruptedException e) {
 			return false;
 		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 			Throwable realException = e.getTargetException();
 			MessageDialog.openError(getShell(), "Error",
 					realException.getMessage());
@@ -105,13 +106,19 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	 * The worker method. It will find the container, create the file if missing
 	 * or just replace its contents, and open the editor on the newly created
 	 * file.
-	 *
-	 * @param containerName the container name
-	 * @param fileName the file name
-	 * @param monitor the monitor
-	 * @param addReqFile the add req file
-	 * @throws CoreException the core exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * 
+	 * @param containerName
+	 *            the container name
+	 * @param fileName
+	 *            the file name
+	 * @param monitor
+	 *            the monitor
+	 * @param addReqFile
+	 *            the add req file
+	 * @throws CoreException
+	 *             the core exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 
 	private void doFinish(String containerName, String fileName,
@@ -156,9 +163,11 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 
 	/**
 	 * Throw core exception.
-	 *
-	 * @param message the message
-	 * @throws CoreException the core exception
+	 * 
+	 * @param message
+	 *            the message
+	 * @throws CoreException
+	 *             the core exception
 	 */
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status = new Status(IStatus.ERROR, "br.ufms.facom.acctrace",
@@ -169,9 +178,11 @@ public class AccTraceFileWizard extends Wizard implements INewWizard {
 	/**
 	 * We will accept the selection in the workbench to see if we can initialize
 	 * from it.
-	 *
-	 * @param workbench the workbench
-	 * @param selection the selection
+	 * 
+	 * @param workbench
+	 *            the workbench
+	 * @param selection
+	 *            the selection
 	 * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
 	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {

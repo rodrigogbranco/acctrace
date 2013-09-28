@@ -370,7 +370,7 @@
 	         contributesToHeader="false"
 	         highlightPreferenceValue="true"
 	         includeOnPreferencePage="true"
-	         label="AccTrace Annotation"
+	         label="%specification.label.0"
 	         overviewRulerPreferenceValue="true"
 	         presentationLayer="0"
 	         textPreferenceValue="true"
