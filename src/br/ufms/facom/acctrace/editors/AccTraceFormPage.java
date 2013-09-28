@@ -113,7 +113,7 @@ public class AccTraceFormPage extends FormPage {
 		// form.getBody().getDisplay().getSystemColor(SWT.COLOR_GREEN));
 		createSectionOfRequirementFilesAssociated(managedForm,
 				"Requirement Files Association",
-				"List of all requirements files associateds in project.");
+				"List of all requirements associated files in project.");
 		createSectionOfModelToTechniqueMapping(managedForm,
 				"Requirement to Model to Technique Mapping",
 				"Manage all requirement to model to technique mapping");
