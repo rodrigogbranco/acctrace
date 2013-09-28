@@ -68,7 +68,6 @@ public class WCAGDialog extends Dialog {
 	 */
 	public WCAGDialog(Shell parentShell) throws OWLOntologyCreationException {
 		super(parentShell);
-
 		ontology = owlFactory.getOWLOntology("WCAG2");
 	}
 
@@ -81,6 +80,8 @@ public class WCAGDialog extends Dialog {
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
+		getShell().setText("WCAG 2.0 implementation technique definition");
+
 		Composite container = (Composite) super.createDialogArea(parent);
 		// container.getShell().setText(keyChoice+" selection");
 
